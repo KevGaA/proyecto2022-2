@@ -12,10 +12,6 @@ import javax.swing.JColorChooser;
 
 public class Dibujo extends javax.swing.JFrame {
     
-    g2d a1 = new g2d();
-    
-    
-    
     private Color colorito;
     String aux;
     
@@ -125,12 +121,12 @@ public class Dibujo extends javax.swing.JFrame {
         //librerias utilizadas para poder dibujar
         Graphics2D g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
-        a1.g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.BLACK);
         
         //negrita
         //g2d.setStroke(new BasicStroke(3.0f));
         
-        jPanel1.update(a1.g2d);
+        jPanel1.update(g2d);
         
         /*if(negrita.isSelected()){
             g2d.setStroke(new BasicStroke(3.0f));
@@ -904,14 +900,19 @@ public class Dibujo extends javax.swing.JFrame {
                 x = 0;
             }
         }
-        a1.g2d.draw(curve);//dibuja la letra en el JPanel dentro de la interfaz
+        g2d.draw(curve);//dibuja la letra en el JPanel dentro de la interfaz
     }//GEN-LAST:event_palabraKeyReleased
 
+    public void apalabraKeyReleased(java.awt.event.KeyEvent evt) { // editable                                       
+        palabraKeyReleased(evt);
+    }
+    
     private void palabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palabraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_palabraActionPerformed
 
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
+        
         // select color code 
         colorito = Color.BLACK;
         
@@ -921,10 +922,7 @@ public class Dibujo extends javax.swing.JFrame {
             colorito = Color.white;
            
         }
-        
-         
-        
-        a1.g2d.setColor(colorito);
+        jPanel1.setBackground(colorito);
     }//GEN-LAST:event_coloresMousePressed
 
     
