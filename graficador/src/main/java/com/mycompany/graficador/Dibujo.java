@@ -1,4 +1,4 @@
-
+//proyecto
 package com.mycompany.graficador;
 
 import java.awt.BasicStroke;
