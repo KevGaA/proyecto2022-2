@@ -152,32 +152,7 @@ public class Dibujo extends javax.swing.JFrame {
             g2d.setStroke(new BasicStroke(3.0f));
         }
         
-        /*if(negrita.isSelected()){
-            g2d.setStroke(new BasicStroke(3.0f));
-        }
-        //implementacion colores en los dibujos 
-        if(Rojo.isSelected()){
-            g2d.setColor(Color.RED);
-        }
-        if(Azul.isSelected()){
-            g2d.setColor(Color.BLUE);
-        }
-        if(Verde.isSelected()){
-            g2d.setColor(Color.GREEN);
-        }
-        if(morado.isSelected()){
-            g2d.setColor(Color.magenta);
-        }
-        if(Cian.isSelected()){
-            g2d.setColor(Color.CYAN);
-        }
-        if(Amarillo.isSelected()){
-            g2d.setColor(Color.yellow);
-        }
-        if(cafe.isSelected()){
-            g2d.setColor(Color.ORANGE);
-        }
-*/
+        
         
         //declaracion de variables
         char aux;
@@ -1188,7 +1163,7 @@ public class Dibujo extends javax.swing.JFrame {
             colorito = Color.white;
            
         }
-        jPanel1.setBackground(colorito);
+        
     }//GEN-LAST:event_coloresMousePressed
 
     
