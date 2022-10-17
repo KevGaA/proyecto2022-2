@@ -314,8 +314,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.lineTo(25+x, 110+y);
                     curve.curveTo(0+x, 135+y, 0+x, 80+y, 40+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(40+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(40+x, 75+y);
                     }
                     x = x + 40;
                 }
@@ -328,8 +328,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(40+x, 59+y, 40+x, 69+y, 25+x, 70+y);
                     curve.curveTo(20+x, 70+y, 30+x, 70+y, 45+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(45+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(45+x, 75+y);
                     }
                     x = x + 45;
                 }
@@ -338,8 +338,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(25+x, 65+y, 25+x, 20+y, 20+x,15+y);
                     curve.curveTo(5+x, 20+y, 5+x, 65+y, 35+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(35+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(35+x, 75+y);
                     }
                     
                     x = x + 35; 
@@ -358,8 +358,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.lineTo(55+x, 64+y);
                     curve.curveTo(53+x, 70+y, 62+x, 70+y, 65+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(65+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(65+x, 75+y);
                     }
                     x = x + 65;
                 }
@@ -374,8 +374,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.lineTo(40+x, 64+y);
                     curve.curveTo(43+x, 70+y, 47+x, 70+y, 50+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(50+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(50+x, 75+y);
                     }
                     x = x +50;
                 }
@@ -392,8 +392,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.moveTo(15+x, 30+y);
                     curve.curveTo(20+x, 25+y, 30+x, 35+y, 35+x, 30+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(50+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(50+x, 75+y);
                     }
                     x = x + 50;
                 }
@@ -408,8 +408,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.moveTo(37+x, 64+y);
                     curve.curveTo(42+x, 70+y, 46+x, 70+y, 50+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(50+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(50+x, 75+y);
                     }
                     x = x + 50;
                 }
@@ -422,8 +422,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.moveTo(20+x, 70+y);
                     curve.curveTo(25+x, 72+y, 40+x, 72+y, 45+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(45+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(45+x, 75+y);
                     }
                     x = x +45;
                 }
@@ -438,8 +438,8 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.moveTo(35+x, 70+y);
                     curve.curveTo(20+x, 85+y, 20+x, 60+y, 45+x, 70+y);
                     if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.lineTo(45+x, 70+y);
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(45+x, 75+y);
                     }
                     x = x + 45;
                 }
