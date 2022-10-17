@@ -1,4 +1,3 @@
-//proyecto
 package com.mycompany.graficador;
 
 import java.awt.BasicStroke;
@@ -1163,7 +1162,6 @@ public class Dibujo extends javax.swing.JFrame {
             colorito = Color.white;
            
         }
-        
     }//GEN-LAST:event_coloresMousePressed
 
     
