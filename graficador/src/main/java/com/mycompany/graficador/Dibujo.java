@@ -151,7 +151,7 @@ public class Dibujo extends javax.swing.JFrame {
             g2d.setStroke(new BasicStroke(3.0f));
         }
         
-        
+        g2d.setColor(colorito);
         
         //declaracion de variables
         char aux;
