@@ -959,6 +959,21 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(35+x,30+y,15+x,40+y,0+x,48+y);
                     curve.moveTo(0+x,48+y);
                     curve.curveTo(-11+x,48+y,-17+x,32+y,-8+x,20+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(25+x, 0+y, 4, 4);
+                        g3d.fillOval(50+x, 70+y, 4, 4);
+                        g3d.fillOval(70+x, 65+y, 4, 4);
+                        g3d.fillOval(70+x, 45+y, 4, 4);
+                        g3d.fillOval(50+x, 35+y, 4, 4);
+                        g3d.fillOval(35+x, 30+y, 4, 4);
+                        g3d.fillOval(15+x, 40+y, 4, 4);
+                        g3d.fillOval(0+x, 48+y, 4, 4);
+                        g3d.fillOval(-11+x, 48+y, 4, 4);
+                        g3d.fillOval(-17+x, 32+y, 4, 4);
+                        g3d.fillOval(-8+x, 20+y, 4, 4);
+                                
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -976,6 +991,21 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(0+x,65+y,0+x,55+y,20+x,50+y);
                     curve.moveTo(20+x,50+y);
                     curve.curveTo(38+x,58+y,50+x,68+y,70+x,70+y); 
+                    if (Puntos==true) {
+                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(25+x, 0+y, 4, 4);
+                        g3d.fillOval(50+x, 70+y, 4, 4);
+                        g3d.fillOval(70+x, 65+y, 4, 4);
+                        g3d.fillOval(70+x, 45+y, 4, 4);
+                        g3d.fillOval(50+x, 35+y, 4, 4);
+                        g3d.fillOval(35+x, 30+y, 4, 4);
+                        g3d.fillOval(15+x, 40+y, 4, 4);
+                        g3d.fillOval(0+x, 48+y, 4, 4);
+                        g3d.fillOval(-11+x, 48+y, 4, 4);
+                        g3d.fillOval(-17+x, 32+y, 4, 4);
+                        g3d.fillOval(-8+x, 20+y, 4, 4);
+                                
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -990,6 +1020,17 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(0+x,18+y,0+x,48+y,50+x,70+y);
                     curve.moveTo(50+x,70+y);
                     curve.lineTo(70+x,70+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(30+x, 0+y, 4, 4);
+                        g3d.fillOval(72+x, 16+y, 4, 4);
+                        g3d.fillOval(78+x, 10+y, 4, 4);
+                        g3d.fillOval(50+x, 5+y, 4, 4);
+                        g3d.fillOval(0+x, 18+y, 4, 4);
+                        g3d.fillOval(0+x, 48+y, 4, 4);
+                        g3d.fillOval(50+x, 70+y, 4, 4);
+                        g3d.fillOval(70+x, 70+y, 4, 4);
+                        
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1005,6 +1046,21 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(90+x,48+y,90+x,28+y,30+x,0+y);
                     curve.moveTo(30+x,0+y);
                     curve.curveTo(5+x,5+y,9+x,24+y,20+x,10+y); 
+                    if (Puntos==true) {
+                        g3d.fillOval(30+x, 0+y, 4, 4);
+                        g3d.fillOval(22+x, 18+y, 4, 4);
+                        g3d.fillOval(28+x, 55+y, 4, 4);
+                        g3d.fillOval(20+x, 70+y, 4, 4);
+                        g3d.fillOval(2+x, 62+y, 4, 4);
+                        g3d.fillOval(10+x, 50+y, 4, 4);
+                        g3d.fillOval(35+x, 70+y, 4, 4);
+                        g3d.fillOval(90+x, 48+y, 4, 4);
+                        g3d.fillOval(90+x, 28+y, 4, 4);
+                        g3d.fillOval(30+x, 0+y, 4, 4);
+                        g3d.fillOval(5+x, 5+y, 4, 4);
+                        g3d.fillOval(9+x, 24+y, 4, 4);
+                        g3d.fillOval(20+x, 10+y, 4, 4);
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1018,6 +1074,18 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(30+x,0+y,15+x,23+y,50+x,35+y);
                     curve.moveTo(50+x,35+y);
                     curve.curveTo(18+x,42+y,20+x,65+y,70+x,70+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(60+x, 0+y, 4, 4);
+                        g3d.fillOval(48+x, 8+y, 4, 4);
+                        g3d.fillOval(53+x, 19+y, 4, 4);
+                        g3d.fillOval(60+x, 9+y, 4, 4);
+                        g3d.fillOval(30+x, 0+y, 4, 4);
+                        g3d.fillOval(15+x, 23+y, 4, 4);
+                        g3d.fillOval(50+x, 35+y, 4, 4);
+                        g3d.fillOval(18+x, 42+y, 4, 4);
+                        g3d.fillOval(20+x, 65+y, 4, 4);
+                        g3d.fillOval(70+x, 70+y, 4, 4);
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1037,6 +1105,26 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.lineTo(42+x,42+y);
                     curve.moveTo(42+x,40+y);
                     curve.lineTo(42+x,42+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(80+x, 0+y, 4, 4);
+                        g3d.fillOval(63+x, 9+y, 4, 4);
+                        g3d.fillOval(27+x, 2+y, 4, 4);
+                        g3d.fillOval(10+x, 10+y, 4, 4);
+                        g3d.fillOval(5+x, 25+y, 4, 4);
+                        g3d.fillOval(12+x, 28+y, 4, 4);
+                        g3d.fillOval(20+x, 18+y, 4, 4);
+                        g3d.fillOval(40+x, 10+y, 4, 4);
+                        g3d.fillOval(30+x, 30+y, 4, 4);
+                        g3d.fillOval(30+x, 65+y, 4, 4);
+                        g3d.fillOval(25+x, 80+y, 4, 4);
+                        g3d.fillOval(12+x, 90+y, 4, 4);
+                        g3d.fillOval(8+x, 68+y, 4, 4);
+                        g3d.fillOval(20+x, 60+y, 4, 4);
+                        g3d.fillOval(25+x, 42+y, 4, 4);
+                        g3d.fillOval(42+x, 42+y, 4, 4);
+                        g3d.fillOval(42+x, 40+y, 4, 4);
+                        g3d.fillOval(42+x, 42+y, 4, 4);
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1050,6 +1138,17 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(35+x,75+y,55+x,75+y,70+x,40+y);
                     curve.moveTo(70+x,40+y);
                     curve.lineTo(55+x,40+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(60+x, 10+y, 4, 4);
+                        g3d.fillOval(36+x, 3+y, 4, 4);
+                        g3d.fillOval(21+x, 18+y, 4, 4);
+                        g3d.fillOval(20+x, 40+y, 4, 4);
+                        g3d.fillOval(35+x, 75+y, 4, 4);
+                        g3d.fillOval(55+x, 75+y, 4, 4);
+                        g3d.fillOval(70+x, 40+y, 4, 4);
+                        g3d.fillOval(55+x, 40+y, 4, 4);
+                        
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1068,6 +1167,22 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(65+x,32+y,38+x,45+y,18+x,43+y);  
                     curve.moveTo(18+x,43+y);
                     curve.curveTo(9+x,35+y,12+x,12+y,25+x,23+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(30+x, 0+y, 4, 4);
+                        g3d.fillOval(32+x, 70+y, 4, 4);
+                        g3d.fillOval(60+x, 0+y, 4, 4);
+                        g3d.fillOval(62+x, 70+y, 4, 4);
+                        g3d.fillOval(60+x, 70+y, 4, 4);
+                        g3d.fillOval(70+x, 80+y, 4, 4);
+                        g3d.fillOval(89+x, 55+y, 4, 4);
+                        g3d.fillOval(80+x, 38+y, 4, 4);
+                        g3d.fillOval(65+x, 32+y, 4, 4);
+                        g3d.fillOval(38+x, 45+y, 4, 4);
+                        g3d.fillOval(18+x, 43+y, 4, 4);
+                        g3d.fillOval(9+x, 35+y, 4, 4);
+                        g3d.fillOval(12+x, 12+y, 4, 4);
+                        g3d.fillOval(25+x, 23+y, 4, 4);
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
@@ -1085,6 +1200,24 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(33+x,75+y,23+x,73+y,25+x,64+y); 
                     curve.moveTo(25+x,64+y);
                     curve.curveTo(41+x,68+y,59+x,70+y,70+x,70+y);
+                    if (Puntos==true) {
+                        g3d.fillOval(20+x, 5+y, 4, 4);
+                        g3d.fillOval(32+x, 2+y, 4, 4);
+                        g3d.fillOval(50+x, 10+y, 4, 4);
+                        g3d.fillOval(60+x, 9+y, 4, 4);
+                        g3d.fillOval(70+x, 8+y, 4, 4);
+                        g3d.fillOval(68+x, 1+y, 4, 4);
+                        g3d.fillOval(60+x, 0+y, 4, 4);
+                        g3d.fillOval(45+x, 4+y, 4, 4);
+                        g3d.fillOval(45+x, 48+y, 4, 4);
+                        g3d.fillOval(40+x, 60+y, 4, 4);
+                        g3d.fillOval(33+x, 75+y, 4, 4);
+                        g3d.fillOval(23+x, 73+y, 4, 4);
+                        g3d.fillOval(25+x, 64+y, 4, 4);
+                        g3d.fillOval(41+x, 68+y, 4, 4);
+                        g3d.fillOval(59+x, 70+y, 4, 4);
+                        g3d.fillOval(70+x, 70+y, 4, 4);
+                    }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(60+x, 75+y);
