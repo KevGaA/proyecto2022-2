@@ -10,6 +10,7 @@ public class Dibujo extends javax.swing.JFrame {
     
     private Color colorito;
     String aux;
+    private Graphics2D g2d;
     
     public Dibujo() {
         initComponents();
@@ -137,7 +138,7 @@ public class Dibujo extends javax.swing.JFrame {
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
         
         //librerias utilizadas para poder dibujar
-        Graphics2D g2d = (Graphics2D)jPanel1.getGraphics();
+        g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
         g2d.setColor(Color.BLACK);
         
