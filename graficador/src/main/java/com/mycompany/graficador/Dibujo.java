@@ -171,6 +171,13 @@ public class Dibujo extends javax.swing.JFrame {
             //StringBuilder caret = new StringBuilder(aux);
             String letra = Character.toString(aux);
             if (x<1100){
+                if (" ".equals(letra)){//listo
+                    if (Subr == true){
+                        curve.moveTo(0+x, 75+y);
+                        curve.lineTo(80+x, 75+y);
+                    }
+                    x=x+30; 
+            }
                 if ("a".equals(letra)){//listo
                     curve.moveTo(0+x, 70+y);
                     curve.curveTo(10+x, 70+y, 20+x, 65+y, 20+x, 50+y);
