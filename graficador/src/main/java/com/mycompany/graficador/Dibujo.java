@@ -12,6 +12,8 @@ public class Dibujo extends javax.swing.JFrame {
     String aux;
     private Graphics2D g2d;
     private Graphics2D g3d;
+    int Xp;
+    public static boolean Puntos=false;
     
     public Dibujo() {
         initComponents();
@@ -29,8 +31,11 @@ public class Dibujo extends javax.swing.JFrame {
         negrita = new javax.swing.JRadioButton();
         subrayado = new javax.swing.JRadioButton();
         Pcontrol = new javax.swing.JRadioButton();
+        Pcontrol1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
         jLabel1.setText("TRANSFORMADOR DE TEXTO");
@@ -75,46 +80,53 @@ public class Dibujo extends javax.swing.JFrame {
 
         Pcontrol.setText("Puntos de control");
 
+        Pcontrol1.setText("puntos de control");
+        Pcontrol1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Pcontrol1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(palabra, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(palabra, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel1)))
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(colores, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subrayado)
-                            .addComponent(negrita, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Pcontrol))
-                        .addGap(0, 498, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel1)))
+                .addGap(47, 47, 47)
+                .addComponent(colores, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(subrayado)
+                    .addComponent(negrita, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Pcontrol))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(Pcontrol1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(palabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,21 +135,24 @@ public class Dibujo extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(colores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(subrayado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(negrita)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Pcontrol)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(colores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                            .addComponent(Pcontrol1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
-        
+       
         //librerias utilizadas para poder dibujar
         g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
@@ -145,16 +160,17 @@ public class Dibujo extends javax.swing.JFrame {
         
         g3d = (Graphics2D)jPanel1.getGraphics();
         
+        
         g3d.setColor(Color.RED);
         
         jPanel1.update(g2d);
         
-        boolean Subr, Puntos;
-        Puntos = Pcontrol.isSelected();
+        boolean Subr,Negrita;
         Subr = subrayado.isSelected();
+        Negrita = negrita.isSelected();
         
         if(negrita.isSelected()){//sleeccionar el boton para que comienze a escribir en negritas
-            g2d.setStroke(new BasicStroke(3.0f));
+            //g2d.setStroke(new BasicStroke(3.0f));
         }
         
         g2d.setColor(colorito);
@@ -174,9 +190,8 @@ public class Dibujo extends javax.swing.JFrame {
                 if (" ".equals(letra)){//listo
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
-                        curve.lineTo(80+x, 75+y);
-                    }
-                    x=x+30; 
+                        curve.lineTo(50+x, 75+y);
+                    } 
             }
                 if ("a".equals(letra)){//listo
                     curve.moveTo(0+x, 70+y);
@@ -187,7 +202,36 @@ public class Dibujo extends javax.swing.JFrame {
                     curve.curveTo(30+x, 20+y, 50+x, 20+y, 60+x, 50+y);
                     curve.moveTo(60+x, 50+y);
                     curve.curveTo(55+x, 65+y, 60+x, 70+y, 70+x, 70+y);
-                    //x = x + 70;
+                    
+                    if (Negrita == true) {
+                        curve.moveTo(0+x+1, 70+y);
+                        curve.curveTo(10+x+1, 70+y, 20+x+1, 65+y, 20+x+1, 50+y);
+                        curve.moveTo(20+x+1, 50+y);
+                        curve.curveTo(30+x+1, 75+y, 50+x+1, 75+y, 60+x+1, 50+y);
+                        curve.moveTo(20+x+1, 50+y);
+                        curve.curveTo(30+x+1, 20+y, 50+x+1, 20+y, 60+x+1, 50+y);
+                        curve.moveTo(60+x+1, 50+y);
+                        curve.curveTo(55+x+1, 65+y, 60+x+1, 70+y, 70+x+1, 70+y);
+
+                        curve.moveTo(0+x+2, 70+y);
+                        curve.curveTo(10+x+2, 70+y, 20+x+2, 65+y, 20+x+2, 50+y);
+                        curve.moveTo(20+x+2, 50+y);
+                        curve.curveTo(30+x+2, 75+y, 50+x+2, 75+y, 60+x+2, 50+y);
+                        curve.moveTo(20+x+2, 50+y);
+                        curve.curveTo(30+x+2, 20+y, 50+x+2, 20+y, 60+x+2, 50+y);
+                        curve.moveTo(60+x+2, 50+y);
+                        curve.curveTo(55+x+2, 65+y, 60+x+2, 70+y, 70+x+2, 70+y);
+
+                        curve.moveTo(0+x+3, 70+y);
+                        curve.curveTo(10+x+3, 70+y, 20+x+3, 65+y, 20+x+3, 50+y);
+                        curve.moveTo(20+x+3, 50+y);
+                        curve.curveTo(30+x+3, 75+y, 50+x+3, 75+y, 60+x+3, 50+y);
+                        curve.moveTo(20+x+3, 50+y);
+                        curve.curveTo(30+x+3, 20+y, 50+x+3, 20+y, 60+x+3, 50+y);
+                        curve.moveTo(60+x+3, 50+y);
+                        curve.curveTo(55+x+3, 65+y, 60+x+3, 70+y, 70+x+3, 70+y);
+                        }
+                    
                     if (Puntos == true) {
                         g3d.fillOval(0+x, 70+y, 4, 4);
                         g3d.fillOval(10+x, 70+y, 4, 4);
@@ -1897,9 +1941,22 @@ public class Dibujo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_coloresMousePressed
 
+    private void Pcontrol1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pcontrol1MousePressed
+        
+        if(Xp%2==0){
+            Puntos=true;
+            Xp++;
+        }
+        else{
+            Puntos=false;
+            Xp++;
+        }
+    }//GEN-LAST:event_Pcontrol1MousePressed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Pcontrol;
+    private javax.swing.JButton Pcontrol1;
     private javax.swing.JButton colores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
