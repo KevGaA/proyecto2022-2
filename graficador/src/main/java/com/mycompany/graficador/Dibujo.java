@@ -2742,12 +2742,37 @@ public class Dibujo extends javax.swing.JFrame {
                     x = x + 55;
                 }
                 if("Y".equals(letra)){
-                    curve.moveTo(0+x, 10+y);
-                    curve.curveTo(25+x, 0+y, 0+x, 74+y, 32+x, 70+y);
-                    curve.moveTo(32+x, 70+y);
-                    curve.curveTo(50+x, 74+y, 39+x, 15+y, 43+x, 10+y);
-                    curve.curveTo(43+x, 60+y, 50+x, 140+y, 28+x, 120+y);
-                    curve.curveTo(25+x, 90+y, 32+x, 80+y, 55+x, 70+y);
+                    if (Negrita==false && Curs==false && Subr==false) {
+                        curve.moveTo(0+x, 10+y);
+                        curve.curveTo(25+x, 0+y, 0+x, 74+y, 32+x, 70+y);
+                        curve.moveTo(32+x, 70+y);
+                        curve.curveTo(50+x, 74+y, 39+x, 15+y, 43+x, 10+y);
+                        curve.curveTo(43+x, 60+y, 50+x, 140+y, 28+x, 120+y);
+                        curve.curveTo(25+x, 90+y, 32+x, 80+y, 55+x, 70+y);
+                    }
+                    if (Negrita==true) {
+                        x++;
+                        curve.moveTo(0+x, 10+y);
+                        curve.curveTo(25+x, 0+y, 0+x, 74+y, 32+x, 70+y);
+                        curve.moveTo(32+x, 70+y);
+                        curve.curveTo(50+x, 74+y, 39+x, 15+y, 43+x, 10+y);
+                        curve.curveTo(43+x, 60+y, 50+x, 140+y, 28+x, 120+y);
+                        curve.curveTo(25+x, 90+y, 32+x, 80+y, 55+x, 70+y);
+                        x++;
+                        curve.moveTo(0+x, 10+y);
+                        curve.curveTo(25+x, 0+y, 0+x, 74+y, 32+x, 70+y);
+                        curve.moveTo(32+x, 70+y);
+                        curve.curveTo(50+x, 74+y, 39+x, 15+y, 43+x, 10+y);
+                        curve.curveTo(43+x, 60+y, 50+x, 140+y, 28+x, 120+y);
+                        curve.curveTo(25+x, 90+y, 32+x, 80+y, 55+x, 70+y);
+                        x++;
+                        curve.moveTo(0+x, 10+y);
+                        curve.curveTo(25+x, 0+y, 0+x, 74+y, 32+x, 70+y);
+                        curve.moveTo(32+x, 70+y);
+                        curve.curveTo(50+x, 74+y, 39+x, 15+y, 43+x, 10+y);
+                        curve.curveTo(43+x, 60+y, 50+x, 140+y, 28+x, 120+y);
+                        curve.curveTo(25+x, 90+y, 32+x, 80+y, 55+x, 70+y);
+                    }
                     if (Puntos==true) {
                         g2d.fillOval(0+x, 70+y, 4, 4);
                     }
@@ -2758,13 +2783,40 @@ public class Dibujo extends javax.swing.JFrame {
                     x = x + 55;
                 }
                 if("Z".equals(letra)){
-                    curve.moveTo(5+x, 20+y);
-                    curve.curveTo(10+x, -10+y, 50+x, 15+y, 60+x, 0+y);
-                    curve.lineTo(5+x, 70+y);
-                    curve.moveTo(18+x, 35+y);
-                    curve.lineTo(48+x, 35+y);
-                    curve.moveTo(5+x, 70+y);
-                    curve.curveTo(10+x, 60+y, 50+x, 75+y, 60+x, 70+y);
+                    if (Negrita==false && Curs==false && Subr==false) {
+                        curve.moveTo(5+x, 20+y);
+                        curve.curveTo(10+x, -10+y, 50+x, 15+y, 60+x, 0+y);
+                        curve.lineTo(5+x, 70+y);
+                        curve.moveTo(18+x, 35+y);
+                        curve.lineTo(48+x, 35+y);
+                        curve.moveTo(5+x, 70+y);
+                        curve.curveTo(10+x, 60+y, 50+x, 75+y, 60+x, 70+y);
+                    }
+                    if (Negrita==true) {
+                        curve.moveTo(5+x, 20+y);
+                        curve.curveTo(10+x, -10+y, 50+x, 15+y, 60+x, 0+y);
+                        curve.lineTo(5+x, 70+y);
+                        curve.moveTo(18+x, 35+y);
+                        curve.lineTo(48+x, 35+y);
+                        curve.moveTo(5+x, 70+y);
+                        curve.curveTo(10+x, 60+y, 50+x, 75+y, 60+x, 70+y);
+                        x++;
+                        curve.moveTo(5+x, 20+y);
+                        curve.curveTo(10+x, -10+y, 50+x, 15+y, 60+x, 0+y);
+                        curve.lineTo(5+x, 70+y);
+                        curve.moveTo(18+x, 35+y);
+                        curve.lineTo(48+x, 35+y);
+                        curve.moveTo(5+x, 70+y);
+                        curve.curveTo(10+x, 60+y, 50+x, 75+y, 60+x, 70+y);
+                        x++;
+                        curve.moveTo(5+x, 20+y);
+                        curve.curveTo(10+x, -10+y, 50+x, 15+y, 60+x, 0+y);
+                        curve.lineTo(5+x, 70+y);
+                        curve.moveTo(18+x, 35+y);
+                        curve.lineTo(48+x, 35+y);
+                        curve.moveTo(5+x, 70+y);
+                        curve.curveTo(10+x, 60+y, 50+x, 75+y, 60+x, 70+y);
+                    }
                     if (Puntos==true) {
                         g2d.fillOval(0+x, 70+y, 4, 4);
                     }
