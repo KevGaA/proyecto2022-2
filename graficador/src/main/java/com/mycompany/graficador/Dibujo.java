@@ -1654,13 +1654,6 @@ public class Dibujo extends javax.swing.JFrame {
                         g3d.fillOval(40+x, 80+y, 4, 4);
                         g3d.fillOval(50+x, 70+y, 4, 4);
                     }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(15+x, 70+y, 25+x, 30+y, 20+x, 30+y);
-                        curve.curveTo(40+x, 35+y, 50+x, 90+y, 25+x, 67+y);
-                        curve.curveTo(35+x, 60+y, 40+x, 80+y, 50+x, 70+y);
-                    }
-                    
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(50+x, 75+y);
@@ -1704,12 +1697,6 @@ public class Dibujo extends javax.swing.JFrame {
                         g3d.fillOval(40+x, 70+y, 4, 4);
                         g3d.fillOval(8+x, 25+y, 4, 4);
                         g3d.fillOval(32+x, 25+y, 4, 4);
-                    }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(15+x, 70+y, 25+x, 30+y, 20+x, 30+y);
-                        curve.curveTo(40+x, 35+y, 50+x, 90+y, 25+x, 67+y);
-                        curve.curveTo(35+x, 60+y, 40+x, 80+y, 50+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
