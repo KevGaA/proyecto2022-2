@@ -3653,6 +3653,16 @@ public class Dibujo extends javax.swing.JFrame {
                     
                     if (Puntos==true) {
                         g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(20+x, 70+y, 4, 4);
+                        g3d.fillOval(5+x, 0+y, 4, 4);
+                        g3d.fillOval(5+x, 10+y, 4, 4);
+                        g3d.fillOval(-10+x, 10+y, 4, 4);
+                        g3d.fillOval(50+x, 0+y, 4, 4);
+                        g3d.fillOval(50+x, 35+y, 4, 4);
+                        g3d.fillOval(11+x, 40+y, 4, 4);
+                        g3d.fillOval(45+x, 45+y, 4, 4);
+                        g3d.fillOval(20+x, 70+y, 4, 4);
+                        g3d.fillOval(45+x, 70+y, 4, 4);
                     }
                    
                     x = x + 45;
@@ -3661,6 +3671,15 @@ public class Dibujo extends javax.swing.JFrame {
                     
                     if (Puntos==true) {
                         g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(15+x, 70+y, 4, 4);
+                        g3d.fillOval(25+x, 30+y, 4, 4);
+                        g3d.fillOval(20+x, 0+y, 4, 4);
+                        g3d.fillOval(80+x, 25+y, 4, 4);
+                        g3d.fillOval(60+x, 90+y, 4, 4);
+                        g3d.fillOval(30+x, 65+y, 4, 4);
+                        g3d.fillOval(35+x, 50+y, 4, 4);
+                        g3d.fillOval(45+x, 80+y, 4, 4);
+                        g3d.fillOval(70+x, 70+y, 4, 4);
                     }
                     
                     x = x + 70;
@@ -3668,7 +3687,14 @@ public class Dibujo extends javax.swing.JFrame {
                 if("T".equals(letra)){
                     
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(25+x, 70+y, 4, 4);
+                        g3d.fillOval(50+x, 70+y, 4, 4);
+                        g3d.fillOval(35+x, 0+y, 4, 4);
+                        g3d.fillOval(35+x, 5+y, 4, 4);
+                        g3d.fillOval(5+x, 20+y, 4, 4);
+                        g3d.fillOval(10+x, -10+y, 4, 4);
+                        g3d.fillOval(50+x, 15+y, 4, 4);
+                        g3d.fillOval(60+x, 0+y, 4, 4);
                     }
                     
                     x = x + 60;
@@ -3676,7 +3702,16 @@ public class Dibujo extends javax.swing.JFrame {
                 if("U".equals(letra)){
                     
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(0+x, 10+y, 4, 4);
+                        g3d.fillOval(25+x, 0+y, 4, 4);
+                        g3d.fillOval(0+x, 74+y, 4, 4);
+                        g3d.fillOval(32+x, 70+y, 4, 4);
+                        g3d.fillOval(50+x, 74+y, 4, 4);
+                        g3d.fillOval(39+x, 15+y, 4, 4);
+                        g3d.fillOval(43+x, 10+y, 4, 4);
+                        g3d.fillOval(43+x, 40+y, 4, 4);
+                        g3d.fillOval(40+x, 75+y, 4, 4);
+                        g3d.fillOval(60+x, 70+y, 4, 4);
                     }
                     
                     x = x + 60;
@@ -3684,7 +3719,16 @@ public class Dibujo extends javax.swing.JFrame {
                 if("V".equals(letra)){
                    
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(0+x, 25+y, 4, 4);
+                        g3d.fillOval(0+x, 5+y, 4, 4);
+                        g3d.fillOval(15+x, 5+y, 4, 4);
+                        g3d.fillOval(15+x, 10+y, 4, 4);
+                        g3d.fillOval(10+x, 90+y, 4, 4);
+                        g3d.fillOval(45+x, 90+y, 4, 4);
+                        g3d.fillOval(40+x, 10+y, 4, 4);
+                        g3d.fillOval(45+x, 15+y, 4, 4);
+                        g3d.fillOval(49+x, 15+y, 4, 4);
+                        g3d.fillOval(60+x, 10+y, 4, 4);
                     }
                    
                     x = x + 60;
@@ -3692,7 +3736,19 @@ public class Dibujo extends javax.swing.JFrame {
                 if("W".equals(letra)){
                     
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(0+x, 25+y, 4, 4);
+                        g3d.fillOval(0+x, 5+y, 4, 4);
+                        g3d.fillOval(15+x, 5+y, 4, 4);
+                        g3d.fillOval(15+x, 10+y, 4, 4);
+                        g3d.fillOval(10+x, 90+y, 4, 4);
+                        g3d.fillOval(45+x, 90+y, 4, 4);
+                        g3d.fillOval(40+x, 10+y, 4, 4);
+                        g3d.fillOval(35+x, 90+y, 4, 4);
+                        g3d.fillOval(70+x, 90+y, 4, 4);
+                        g3d.fillOval(65+x, 10+y, 4, 4);
+                        g3d.fillOval(50+x, 10+y, 4, 4);
+                        g3d.fillOval(70+x, 20+y, 4, 4);
+                        g3d.fillOval(80+x, 10+y, 4, 4);
                     }
                    
                     x = x + 80;
@@ -3701,6 +3757,13 @@ public class Dibujo extends javax.swing.JFrame {
                     
                     if (Puntos==true) {
                         g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(30+x, 80+y, 4, 4);
+                        g3d.fillOval(25+x, 10+y, 4, 4);
+                        g3d.fillOval(55+x, 10+y, 4, 4);
+                        g3d.fillOval(0+x, 10+y, 4, 4);
+                        g3d.fillOval(25+x, 0+y, 4, 4);
+                        g3d.fillOval(25+x, 80+y, 4, 4);
+                        g3d.fillOval(55+x, 70+y, 4, 4);
                     }
                     
                     x = x + 55;
@@ -3708,7 +3771,19 @@ public class Dibujo extends javax.swing.JFrame {
                 if("Y".equals(letra)){
                    
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(0+x, 10+y, 4, 4);
+                        g3d.fillOval(25+x, 0+y, 4, 4);
+                        g3d.fillOval(0+x, 74+y, 4, 4);
+                        g3d.fillOval(32+x, 70+y, 4, 4);
+                        g3d.fillOval(50+x, 74+y, 4, 4);
+                        g3d.fillOval(39+x, 15+y, 4, 4);
+                        g3d.fillOval(43+x, 10+y, 4, 4);
+                        g3d.fillOval(43+x, 60+y, 4, 4);
+                        g3d.fillOval(50+x, 140+y, 4, 4);
+                        g3d.fillOval(28+x, 120+y, 4, 4);
+                        g3d.fillOval(25+x, 90+y, 4, 4);
+                        g3d.fillOval(32+x, 80+y, 4, 4);
+                        g3d.fillOval(55+x, 70+y, 4, 4);
                     }
                     
                     x = x + 55;
@@ -3716,7 +3791,17 @@ public class Dibujo extends javax.swing.JFrame {
                 if("Z".equals(letra)){
                     
                     if (Puntos==true) {
-                        g3d.fillOval(0+x, 70+y, 4, 4);
+                        g3d.fillOval(5+x, 20+y, 4, 4);
+                        g3d.fillOval(10+x, -10+y, 4, 4);
+                        g3d.fillOval(50+x, 15+y, 4, 4);
+                        g3d.fillOval(60+x, 0+y, 4, 4);
+                        g3d.fillOval(5+x, 70+y, 4, 4);
+                        g3d.fillOval(18+x, 35+y, 4, 4);
+                        g3d.fillOval(48+x, 35+y, 4, 4);
+                        g3d.fillOval(5+x, 70+y, 4, 4);
+                        g3d.fillOval(10+x, 60+y, 4, 4);
+                        g3d.fillOval(50+x, 75+y, 4, 4);
+                        g3d.fillOval(60+x, 70+y, 4, 4);
                     }
                    
                     x = x + 60;
