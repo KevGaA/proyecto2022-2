@@ -156,6 +156,7 @@ public class Dibujo extends javax.swing.JFrame {
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
         g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
+        jPanel1.update(g2d);
         
         boolean Subr,Negrita,Curs;
         int x=0,y=0;// posicion de las letras
@@ -169,8 +170,6 @@ public class Dibujo extends javax.swing.JFrame {
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
         
         String text = palabra.getText();
-        //jPanel1.update(g2d); cualquiera de los dos sirve
-        jPanel1.paint(g2d);
         
         for (int i = 0; i < text.length(); i++) {
             aux = text.charAt(i);
@@ -201,7 +200,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
-                    
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos == true) {
                         PuntosControl.add(Pcontrol(letra,x,y));
                     }
@@ -221,6 +222,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
                     }
@@ -239,6 +243,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
@@ -260,9 +267,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
-
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
@@ -279,6 +288,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
@@ -300,6 +312,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
                     }
@@ -320,6 +335,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
                     }
@@ -338,6 +356,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
@@ -358,6 +379,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos == true) {
                         Pcontrol(letra,x,y);
@@ -383,13 +407,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(35+x, 35+y);
-                        curve.curveTo(32+x, 36+y, 32+x, 44+y, 35+x, 45+y);
-                        curve.curveTo(38+x, 44+y, 38+x, 36+y, 35+x, 35+y);
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(20+x, 70+y, 20+x, 70+y, 35+x, 50+y);
-                        curve.lineTo(15+x, 110+y);
-                        curve.curveTo(-5+x, 135+y, -5+x, 80+y, 40+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr==true){
                         curve.moveTo(25+x, 35+y);
@@ -419,13 +437,8 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(30+x, 65+y, 35+x, 20+y, 40+x,10+y );
-                        curve.curveTo(30+x, 10+y, 20+x, 35+y, 15+x, 70+y);
-                        curve.moveTo(17+x, 52+y);
-                        curve.curveTo(40+x, 51+y, 40+x, 59+y, 25+x, 60+y);
-                        curve.curveTo(40+x, 59+y, 40+x, 69+y, 25+x, 70+y);
-                        curve.curveTo(20+x, 70+y, 30+x, 70+y, 40+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -454,9 +467,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(35+x, 65+y, 45+x, 20+y, 45+x,15+y);
-                        curve.curveTo(25+x, 20+y, 20+x, 70+y, 35+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -481,18 +492,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(15+x, 40+y);
-                        curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 40+y);
-                        curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
-                        curve.lineTo(35+x, 70+y);
-                        curve.moveTo(45+x, 40+y);
-                        curve.curveTo(50+x, 35+y, 55+x, 35+y, 60+x, 40+y);
-                        curve.lineTo(50+x, 65+y);
-                        curve.curveTo(53+x, 70+y, 62+x, 70+y, 65+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -526,15 +526,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(15+x, 40+y);
-                        curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 40+y);
-                        curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
-                        curve.lineTo(35+x, 65+y);
-                        curve.curveTo(40+x, 70+y, 45+x, 70+y, 50+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -565,17 +557,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(15+x, 40+y);
-                        curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 40+y);
-                        curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
-                        curve.lineTo(35+x, 65+y);
-                        curve.curveTo(40+x, 70+y, 45+x, 70+y, 50+x, 70+y);
-                        curve.moveTo(20+x, 30+y);
-                        curve.curveTo(25+x, 25+y, 35+x, 35+y, 40+x, 30+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -608,14 +590,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(4+x, 70+y, 8+x, 70+y, 13+x, 64+y);
-                        curve.curveTo(20+x, 80+y, 40+x, 70+y, 45+x, 50+y);
-                        curve.curveTo(40+x, 40+y, 20+x, 35+y, 13+x, 64+y);
-                        curve.moveTo(20+x, 46+y);
-                        curve.curveTo(25+x, 50+y, 45+x, 50+y, 55+x, 45+y);
-                        curve.moveTo(37+x, 64+y);
-                        curve.curveTo(42+x, 70+y, 46+x, 70+y, 50+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -646,13 +621,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(10+x, 70+y, 20+x, 47+y, 30+x, 40+y);
-                        curve.curveTo(45+x, 45+y, 45+x, 65+y, 17+x, 70+y);
-                        curve.lineTo(30+x, 40+y);
-                        curve.lineTo(10+x, 90+y);
-                        curve.moveTo(15+x, 70+y);
-                        curve.curveTo(25+x, 72+y, 40+x, 72+y, 45+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -681,14 +650,7 @@ public class Dibujo extends javax.swing.JFrame {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(4+x, 70+y, 8+x, 70+y, 13+x, 64+y);
-                        curve.curveTo(15+x, 70+y, 35+x, 70+y, 40+x, 50+y);
-                        curve.curveTo(35+x, 45+y, 20+x, 35+y, 13+x, 64+y);
-                        curve.moveTo(40+x, 55+y);
-                        curve.lineTo(20+x, 100+y);
-                        curve.moveTo(33+x, 70+y);
-                        curve.curveTo(20+x, 85+y, 20+x, 60+y, 45+x, 70+y);
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 70+y);
@@ -714,18 +676,13 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
-                    }              
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
-                    
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(14+x, 65+y, 14+x, 35+y, 10+x, 30+y);
-                        curve.curveTo(3+x, 60+y, 43+x, 35+y, 40+x, 40+y);
-                        curve.curveTo(30+x, 35+y, 25+x, 65+y, 30+x, 70+y);
-                    }
-                    
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(40+x, 75+y);
@@ -743,16 +700,12 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(25+x, 70+y, 35+x, 30+y, 30+x, 30+y);
-                        curve.curveTo(40+x, 35+y, 50+x, 90+y, 25+x, 67+y);
-                        curve.curveTo(35+x, 60+y, 40+x, 80+y, 50+x, 70+y);
-                    }
-                    
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
                         curve.lineTo(50+x, 75+y);
@@ -769,15 +722,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(25+x, 70+y, 20+x, 20+y, 35+x, 0+y);
-                        curve.curveTo(10+x, 70+y, 10+x, 70+y, 40+x, 70+y);
-                        curve.moveTo(8+x, 25+y);
-                        curve.lineTo(32+x, 25+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
@@ -795,14 +744,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(15+x, 75+y, 28+x, 45+y, 25+x, 40+y);
-                        curve.curveTo(5+x, 83+y, 45+x, 83+y, 55+x, 40+y);
-                        curve.curveTo(45+x, 45+y, 45+x, 75+y, 55+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
@@ -820,14 +766,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 45+y);
-                        curve.curveTo(5+x, 35+y, 10+x, 35+y, 15+x, 40+y);
-                        curve.curveTo(-5+x, 83+y, 30+x, 83+y, 37+x, 40+y);
-                        curve.curveTo(45+x, 45+y, 49+x, 45+y, 48+x, 40+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
@@ -845,15 +788,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true){
-                        curve.moveTo(0+x, 45+y);
-                        curve.curveTo(5+x, 30+y, 10+x, 30+y, 15+x, 30+y);
-                        curve.curveTo(-10+x, 83+y, 25+x, 83+y, 35+x, 35+y);
-                        curve.curveTo(10+x, 83+y, 45+x, 83+y, 55+x, 30+y);
-                        curve.curveTo(58+x, 35+y, 60+x, 35+y, 66+x, 30+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 75+y);
@@ -871,6 +810,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -891,6 +833,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -909,6 +854,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -929,6 +877,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -947,6 +898,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -968,6 +922,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -986,6 +943,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1006,6 +966,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1024,6 +987,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1045,6 +1011,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1063,6 +1032,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1083,15 +1055,14 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
                     if (Curs==true) {
-                        curve.moveTo(20+x, 20+y);
-                        curve.curveTo(40+x, 5+y, 60+x, 30+y, 80+x, 20+y);
-                        curve.curveTo(80+x, 15+y, 70+x, 5+y, 50+x, 20+y);
-                        curve.curveTo(50+x, 20+y, 40+x, 50+y, 20+x, 90+y);
-                        curve.curveTo(0+x, 100+y, 0+x, 70+y, 60+x, 70+y);
+                        
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 20+y);
@@ -1114,18 +1085,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs == true){
-                        curve.moveTo(15+x, 10+y);
-                        curve.curveTo(15+x, 10+y, 21+x, 7+y, 25+x, 10+y);
-                        curve.lineTo(10+x, 70+y);
-                        curve.curveTo(7+x, 70+y, 5+x, 70+y, 0+x, 65+y);
-                        curve.moveTo(55+x, 10+y);
-                        curve.curveTo(45+x, 5+y, 35+x, 30+y, 20+x, 30+y);
-                        curve.curveTo(25+x, 50+y, 40+x, 45+y, 45+x, 65+y);
-                        curve.curveTo(45+x, 65+y, 47+x, 70+y, 55+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 10+y);
@@ -1152,15 +1116,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(35+x, 10+y);
-                        curve.curveTo(30+x, 0+y, 30+x, 0+y, 10+x, 65+y);
-                        curve.curveTo(5+x, 80+y, 5+x, 40+y, 10+x, 65+y);
-                        curve.curveTo(10+x, 65+y, 20+x, 75+y, 30+x, 70+y);
-
                     }
                     if (Subr == true){
                         curve.moveTo(25+x, 10+y);
@@ -1183,20 +1143,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(5+x, 30+y);
-                        curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 30+y);
-                        curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
-                        curve.lineTo(45+x,70+y);
-                        curve.moveTo(55+x, 30+y);
-                        curve.curveTo(60+x, 0+y, 80+x, 0+y, 80+x, 30+y);
-                        curve.lineTo(70+x, 65+y);
-                        curve.curveTo(77+x, 70+y, 80+x, 70+y, 85+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 30+y);
@@ -1224,17 +1175,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(5+x, 30+y);
-                        curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 30+y);
-                        curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
-                        curve.lineTo(45+x,65+y);
-                        curve.curveTo(50+x, 70+y, 57+x, 70+y, 60+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 30+y);
@@ -1259,19 +1204,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(5+x, 30+y);
-                        curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.moveTo(30+x, 30+y);
-                        curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
-                        curve.lineTo(45+x,65+y);
-                        curve.curveTo(50+x, 70+y, 57+x, 70+y, 60+x, 70+y);
-                        curve.moveTo(15+x, 3+y);
-                        curve.curveTo(25+x, -2+y, 35+x, 8+y, 45+x, 3+y);
                     }
                     if (Subr == true){
                         curve.moveTo(0+x, 30+y);
@@ -1298,17 +1235,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(60+x, 0+y);
-                        curve.curveTo(15+x, 5+y, -10+x, 65+y, 30+x, 70+y);
-                        curve.curveTo(55+x, 65+y, 115+x, 5+y, 60+x, 0+y);
-                        curve.moveTo(28+x, 14+y);
-                        curve.curveTo(50+x, 20+y, 70+x, 20+y, 90+x, 10+y);
-                        curve.moveTo(55+x, 56+y);
-                        curve.curveTo(60+x, 65+y, 70+x, 70+y, 80+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(40+x, 0+y);
@@ -1333,17 +1264,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(5+x, 15+y);
-                        curve.curveTo(10+x,15+y , 25+x,10+y, 20+x,7+y);
-                        curve.curveTo(12+x, 5+y, 8+x, 10+y, 20+x, 10+y);
-                        curve.curveTo(50+x, 10+y, 50+x, 35+y, 13+x, 40+y);
-                        curve.moveTo(20+x, 7+y);
-                        curve.lineTo(5+x, 70+y);
-                        curve.curveTo(25+x, 70+y, 30+x, 75+y, 45+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(5+x, 15+y);
@@ -1369,17 +1294,11 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        curve.moveTo(60+x, 0+y);
-                        curve.curveTo(15+x, 5+y, -10+x, 65+y, 30+x, 70+y);
-                        curve.curveTo(55+x, 65+y, 115+x, 5+y, 60+x, 0+y);
-                        curve.moveTo(28+x, 14+y);
-                        curve.curveTo(20+x, 30+y, 20+x, 50+y, 25+x, 50+y);
-                        curve.curveTo(35+x, 40+y, 55+x, 40+y, 65+x, 56+y);
-                        curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
                     }
                     if (Subr == true){
                         curve.moveTo(40+x, 0+y);
@@ -1404,6 +1323,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1422,6 +1344,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1442,6 +1367,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1460,6 +1388,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1480,6 +1411,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1498,6 +1432,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1518,6 +1455,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1536,6 +1476,9 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
+                    }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
                     }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1556,6 +1499,9 @@ public class Dibujo extends javax.swing.JFrame {
                             x++;
                         }
                     }
+                    if (Curs==true) {
+                        DibujoFinal.add(Dcursivas(letra,x,y));
+                    }
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
@@ -1565,7 +1511,6 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     x = x + 60;
                 }
-
                 //SIMBOLOS
                 if("-".equals(letra)){
                     DibujoFinal.add(Dletras(letra,x,y));
@@ -1623,28 +1568,28 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     x = x + 30;
                 }
-                if("!".equals(letra)){ //falta punto del signo
+                if("!".equals(letra)){ 
                     DibujoFinal.add(Dletras(letra,x,y));
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
                     x = x + 40;
                 }
-                if("¡".equals(letra)){ //falta punto del signo
+                if("¡".equals(letra)){ 
                     DibujoFinal.add(Dletras(letra,x,y));
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
                     x = x + 40;
                 }
-                if("¿".equals(letra)){ //falta punto del signo
+                if("¿".equals(letra)){ 
                     DibujoFinal.add(Dletras(letra,x,y));
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
                     }
                     x = x + 50;
                 }
-                if("?".equals(letra)){ //falta punto del signo
+                if("?".equals(letra)){
                     DibujoFinal.add(Dletras(letra,x,y));
                     if (Puntos==true) {
                         Pcontrol(letra,x,y);
@@ -1728,8 +1673,9 @@ public class Dibujo extends javax.swing.JFrame {
                 g2d.draw((Shape) PuntosControl.get(i));//consultar de porque no se puede mostrar como tal y si o si debe usarse un shape
             }
         }
+        
     }//GEN-LAST:event_palabraKeyReleased
-   
+
     public Path2D.Double Dletras(String letra, int x, int y){
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)){
@@ -2332,10 +2278,313 @@ public class Dibujo extends javax.swing.JFrame {
             curve.lineTo(15+x,40+y);
             curve.lineTo(0+x,50+y);
         }
-        if (" ".equals(letra)){
-            x = x + 50;
-        }
     return curve;   
+    }
+    
+    public Path2D.Double Dcursivas(String letra, int x, int y){
+        Path2D.Double curve = new Path2D.Double();
+        if("a".equals(letra)){
+            
+        }
+        if("b".equals(letra)){
+            
+        }
+        if("c".equals(letra)){
+            
+        }
+        if("d".equals(letra)){
+            
+        }
+        if("e".equals(letra)){
+            
+        }
+        if("f".equals(letra)){
+            
+        }
+        if("g".equals(letra)){
+            
+        }
+        if("h".equals(letra)){
+            
+        }
+        if("i".equals(letra)){
+            
+        }
+        if("j".equals(letra)){
+            curve.moveTo(35+x, 35+y);
+            curve.curveTo(32+x, 36+y, 32+x, 44+y, 35+x, 45+y);
+            curve.curveTo(38+x, 44+y, 38+x, 36+y, 35+x, 35+y);
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(20+x, 70+y, 20+x, 70+y, 35+x, 50+y);
+            curve.lineTo(15+x, 110+y);
+            curve.curveTo(-5+x, 135+y, -5+x, 80+y, 40+x, 70+y);
+        }
+        if("k".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(30+x, 65+y, 35+x, 20+y, 40+x,10+y );
+            curve.curveTo(30+x, 10+y, 20+x, 35+y, 15+x, 70+y);
+            curve.moveTo(17+x, 52+y);
+            curve.curveTo(40+x, 51+y, 40+x, 59+y, 25+x, 60+y);
+            curve.curveTo(40+x, 59+y, 40+x, 69+y, 25+x, 70+y);
+            curve.curveTo(20+x, 70+y, 30+x, 70+y, 40+x, 70+y);
+        }
+        if("l".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(35+x, 65+y, 45+x, 20+y, 45+x,15+y);
+            curve.curveTo(25+x, 20+y, 20+x, 70+y, 35+x, 70+y);
+        }
+        if("m".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
+            curve.lineTo(15+x, 40+y);
+            curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 40+y);
+            curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
+            curve.lineTo(35+x, 70+y);
+            curve.moveTo(45+x, 40+y);
+            curve.curveTo(50+x, 35+y, 55+x, 35+y, 60+x, 40+y);
+            curve.lineTo(50+x, 65+y);
+            curve.curveTo(53+x, 70+y, 62+x, 70+y, 65+x, 70+y);
+        }
+        if("n".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
+            curve.lineTo(15+x, 40+y);
+            curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 40+y);
+            curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
+            curve.lineTo(35+x, 65+y);
+            curve.curveTo(40+x, 70+y, 45+x, 70+y, 50+x, 70+y);
+        }
+        if("ñ".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
+            curve.lineTo(15+x, 40+y);
+            curve.curveTo(20+x, 35+y, 25+x, 35+y, 30+x, 40+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 40+y);
+            curve.curveTo(35+x, 35+y, 40+x, 35+y, 45+x, 40+y);
+            curve.lineTo(35+x, 65+y);
+            curve.curveTo(40+x, 70+y, 45+x, 70+y, 50+x, 70+y);
+            curve.moveTo(20+x, 30+y);
+            curve.curveTo(25+x, 25+y, 35+x, 35+y, 40+x, 30+y);
+        }
+        if("o".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(4+x, 70+y, 8+x, 70+y, 13+x, 64+y);
+            curve.curveTo(20+x, 80+y, 40+x, 70+y, 45+x, 50+y);
+            curve.curveTo(40+x, 40+y, 20+x, 35+y, 13+x, 64+y);
+            curve.moveTo(20+x, 46+y);
+            curve.curveTo(25+x, 50+y, 45+x, 50+y, 55+x, 45+y);
+            curve.moveTo(37+x, 64+y);
+            curve.curveTo(42+x, 70+y, 46+x, 70+y, 50+x, 70+y);
+        }
+        if("p".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(10+x, 70+y, 20+x, 47+y, 30+x, 40+y);
+            curve.curveTo(45+x, 45+y, 45+x, 65+y, 17+x, 70+y);
+            curve.lineTo(30+x, 40+y);
+            curve.lineTo(10+x, 90+y);
+            curve.moveTo(15+x, 70+y);
+            curve.curveTo(25+x, 72+y, 40+x, 72+y, 45+x, 70+y);
+        }
+        if("q".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(4+x, 70+y, 8+x, 70+y, 13+x, 64+y);
+            curve.curveTo(15+x, 70+y, 35+x, 70+y, 40+x, 50+y);
+            curve.curveTo(35+x, 45+y, 20+x, 35+y, 13+x, 64+y);
+            curve.moveTo(40+x, 55+y);
+            curve.lineTo(20+x, 100+y);
+            curve.moveTo(33+x, 70+y);
+            curve.curveTo(20+x, 85+y, 20+x, 60+y, 45+x, 70+y);
+        }
+        if("r".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(14+x, 65+y, 14+x, 35+y, 10+x, 30+y);
+            curve.curveTo(3+x, 60+y, 43+x, 35+y, 40+x, 40+y);
+            curve.curveTo(30+x, 35+y, 25+x, 65+y, 30+x, 70+y);
+        }
+        if("s".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(25+x, 70+y, 35+x, 30+y, 30+x, 30+y);
+            curve.curveTo(40+x, 35+y, 50+x, 90+y, 25+x, 67+y);
+            curve.curveTo(35+x, 60+y, 40+x, 80+y, 50+x, 70+y);
+        }
+        if("t".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(25+x, 70+y, 20+x, 20+y, 35+x, 0+y);
+            curve.curveTo(10+x, 70+y, 10+x, 70+y, 40+x, 70+y);
+            curve.moveTo(8+x, 25+y);
+            curve.lineTo(32+x, 25+y);
+        }
+        if("u".equals(letra)){
+            curve.moveTo(0+x, 70+y);
+            curve.curveTo(15+x, 75+y, 28+x, 45+y, 25+x, 40+y);
+            curve.curveTo(5+x, 83+y, 45+x, 83+y, 55+x, 40+y);
+            curve.curveTo(45+x, 45+y, 45+x, 75+y, 55+x, 70+y);
+        }
+        if("v".equals(letra)){
+            curve.moveTo(0+x, 45+y);
+            curve.curveTo(5+x, 35+y, 10+x, 35+y, 15+x, 40+y);
+            curve.curveTo(-5+x, 83+y, 30+x, 83+y, 37+x, 40+y);
+            curve.curveTo(45+x, 45+y, 49+x, 45+y, 48+x, 40+y);
+        }
+        if("w".equals(letra)){
+            curve.moveTo(0+x, 45+y);
+            curve.curveTo(5+x, 30+y, 10+x, 30+y, 15+x, 30+y);
+            curve.curveTo(-10+x, 83+y, 25+x, 83+y, 35+x, 35+y);
+            curve.curveTo(10+x, 83+y, 45+x, 83+y, 55+x, 30+y);
+            curve.curveTo(58+x, 35+y, 60+x, 35+y, 66+x, 30+y);
+        }
+        if("x".equals(letra)){
+            
+        }
+        if("y".equals(letra)){
+            
+        }
+        if("z".equals(letra)){
+            
+        }
+        if("A".equals(letra)){
+            
+        }
+        if("B".equals(letra)){
+            
+        }
+        if("C".equals(letra)){
+            
+        }
+        if("D".equals(letra)){
+            
+        }
+        if("E".equals(letra)){
+            
+        }
+        if("F".equals(letra)){
+            
+        }
+        if("G".equals(letra)){
+            
+        }
+        if("H".equals(letra)){
+            
+        }
+        if("I".equals(letra)){
+            
+        }
+        if("J".equals(letra)){
+            curve.moveTo(20+x, 20+y);
+            curve.curveTo(40+x, 5+y, 60+x, 30+y, 80+x, 20+y);
+            curve.curveTo(80+x, 15+y, 70+x, 5+y, 50+x, 20+y);
+            curve.curveTo(50+x, 20+y, 40+x, 50+y, 20+x, 90+y);
+            curve.curveTo(0+x, 100+y, 0+x, 70+y, 60+x, 70+y);
+        }
+        if("K".equals(letra)){
+            curve.moveTo(15+x, 10+y);
+            curve.curveTo(15+x, 10+y, 21+x, 7+y, 25+x, 10+y);
+            curve.lineTo(10+x, 70+y);
+            curve.curveTo(7+x, 70+y, 5+x, 70+y, 0+x, 65+y);
+            curve.moveTo(55+x, 10+y);
+            curve.curveTo(45+x, 5+y, 35+x, 30+y, 20+x, 30+y);
+            curve.curveTo(25+x, 50+y, 40+x, 45+y, 45+x, 65+y);
+            curve.curveTo(45+x, 65+y, 47+x, 70+y, 55+x, 70+y);
+        }
+        if("L".equals(letra)){
+            curve.moveTo(35+x, 10+y);
+            curve.curveTo(30+x, 0+y, 30+x, 0+y, 10+x, 65+y);
+            curve.curveTo(5+x, 80+y, 5+x, 40+y, 10+x, 65+y);
+            curve.curveTo(10+x, 65+y, 20+x, 75+y, 30+x, 70+y);
+        }
+        if("M".equals(letra)){
+            curve.moveTo(5+x, 30+y);
+            curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 30+y);
+            curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
+            curve.lineTo(45+x,70+y);
+            curve.moveTo(55+x, 30+y);
+            curve.curveTo(60+x, 0+y, 80+x, 0+y, 80+x, 30+y);
+            curve.lineTo(70+x, 65+y);
+            curve.curveTo(77+x, 70+y, 80+x, 70+y, 85+x, 70+y);
+        }
+        if("N".equals(letra)){
+            curve.moveTo(5+x, 30+y);
+            curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 30+y);
+            curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
+            curve.lineTo(45+x,65+y);
+            curve.curveTo(50+x, 70+y, 57+x, 70+y, 60+x, 70+y);
+        }
+        if("Ñ".equals(letra)){
+            curve.moveTo(5+x, 30+y);
+            curve.curveTo(10+x, 0+y, 30+x, 0+y, 30+x, 30+y);
+            curve.lineTo(20+x, 70+y);
+            curve.moveTo(30+x, 30+y);
+            curve.curveTo(35+x, 0+y, 55+x, 0+y, 55+x, 30+y);
+            curve.lineTo(45+x,65+y);
+            curve.curveTo(50+x, 70+y, 57+x, 70+y, 60+x, 70+y);
+            curve.moveTo(15+x, 3+y);
+            curve.curveTo(25+x, -2+y, 35+x, 8+y, 45+x, 3+y);
+        }
+        if("O".equals(letra)){
+            curve.moveTo(60+x, 0+y);
+            curve.curveTo(15+x, 5+y, -10+x, 65+y, 30+x, 70+y);
+            curve.curveTo(55+x, 65+y, 115+x, 5+y, 60+x, 0+y);
+            curve.moveTo(28+x, 14+y);
+            curve.curveTo(50+x, 20+y, 70+x, 20+y, 90+x, 10+y);
+            curve.moveTo(55+x, 56+y);
+            curve.curveTo(60+x, 65+y, 70+x, 70+y, 80+x, 70+y);
+        }
+        if("P".equals(letra)){
+            curve.moveTo(5+x, 15+y);
+            curve.curveTo(10+x,15+y , 25+x,10+y, 20+x,7+y);
+            curve.curveTo(12+x, 5+y, 8+x, 10+y, 20+x, 10+y);
+            curve.curveTo(50+x, 10+y, 50+x, 35+y, 13+x, 40+y);
+            curve.moveTo(20+x, 7+y);
+            curve.lineTo(5+x, 70+y);
+            curve.curveTo(25+x, 70+y, 30+x, 75+y, 45+x, 70+y);
+        }
+        if("Q".equals(letra)){
+            curve.moveTo(60+x, 0+y);
+            curve.curveTo(15+x, 5+y, -10+x, 65+y, 30+x, 70+y);
+            curve.curveTo(55+x, 65+y, 115+x, 5+y, 60+x, 0+y);
+            curve.moveTo(28+x, 14+y);
+            curve.curveTo(20+x, 30+y, 20+x, 50+y, 25+x, 50+y);
+            curve.curveTo(35+x, 40+y, 55+x, 40+y, 65+x, 56+y);
+            curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
+        }
+        if("R".equals(letra)){
+            
+        }
+        if("S".equals(letra)){
+            
+        }
+        if("T".equals(letra)){
+            
+        }
+        if("U".equals(letra)){
+            
+        }
+        if("V".equals(letra)){
+            
+        }
+        if("W".equals(letra)){
+            
+        }
+        if("X".equals(letra)){
+            
+        }
+        if("Y".equals(letra)){
+            
+        }
+        if("Z".equals(letra)){
+            
+        }
+                
+        return curve;        
     }
     
     public Graphics2D Pcontrol(String letra,int x, int y) {
