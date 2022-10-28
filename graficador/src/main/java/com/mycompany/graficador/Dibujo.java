@@ -10,7 +10,7 @@ import javax.swing.JColorChooser;
 
 public class Dibujo extends javax.swing.JFrame {
     
-    public Color colorito;
+    public static Color colorito;
     private Graphics2D g2d;
     private Graphics2D g3d;
     int Xp;
@@ -153,23 +153,21 @@ public class Dibujo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
-       
         g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
-        g2d.setColor(Color.BLACK);
         
-        g2d = (Graphics2D)jPanel1.getGraphics();
         jPanel1.update(g2d);
         
+        
         boolean Subr,Negrita,Curs;
+        int x=0,y=0;
+        char aux;
         
         Subr = subrayado.isSelected();
         Negrita = negrita.isSelected();
         Curs = cursiva.isSelected();
-        g2d.setColor(colorito);
-        char aux;
+        
         String text = palabra.getText();
-        int x=0,y=0;
         ArrayList<Path2D.Double> Dfinal = new ArrayList<>();
         
         for (int i = 0; i < text.length(); i++) {
@@ -1721,18 +1719,14 @@ public class Dibujo extends javax.swing.JFrame {
                 x = 0;
             }
         }
-        
+        g2d.setColor(colorito);
         for (int i = 0; i < Dfinal.size(); i++) {
             g2d.draw(Dfinal.get(i));
         }
     }//GEN-LAST:event_palabraKeyReleased
    
     public Path2D.Double Dletras(String letra, int x, int y){
-        g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
-        g2d.setColor(Color.BLACK);        
-        jPanel1.update(g2d);
-        
         if ("a".equals(letra)){
             curve.moveTo(0+x, 70+y);
             curve.curveTo(10+x, 70+y, 20+x, 65+y, 20+x, 50+y);
@@ -3737,19 +3731,14 @@ public class Dibujo extends javax.swing.JFrame {
     
 }
     
-        
-
     
     
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
-        
-        // select color code 
-        colorito = Color.BLACK;
-        
-        colorito = JColorChooser.showDialog(this,"select a color", colorito);
-        
         if(colorito==null){
             colorito = Color.white; 
+        }else{
+            colorito = JColorChooser.showDialog(this,"select a color", colorito);
+
         }
     }//GEN-LAST:event_coloresMousePressed
 
@@ -3767,7 +3756,7 @@ public class Dibujo extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Pcontrol1;
-    private javax.swing.JButton colores;
+    public static javax.swing.JButton colores;
     private javax.swing.JRadioButton cursiva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
