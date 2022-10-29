@@ -14,6 +14,7 @@ public class Dibujo extends javax.swing.JFrame {
     public static Color colorito;
     private Graphics2D g2d;
     private Graphics2D g3d;
+    public static boolean caret=false;
     int Xp;
     public static boolean Puntos=false;
     
@@ -159,6 +160,7 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         
         boolean Subr,Negrita,Curs;
+        
         int x=0,y=0;// posicion de las letras
         char aux;
         
@@ -168,12 +170,26 @@ public class Dibujo extends javax.swing.JFrame {
         
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
+        //ArrayList<String> Parseo = new ArrayList<>();
         
         String text = palabra.getText();
+        
+        if(text.length()>2){//evita error de codigo
+            if("^N".equals(text.substring(0, 2))){
+                Negrita=true;
+            }
+            if("^K".equals(text.substring(0, 2))){
+                    Curs=true;
+            }
+            if("^S".equals(text.substring(0, 2))){
+                    Subr=true;
+            }
+        }
         
         for (int i = 0; i < text.length(); i++) {
             aux = text.charAt(i);
             String letra = Character.toString(aux);
+            
             if (x<1100){
                 if (Negrita == true){
                     g2d.setStroke(new BasicStroke(2f));//se enchanza en trazo para evitar letras incompletas
@@ -429,7 +445,7 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (Negrita == true) {
                         for (int j = 0; j < 3; j++) {
-                            Dletras(letra,x,y);
+                            DibujoFinal.add(Dletras(letra,x,y));
                             x++;
                         }
                     }
@@ -1673,9 +1689,8 @@ public class Dibujo extends javax.swing.JFrame {
                 g2d.draw((Shape) PuntosControl.get(i));//consultar de porque no se puede mostrar como tal y si o si debe usarse un shape
             }
         }
-        
     }//GEN-LAST:event_palabraKeyReleased
-
+    
     public Path2D.Double Dletras(String letra, int x, int y){
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)){
