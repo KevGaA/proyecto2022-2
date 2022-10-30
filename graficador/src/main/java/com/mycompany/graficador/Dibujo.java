@@ -14,7 +14,6 @@ public class Dibujo extends javax.swing.JFrame {
     public static Color colorito;
     private Graphics2D g2d;
     private Graphics2D g3d;
-    public static boolean caret=false;
     int Xp;
     public static boolean Puntos=false;
     
@@ -159,33 +158,36 @@ public class Dibujo extends javax.swing.JFrame {
         Path2D.Double curve = new Path2D.Double();
         jPanel1.update(g2d);
         
-        boolean Subr,Negrita,Curs;
+        boolean Subr=false,Negrita=false,Curs=false;
         
         int x=0,y=0;// posicion de las letras
         char aux;
         
-        Subr = subrayado.isSelected();
-        Negrita = negrita.isSelected();
-        Curs = cursiva.isSelected();
         
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
-        //ArrayList<String> Parseo = new ArrayList<>();
         
         String text = palabra.getText();
         
-        if(text.length()>2){//evita error de codigo
-            if("^N".equals(text.substring(0, 2))){
-                Negrita=true;
-            }
-            if("^K".equals(text.substring(0, 2))){
-                    Curs=true;
-            }
-            if("^S".equals(text.substring(0, 2))){
+        if (text.length()>1) {//funcion que detecta los carets y los modifica
+            if (text.charAt(0)=='^'){
+                if (text.charAt(1)=='N') {
+                    Negrita=true;
+                    text = text.substring(2);
+                }if (text.charAt(1)=='S') {
                     Subr=true;
+                    text = text.substring(2);
+                }if (text.charAt(1)=='K') {
+                    Curs=true;
+                    text = text.substring(2);
+                }
+            }
+            else{
+                Negrita=false;
+                Curs=false;
+                Subr=false;
             }
         }
-        
         for (int i = 0; i < text.length(); i++) {
             aux = text.charAt(i);
             String letra = Character.toString(aux);
