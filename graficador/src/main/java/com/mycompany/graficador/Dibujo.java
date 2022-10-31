@@ -833,7 +833,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 60;
                     }
@@ -854,8 +855,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -877,8 +878,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -899,8 +900,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -921,8 +922,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -943,8 +944,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -966,8 +967,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -988,8 +989,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -1013,12 +1014,8 @@ public class Dibujo extends javax.swing.JFrame {
 
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 20+y);
-                            curve.curveTo(20+x, 5+y, 40+x, 30+y, 60+x, 20+y);
-                            curve.curveTo(60+x, 15+y, 50+x, 5+y, 30+x, 20+y);
-                            curve.curveTo(30+x, 20+y, 50+x, 50+y, 40+x, 90+y);
-                            curve.curveTo(10+x, 90+y, 0+x, 70+y, 60+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -1039,15 +1036,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 10+y);
-                            curve.curveTo(0+x, 10+y, 6+x, 7+y, 10+x, 10+y);
-                            curve.lineTo(10+x, 70+y);
-                            curve.curveTo(7+x, 70+y, 5+x, 70+y, 0+x, 65+y);
-                            curve.moveTo(40+x, 10+y);
-                            curve.curveTo(30+x, 5+y, 20+x, 30+y, 10+x, 30+y);
-                            curve.curveTo(10+x, 50+y, 25+x, 45+y, 30+x, 65+y);
-                            curve.curveTo(30+x, 65+y, 32+x, 70+y, 40+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+40;
                     }
@@ -1069,12 +1059,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(25+x, 10+y);
-                            curve.curveTo(20+x, 0+y, 5+x, 0+y, 0+x, 10+y);
-                            curve.curveTo(0+x, 15+y, 8+x, 40+y, 5+x, 65+y);
-                            curve.curveTo(0+x, 80+y, 0+x, 40+y, 5+x, 65+y);
-                            curve.curveTo(5+x, 65+y, 15+x, 75+y, 30+x, 70+y);
-                            
+                           DibujoFinal.add(Dletras(letra,x,y));
+                           DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+30;
                     }
@@ -1095,17 +1081,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 30+y);
-                            curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                            curve.lineTo(25+x, 70+y);
-                            curve.moveTo(25+x, 30+y);
-                            curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                            curve.lineTo(50+x,70+y);
-                            curve.moveTo(50+x, 30+y);
-                            curve.curveTo(55+x, 0+y, 70+x, 0+y, 75+x, 30+y);
-                            curve.lineTo(75+x, 65+y);
-                            curve.curveTo(77+x, 70+y, 80+x, 70+y, 85+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+85;
                     }
@@ -1126,14 +1103,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 30+y);
-                            curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                            curve.lineTo(25+x, 70+y);
-                            curve.moveTo(25+x, 30+y);
-                            curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                            curve.lineTo(50+x,65+y);
-                            curve.curveTo(53+x, 70+y, 57+x, 70+y, 60+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -1154,16 +1125,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 30+y);
-                            curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                            curve.lineTo(25+x, 70+y);
-                            curve.moveTo(25+x, 30+y);
-                            curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                            curve.lineTo(50+x,65+y);
-                            curve.curveTo(53+x, 70+y, 57+x, 70+y, 60+x, 70+y);
-                            curve.moveTo(10+x, 3+y);
-                            curve.curveTo(20+x, -2+y, 30+x, 8+y, 40+x, 3+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+60;
                     }
@@ -1184,14 +1147,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(40+x, 0+y);
-                            curve.curveTo(0+x, 5+y, 0+x, 65+y, 40+x, 70+y);
-                            curve.curveTo(80+x, 65+y, 80+x, 5+y, 40+x, 0+y);
-                            curve.moveTo(18+x, 14+y);
-                            curve.curveTo(40+x, 20+y, 60+x, 20+y, 80+x, 10+y);
-                            curve.moveTo(65+x, 56+y);
-                            curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+80;
                     }
@@ -1212,14 +1169,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(5+x, 15+y);
-                            curve.curveTo(10+x,15+y , 25+x,10+y, 20+x,7+y);
-                            curve.curveTo(12+x, 5+y, 8+x, 10+y, 20+x, 10+y);
-                            curve.curveTo(45+x, 10+y, 45+x, 35+y, 20+x, 40+y);
-                            curve.lineTo(20+x, 7+y);
-                            curve.lineTo(20+x, 70+y);
-                            curve.curveTo(25+x, 70+y, 30+x, 75+y, 45+x, 70+y);
-                            
+                            cDibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+45;
                     }
@@ -1241,14 +1192,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(40+x, 0+y);
-                            curve.curveTo(0+x, 5+y, 0+x, 65+y, 40+x, 70+y);
-                            curve.curveTo(80+x, 65+y, 80+x, 5+y, 40+x, 0+y);
-                            curve.moveTo(18+x, 14+y);
-                            curve.curveTo(20+x, 30+y, 20+x, 50+y, 25+x, 50+y);
-                            curve.curveTo(35+x, 40+y, 55+x, 40+y, 65+x, 56+y);
-                            curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y)); 
                         }
                         x=x+80;
                     }
@@ -1269,7 +1214,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 45;
                     }
@@ -1290,7 +1236,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 70;
                     }
@@ -1311,7 +1258,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 60;
                     }
@@ -1332,8 +1280,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 60;
                     }
@@ -1354,8 +1302,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 60;
                     }
@@ -1376,8 +1324,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(80+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 80;
                     }
@@ -1398,8 +1346,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(55+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 55;
                     }
@@ -1420,7 +1368,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 55;
                     }
@@ -1441,8 +1390,8 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            curve.moveTo(0+x, 75+y);
-                            curve.lineTo(60+x, 75+y);
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x = x + 60;
                     }
