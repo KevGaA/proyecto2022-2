@@ -14,7 +14,6 @@ public class Dibujo extends javax.swing.JFrame {
     public static Color colorito;
     private Graphics2D g2d;
     private Graphics2D g3d;
-    public static boolean caret=false;
     int Xp;
     public static boolean Puntos=false;
     
@@ -158,1526 +157,1395 @@ public class Dibujo extends javax.swing.JFrame {
         g2d = (Graphics2D)jPanel1.getGraphics();
         Path2D.Double curve = new Path2D.Double();
         jPanel1.update(g2d);
-        
-        boolean Subr,Negrita,Curs;
+        g2d.setStroke(new BasicStroke(1.5f));
+        boolean Subr=false,Negrita=false,Curs=false;
         
         int x=0,y=0;// posicion de las letras
         char aux;
         
-        Subr = subrayado.isSelected();
-        Negrita = negrita.isSelected();
-        Curs = cursiva.isSelected();
         
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
-        //ArrayList<String> Parseo = new ArrayList<>();
         
         String text = palabra.getText();
+        String textSeparado[]=text.split(" ");
         
-        if(text.length()>2){//evita error de codigo
-            if("^N".equals(text.substring(0, 2))){
-                Negrita=true;
-            }
-            if("^K".equals(text.substring(0, 2))){
-                    Curs=true;
-            }
-            if("^S".equals(text.substring(0, 2))){
-                    Subr=true;
-            }
-        }
         
-        for (int i = 0; i < text.length(); i++) {
-            aux = text.charAt(i);
-            String letra = Character.toString(aux);
+        
+        for (int i = 0; i < textSeparado.length; i++){
+            System.out.println(textSeparado[i]);
+            Negrita=false;
+            Curs=false;
+            Subr=false;
             
-            if (x<1100){
-                if (Negrita == true){
-                    g2d.setStroke(new BasicStroke(2f));//se enchanza en trazo para evitar letras incompletas
-                }
-                if (Puntos == true) {
-                    Pcontrol1.setBackground(new java.awt.Color(255, 102, 102));
+            for (int k = 0; k < textSeparado[i].length(); k++) {
+                if (textSeparado[i].length()>1) {//funcion que detecta los carets y los modifica
+                    if (textSeparado[i].charAt(0)=='^'){
+                        if (textSeparado[i].charAt(1)=='N') {
+                            Negrita=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                        }if (textSeparado[i].charAt(1)=='S') {
+                            Subr=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                        }if (textSeparado[i].charAt(1)=='K') {
+                            Curs=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                        }
                     }
-                else{
-                    Pcontrol1.setBackground(Color.white);
                 }
-                if (" ".equals(letra)){//listo
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(50+x, 75+y);
+                
+                aux = textSeparado[i].charAt(k);
+                String letra = Character.toString(aux);
+
+                if (x<1100){
+                    if (Negrita == true){
+                        //g2d.setStroke(new BasicStroke(2f));//se enchanza en trazo para evitar letras incompletas
+                    }
+                    if (Puntos == true) {
+                        Pcontrol1.setBackground(new java.awt.Color(255, 102, 102));
+                        }
+                    else{
+                        Pcontrol1.setBackground(Color.white);
+                    }
+                    if (" ".equals(letra)){//listo
+                        if (Subr == true){
+                            curve.moveTo(0+x, 75+y);
+                            curve.lineTo(50+x, 75+y);
+                        } 
+                }
+                    if ("a".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j <3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            PuntosControl.add(Pcontrol(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+70;
+                    }
+                    if ("b".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+40;
+                    }
+                    if ("c".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+50;
+                    }
+                    if ("d".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+55;
+                    }
+                    if ("e".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+50;
+                    }
+
+                    if ("f".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+40;
+                    }
+
+                    if ("g".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+50;
+                    }
+                    if ("h".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+50;
+                    }
+
+                    if ("i".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+45;
+                    }
+
+                    if ("j".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {//puntos de control
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr==true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 40;
+                    }
+                    if("k".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+
+                        }
+                        x = x + 40;
+                    }
+                    if("l".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 35; 
+                    }
+                    if("m".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 65;
+                    }
+                    if("n".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x +50;
+                    }
+                    if("ñ".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 50;
+                    }
+                    if("o".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos == true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 50;
+                    }
+                    if("p".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x +45;
+                    }
+                    if("q".equals(letra)){//listo
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true){
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 45;
+                    }
+                    if("r".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 30;
+                    }
+
+                    if("s".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 50;
+                    }
+                    if("t".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 40;
+                    }
+                    if("u".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 55;
+                    }
+                    if("v".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 53;
+                    }
+                    if("w".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 4; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 66;
+                    }
+
+                    if("x".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 56;
+                    }
+                    if("y".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 50;
+                    }
+                    if("z".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 40;
+                    }
+                    if ("A".equals(letra)){//Dibujar A
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 60;
+                    }
+                    if ("B".equals(letra)){//Dibujar B
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+
+                    if ("C".equals(letra)){//Dibujar C
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("D".equals(letra)){//Dibujar D
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("F".equals(letra)){//Dibujar F
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("G".equals(letra)){//Dibujar g
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+
+                    if ("H".equals(letra)){//Dibujar H
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("I".equals(letra)){//Dibujar i
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("J".equals(letra)){//Dibujar J
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Curs==true) {
+
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("K".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+40;
+                    }
+
+                    if ("L".equals(letra)){//L mayuscula
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                           DibujoFinal.add(Dletras(letra,x,y));
+                           DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+30;
+                    }
+                    if ("M".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+85;
+                    }
+                    if ("N".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("Ñ".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+60;
+                    }
+                    if ("O".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+80;
+                    }
+                    if ("P".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            cDibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x=x+45;
+                    }
+
+                    if ("Q".equals(letra)) {
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y)); 
+                        }
+                        x=x+80;
+                    }
+                    if("R".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 45;
+                    }
+                    if("S".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 70;
+                    }
+                    if("T".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 60;
+                    }
+                    if("U".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 60;
+                    }
+                    if("V".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 60;
+                    }
+                    if("W".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 80;
+                    }
+                    if("X".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 55;
+                    }
+                    if("Y".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 55;
+                    }
+                    if("Z".equals(letra)){
+                        if (Negrita==false && Curs==false && Subr==false) {
+                            DibujoFinal.add(Dletras(letra,x,y));
+                        }
+                        if (Negrita == true) {
+                            for (int j = 0; j < 3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }
+                        }
+                        if (Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        }
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        if (Subr == true){
+                            DibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                        }
+                        x = x + 60;
+                    }
+                    //SIMBOLOS
+                    if("-".equals(letra)){
+                        DibujoFinal.add(Dletras(letra,x,y));
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        x = x + 40;
+                    }
+                    if("_".equals(letra)){
+                        DibujoFinal.add(Dletras(letra,x,y));
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        x = x + 40;
+                    }
+                    if("(".equals(letra)){
+                        DibujoFinal.add(Dletras(letra,x,y));
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        x = x + 30;
+                    }
+                    if(")".equals(letra)){
+                        DibujoFinal.add(Dletras(letra,x,y));
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        x = x + 30;
+                    }
+                    if("[".equals(letra)){
+                        DibujoFinal.add(Dletras(letra,x,y));
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
+                        }
+                        x = x + 30;
                     } 
-            }
-                if ("a".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("{".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j <3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        PuntosControl.add(Pcontrol(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(80+x, 75+y);
-                    }
-                    x=x+70;
-                }
-                if ("b".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                        x = x + 35;
+                    } 
+                    if("}".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+40;
-                }
-                if ("c".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                        x = x + 35;
+                    } 
+                    if("]".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x = x + 30;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+50;
-                }
-                if ("d".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("!".equals(letra)){ 
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x = x + 40;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+55;
-                }
-                if ("e".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("¡".equals(letra)){ 
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x = x + 40;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+50;
-                }
-
-                if ("f".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("¿".equals(letra)){ 
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x = x + 50;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+40;
-                }
-
-                if ("g".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("?".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x = x + 50;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+50;
-                }
-                if ("h".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if(".".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+50;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+50;
-                }
-
-                if ("i".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if(":".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+50;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+45;
-                }
-
-                if ("j".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if(",".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+50;
                     }
-                    if (Puntos == true) {//puntos de control
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr==true){
-                        curve.moveTo(25+x, 35+y);
-                        curve.curveTo(22+x, 36+y, 22+x, 44+y, 25+x, 45+y);
-                        curve.curveTo(28+x, 44+y, 28+x, 36+y, 25+x, 35+y);
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(15+x, 70+y, 15+x, 70+y, 25+x, 50+y);
-                        curve.lineTo(25+x, 110+y);
-                        curve.curveTo(0+x, 135+y, 0+x, 80+y, 40+x, 70+y);
-                        
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x = x + 40;
-                }
-                if("k".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if(";".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+50;
                     }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(25+x, 65+y, 25+x, 20+y, 20+x,15+y );
-                        curve.curveTo(15+x, 20+y, 15+x, 35+y, 20+x, 70+y);
-                        curve.moveTo(20+x, 48+y);
-                        curve.curveTo(40+x, 51+y, 40+x, 59+y, 25+x, 60+y);
-                        curve.curveTo(40+x, 59+y, 40+x, 69+y, 25+x, 70+y);
-                        curve.curveTo(20+x, 70+y, 30+x, 70+y, 40+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x = x + 40;
-                }
-                if("l".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("'".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+5;
                     }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(25+x, 65+y, 25+x, 20+y, 20+x,10+y);
-                        curve.curveTo(5+x, 20+y, 5+x, 65+y, 35+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(35+x, 75+y);
-                    }
-                    x = x + 35; 
-                }
-                if("m".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if( "\"".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+5;
                     }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(10+x, 40+y);
-                        curve.curveTo(15+x, 35+y, 20+x, 35+y, 25+x, 40+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 40+y);
-                        curve.curveTo(30+x, 35+y, 35+x, 35+y, 40+x, 40+y);
-                        curve.lineTo(40+x, 70+y);
-                        curve.moveTo(40+x, 40+y);
-                        curve.curveTo(45+x, 35+y, 45+x, 35+y, 55+x, 40+y);
-                        curve.lineTo(55+x, 64+y);
-                        curve.curveTo(53+x, 70+y, 62+x, 70+y, 65+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(65+x, 75+y);
-                    }
-                    x = x + 65;
-                }
-                if("n".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if("<".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+15;
                     }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(10+x, 40+y);
-                        curve.curveTo(15+x, 35+y, 20+x, 35+y, 25+x, 40+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 40+y);
-                        curve.curveTo(30+x, 35+y, 35+x, 35+y, 40+x, 40+y);
-                        curve.lineTo(40+x, 64+y);
-                        curve.curveTo(43+x, 70+y, 47+x, 70+y, 50+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(50+x, 75+y);
-                    }
-                    x = x +50;
-                }
-                if("ñ".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
+                    if(">".equals(letra)){
                         DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
+                        if (Puntos==true) {
+                            Pcontrol(letra,x,y);
                         }
+                        x=x+15;
                     }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
+                    if (" ".equals(letra)){
+                        x = x + 50;
                     }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(2+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.lineTo(10+x, 40+y);
-                        curve.curveTo(15+x, 35+y, 20+x, 35+y, 25+x, 40+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 40+y);
-                        curve.curveTo(30+x, 35+y, 35+x, 35+y, 40+x, 40+y);
-                        curve.lineTo(40+x, 64+y);
-                        curve.curveTo(43+x, 70+y, 47+x, 70+y, 50+x, 70+y);
-                        curve.moveTo(15+x, 30+y);
-                        curve.curveTo(20+x, 25+y, 30+x, 35+y, 35+x, 30+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(50+x, 75+y);
-                    }
-                    x = x + 50;
                 }
-                if("o".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Puntos == true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(4+x, 70+y, 8+x, 70+y, 13+x, 64+y);
-                        curve.moveTo(25+x, 40+y);
-                        curve.curveTo(5+x, 45+y, 5+x, 65+y, 25+x, 70+y);
-                        curve.curveTo(45+x, 65+y, 45+x, 45+y, 25+x, 40+y);
-                        curve.moveTo(13+x, 46+y);
-                        curve.curveTo(18+x, 50+y, 40+x, 50+y, 45+x, 45+y);
-                        curve.moveTo(37+x, 64+y);
-                        curve.curveTo(42+x, 70+y, 46+x, 70+y, 50+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(50+x, 75+y);
-                    }
-                    x = x + 50;
+                if (x>=1100){
+                    DibujoFinal.add(Dletras("-",x,y));
+                    y = y+90;
+                    x = 0;
                 }
-                if("p".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(5+x, 75+y, 17+x, 47+y, 20+x, 40+y);
-                        curve.curveTo(45+x, 45+y, 45+x, 65+y, 20+x, 70+y);
-                        curve.lineTo(20+x, 40+y);
-                        curve.lineTo(20+x, 90+y);
-                        curve.moveTo(20+x, 70+y);
-                        curve.curveTo(25+x, 72+y, 40+x, 72+y, 45+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(45+x, 75+y);
-                    }
-                    x = x +45;
-                }
-                if("q".equals(letra)){//listo
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true){
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 70+y);
-                        curve.curveTo(4+x, 70+y, 8+x, 70+y, 10+x, 64+y);
-                        curve.moveTo(20+x, 40+y);
-                        curve.curveTo(0+x, 45+y, 0+x, 65+y, 20+x, 70+y);
-                        curve.curveTo(40+x, 65+y, 40+x, 45+y, 20+x, 40+y);
-                        curve.moveTo(35+x, 55+y);
-                        curve.lineTo(35+x, 90+y);
-                        curve.moveTo(35+x, 70+y);
-                        curve.curveTo(20+x, 85+y, 20+x, 60+y, 45+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(45+x, 75+y);
-                    }
-                    x = x + 45;
-                }
-                if("r".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x = x + 30;
-                }
-
-                if("s".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(50+x, 75+y);
-                    }
-                    x = x + 50;
-                }
-                if("t".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x = x + 40;
-                }
-                if("u".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(55+x, 75+y);
-                    }
-                    x = x + 55;
-                }
-                if("v".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(55+x, 75+y);
-                    }
-                    x = x + 53;
-                }
-                if("w".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 4; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(66+x, 75+y);
-                    }
-                    x = x + 66;
-                }
-
-                if("x".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(59+x, 75+y);
-                    }
-                    x = x + 56;
-                }
-                if("y".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(55+x, 75+y);
-                    }
-                    x = x + 50;
-                }
-                if("z".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x = x + 40;
-                }
-                if ("A".equals(letra)){//Dibujar A
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x = x + 60;
-                }
-                if ("B".equals(letra)){//Dibujar B
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                
-                if ("C".equals(letra)){//Dibujar C
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("D".equals(letra)){//Dibujar D
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("F".equals(letra)){//Dibujar F
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("G".equals(letra)){//Dibujar g
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                
-                if ("H".equals(letra)){//Dibujar H
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("I".equals(letra)){//Dibujar i
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("J".equals(letra)){//Dibujar J
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Curs==true) {
-                        
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 20+y);
-                        curve.curveTo(20+x, 5+y, 40+x, 30+y, 60+x, 20+y);
-                        curve.curveTo(60+x, 15+y, 50+x, 5+y, 30+x, 20+y);
-                        curve.curveTo(30+x, 20+y, 50+x, 50+y, 40+x, 90+y);
-                        curve.curveTo(10+x, 90+y, 0+x, 70+y, 60+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("K".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 10+y);
-                        curve.curveTo(0+x, 10+y, 6+x, 7+y, 10+x, 10+y);
-                        curve.lineTo(10+x, 70+y);
-                        curve.curveTo(7+x, 70+y, 5+x, 70+y, 0+x, 65+y);
-                        curve.moveTo(40+x, 10+y);
-                        curve.curveTo(30+x, 5+y, 20+x, 30+y, 10+x, 30+y);
-                        curve.curveTo(10+x, 50+y, 25+x, 45+y, 30+x, 65+y);
-                        curve.curveTo(30+x, 65+y, 32+x, 70+y, 40+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(40+x, 75+y);
-                    }
-                    x=x+40;
-                }
-
-                if ("L".equals(letra)){//L mayuscula
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(25+x, 10+y);
-                        curve.curveTo(20+x, 0+y, 5+x, 0+y, 0+x, 10+y);
-                        curve.curveTo(0+x, 15+y, 8+x, 40+y, 5+x, 65+y);
-                        curve.curveTo(0+x, 80+y, 0+x, 40+y, 5+x, 65+y);
-                        curve.curveTo(5+x, 65+y, 15+x, 75+y, 30+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(30+x, 75+y);
-                    }
-                    x=x+30;
-                }
-                if ("M".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 30+y);
-                        curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 30+y);
-                        curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                        curve.lineTo(50+x,70+y);
-                        curve.moveTo(50+x, 30+y);
-                        curve.curveTo(55+x, 0+y, 70+x, 0+y, 75+x, 30+y);
-                        curve.lineTo(75+x, 65+y);
-                        curve.curveTo(77+x, 70+y, 80+x, 70+y, 85+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(85+x, 75+y);
-                    }
-                    x=x+85;
-                }
-                if ("N".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 30+y);
-                        curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 30+y);
-                        curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                        curve.lineTo(50+x,65+y);
-                        curve.curveTo(53+x, 70+y, 57+x, 70+y, 60+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("Ñ".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 30+y);
-                        curve.curveTo(5+x, 0+y, 20+x, 0+y, 25+x, 30+y);
-                        curve.lineTo(25+x, 70+y);
-                        curve.moveTo(25+x, 30+y);
-                        curve.curveTo(30+x, 0+y, 45+x, 0+y, 50+x, 30+y);
-                        curve.lineTo(50+x,65+y);
-                        curve.curveTo(53+x, 70+y, 57+x, 70+y, 60+x, 70+y);
-                        curve.moveTo(10+x, 3+y);
-                        curve.curveTo(20+x, -2+y, 30+x, 8+y, 40+x, 3+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x=x+60;
-                }
-                if ("O".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(40+x, 0+y);
-                        curve.curveTo(0+x, 5+y, 0+x, 65+y, 40+x, 70+y);
-                        curve.curveTo(80+x, 65+y, 80+x, 5+y, 40+x, 0+y);
-                        curve.moveTo(18+x, 14+y);
-                        curve.curveTo(40+x, 20+y, 60+x, 20+y, 80+x, 10+y);
-                        curve.moveTo(65+x, 56+y);
-                        curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(80+x, 75+y);
-                    }
-                    x=x+80;
-                }
-                if ("P".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(5+x, 15+y);
-                        curve.curveTo(10+x,15+y , 25+x,10+y, 20+x,7+y);
-                        curve.curveTo(12+x, 5+y, 8+x, 10+y, 20+x, 10+y);
-                        curve.curveTo(45+x, 10+y, 45+x, 35+y, 20+x, 40+y);
-                        curve.lineTo(20+x, 7+y);
-                        curve.lineTo(20+x, 70+y);
-                        curve.curveTo(25+x, 70+y, 30+x, 75+y, 45+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(45+x, 75+y);
-                    }
-                    x=x+45;
-                }
-
-                if ("Q".equals(letra)) {
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(40+x, 0+y);
-                        curve.curveTo(0+x, 5+y, 0+x, 65+y, 40+x, 70+y);
-                        curve.curveTo(80+x, 65+y, 80+x, 5+y, 40+x, 0+y);
-                        curve.moveTo(18+x, 14+y);
-                        curve.curveTo(20+x, 30+y, 20+x, 50+y, 25+x, 50+y);
-                        curve.curveTo(35+x, 40+y, 55+x, 40+y, 65+x, 56+y);
-                        curve.curveTo(70+x, 65+y, 75+x, 70+y, 80+x, 70+y);
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(80+x, 75+y);
-                    }
-                    x=x+80;
-                }
-                if("R".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(45+x, 75+y);
-                    }
-                    x = x + 45;
-                }
-                if("S".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(70+x, 75+y);
-                    }
-                    x = x + 70;
-                }
-                if("T".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x = x + 60;
-                }
-                if("U".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x = x + 60;
-                }
-                if("V".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x = x + 60;
-                }
-                if("W".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(80+x, 75+y);
-                    }
-                    x = x + 80;
-                }
-                if("X".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(55+x, 75+y);
-                    }
-                    x = x + 55;
-                }
-                if("Y".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(55+x, 75+y);
-                    }
-                    x = x + 55;
-                }
-                if("Z".equals(letra)){
-                    if (Negrita==false && Curs==false && Subr==false) {
-                        DibujoFinal.add(Dletras(letra,x,y));
-                    }
-                    if (Negrita == true) {
-                        for (int j = 0; j < 3; j++) {
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            x++;
-                        }
-                    }
-                    if (Curs==true) {
-                        DibujoFinal.add(Dcursivas(letra,x,y));
-                    }
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    if (Subr == true){
-                        curve.moveTo(0+x, 75+y);
-                        curve.lineTo(60+x, 75+y);
-                    }
-                    x = x + 60;
-                }
-                //SIMBOLOS
-                if("-".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 40;
-                }
-                if("_".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 40;
-                }
-                if("(".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 30;
-                }
-                if(")".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 30;
-                }
-                if("[".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 30;
-                } 
-                if("{".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 35;
-                } 
-                if("}".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 35;
-                } 
-                if("]".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 30;
-                }
-                if("!".equals(letra)){ 
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 40;
-                }
-                if("¡".equals(letra)){ 
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 40;
-                }
-                if("¿".equals(letra)){ 
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 50;
-                }
-                if("?".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x = x + 50;
-                }
-                if(".".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+50;
-                }
-                if(":".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+50;
-                }
-                if(",".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+50;
-                }
-                if(";".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+50;
-                }
-                if("'".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+5;
-                }
-                if( "\"".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+5;
-                }
-                if("<".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+15;
-                }
-                if(">".equals(letra)){
-                    DibujoFinal.add(Dletras(letra,x,y));
-                    if (Puntos==true) {
-                        Pcontrol(letra,x,y);
-                    }
-                    x=x+15;
-                }
-                if (" ".equals(letra)){
-                    x = x + 50;
-                }
-            }
-            if (x>=1100){
-                y = y+90;
-                curve.moveTo(10+x, 50+y);
-                curve.lineTo(30+x, 50+y);
-                x = 0;
-            }
+            }x=x+50;
         }
         
         g2d.setColor(colorito);
@@ -1686,7 +1554,7 @@ public class Dibujo extends javax.swing.JFrame {
         }
         if(Puntos==true){
             for (int i = 0; i < PuntosControl.size(); i++) {
-                g2d.draw((Shape) PuntosControl.get(i));//consultar de porque no se puede mostrar como tal y si o si debe usarse un shape
+                g2d.draw((Shape) PuntosControl.get(i));
             }
         }
     }//GEN-LAST:event_palabraKeyReleased
@@ -2600,6 +2468,230 @@ public class Dibujo extends javax.swing.JFrame {
         }
                 
         return curve;        
+    }
+    
+    public Path2D.Double Dsubrayado(String letra, int x, int y){
+        Path2D.Double curve = new Path2D.Double();
+        if("a".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(70+x, 75+y);
+        }
+        if("b".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("c".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("d".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("e".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("f".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("g".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("h".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("i".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("j".equals(letra)){                     
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("k".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("l".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(35+x, 75+y);
+        }
+        if("m".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(65+x, 75+y);
+        }
+        if("n".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(50+x, 75+y);
+            
+        }
+        if("ñ".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(50+x, 75+y);
+        }
+        if("o".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(50+x, 75+y);
+        }
+        if("p".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(45+x, 75+y);
+        }
+        if("q".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(45+x, 75+y);
+        }
+        if("r".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("s".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(50+x, 75+y);
+        }
+        if("t".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("u".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(55+x, 75+y);
+        }
+        if("v".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(55+x, 75+y);
+        }
+        if("w".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(66+x, 75+y);
+        }
+        if("x".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(59+x, 75+y);
+        }
+        if("y".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(55+x, 75+y);
+        }
+        if("z".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("A".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("B".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("C".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("D".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("E".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("F".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("G".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("H".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("I".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("J".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("K".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(40+x, 75+y);
+        }
+        if("L".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(30+x, 75+y);
+        }
+        if("M".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(85+x, 75+y);
+        }
+        if("N".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("Ñ".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("O".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(80+x, 75+y);
+        }
+        if("P".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(45+x, 75+y);
+        }
+        if("Q".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(80+x, 75+y);
+        }
+        if("R".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(45+x, 75+y);
+        }
+        if("S".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(70+x, 75+y);
+        }
+        if("T".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("U".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("V".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("W".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(80+x, 75+y);
+        }
+        if("X".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(55+x, 75+y);
+        }
+        if("Y".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        if("Z".equals(letra)){
+            curve.moveTo(0+x, 75+y);
+            curve.lineTo(60+x, 75+y);
+        }
+        
+        
+        return curve;
     }
     
     public Graphics2D Pcontrol(String letra,int x, int y) {
@@ -3774,6 +3866,7 @@ public class Dibujo extends javax.swing.JFrame {
         }
         return g3d;
     }
+    
     
     
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
