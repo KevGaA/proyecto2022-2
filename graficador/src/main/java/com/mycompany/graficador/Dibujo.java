@@ -1606,7 +1606,10 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     
                 }
-                if (x>=1100){
+                if (x>1150) {
+                    DibujoFinal.add(Dletras("-",x,y));
+                }
+                if (x>1070){
                     y = y+90;
                     x = 0;
                 }
