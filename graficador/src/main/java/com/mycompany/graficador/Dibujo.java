@@ -1169,7 +1169,7 @@ public class Dibujo extends javax.swing.JFrame {
                             Pcontrol(letra,x,y);
                         }
                         if (Subr == true){
-                            cDibujoFinal.add(Dletras(letra,x,y));
+                            DibujoFinal.add(Dletras(letra,x,y));
                             DibujoFinal.add(Dsubrayado(letra,x,y));
                         }
                         x=x+45;
