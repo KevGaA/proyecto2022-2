@@ -2477,7 +2477,7 @@ public class Dibujo extends javax.swing.JFrame {
             curve.curveTo(60+x, 74+y, 53+x, 15+y, 63+x, 10+y);
             curve.curveTo(53+x, 40+y, 50+x, 75+y, 60+x, 70+y);
         }
-        if("V".equals(letra)){
+        if("V".equals(letra)){ //aqui
             
         }
         if("W".equals(letra)){
