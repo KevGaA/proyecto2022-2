@@ -1800,7 +1800,7 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x + 50;
                     }
                 }
-                if (x>=1100){
+                if (x>1050){
                     DibujoFinal.add(Dletras("-",x,y));
                     y = y+90;
                     x = 0;
