@@ -152,52 +152,10 @@ public class Dibujo extends javax.swing.JFrame {
             Subr=false;
             
             for (int k = 0; k < textSeparado[i].length(); k++) {
-                if (textSeparado[i].length()>1) {//funcion que detecta los carets y los modifica
-                    if (textSeparado[i].charAt(0)=='^'){
-                        if (textSeparado[i].charAt(1)=='N') {
-                            Negrita=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
-                            if (textSeparado[i].charAt(2)=='+') {
-                                if (textSeparado[i].charAt(3)=='K') {
-                                    Curs=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                                if (textSeparado[i].charAt(3)=='S') {
-                                    Subr=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                            }
-                            
-                        }if (textSeparado[i].charAt(1)=='S') {
-                            Subr=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
-                            if (textSeparado[i].charAt(2)=='+') {
-                                if (textSeparado[i].charAt(3)=='K') {
-                                    Curs=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                                if (textSeparado[i].charAt(3)=='N') {
-                                    Negrita=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                            }
-                        }if (textSeparado[i].charAt(1)=='K') {
-                            Curs=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
-                            if (textSeparado[i].charAt(2)=='+') {
-                                if (textSeparado[i].charAt(3)=='N') {
-                                    Negrita=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                                if (textSeparado[i].charAt(3)=='S') {
-                                    Subr=true;
-                                    textSeparado[i]=textSeparado[i].substring(4);
-                                }
-                            }
-                        }
-                    }
-                }
-                
+                boolean temp[] = Carets(textSeparado, Negrita, Curs, Subr,i,k);
+                Negrita=temp[0];
+                Curs=temp[1];
+                Subr=temp[2];
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
 
@@ -4406,7 +4364,56 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
     
-    
+    @SuppressWarnings("empty-statement")
+    public boolean[] Carets(String[] textSeparado, boolean Negrita, boolean Curs, boolean Subr,int i,int k){
+        if (textSeparado[i].length()>1) {//funcion que detecta los carets y los modifica
+                    if (textSeparado[i].charAt(0)=='^'){
+                        if (textSeparado[i].charAt(1)=='N') {
+                            Negrita=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                            if (textSeparado[i].charAt(2)=='+') {
+                                if (textSeparado[i].charAt(3)=='K') {
+                                    Curs=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                                if (textSeparado[i].charAt(3)=='S') {
+                                    Subr=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                            }
+                            
+                        }if (textSeparado[i].charAt(1)=='S') {
+                            Subr=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                            if (textSeparado[i].charAt(2)=='+') {
+                                if (textSeparado[i].charAt(3)=='K') {
+                                    Curs=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                                if (textSeparado[i].charAt(3)=='N') {
+                                    Negrita=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                            }
+                        }if (textSeparado[i].charAt(1)=='K') {
+                            Curs=true;
+                            textSeparado[i] = textSeparado[i].substring(2);
+                            if (textSeparado[i].charAt(2)=='+') {
+                                if (textSeparado[i].charAt(3)=='N') {
+                                    Negrita=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                                if (textSeparado[i].charAt(3)=='S') {
+                                    Subr=true;
+                                    textSeparado[i]=textSeparado[i].substring(4);
+                                }
+                            }
+                        }
+                    }
+                }
+        boolean temp[] = {Negrita,Curs,Subr};
+        return temp;
+    }
     
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
         if(colorito==null){
