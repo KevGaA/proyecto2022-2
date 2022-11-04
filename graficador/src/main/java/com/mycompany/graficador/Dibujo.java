@@ -150,7 +150,6 @@ public class Dibujo extends javax.swing.JFrame {
             Negrita=false;
             Curs=false;
             Subr=false;
-            
             for (int k = 0; k < textSeparado[i].length(); k++) {
                 boolean temp[] = Carets(textSeparado, Negrita, Curs, Subr,i,k);
                 Negrita=temp[0];
@@ -180,27 +179,55 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra,x,y));
                         }
                         if (Negrita == true) {
-                            for (int j = 0; j <3; j++) {
+                            if (Curs==false && Subr== false) {
+                                for (int j = 0; j <3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                                }
+                            }if (Curs == true) {
+                                for (int j = 0; j <3; j++) {
+                                DibujoFinal.add(Dcursivas(letra,x,y));
+                                x++;
+                                }
+                            }if (Subr ==true){
+                                for (int j = 0; j <3; j++) {
                                 DibujoFinal.add(Dletras(letra,x,y));
                                 x++;
                             }
+                            DibujoFinal.add(Dsubrayado(letra,x,y));
+                            }
                         }
-                        if (Curs==true) {
-                            DibujoFinal.add(Dcursivas(letra,x,y));
+                        if (Curs == true) {
+                            if (Negrita==false && Subr==false) {
+                                DibujoFinal.add(Dcursivas(letra,x,y));
+                            }if (Negrita==true) {
+                                for (int j = 0; j <3; j++) {
+                                    DibujoFinal.add(Dcursivas(letra,x,y));
+                                    x++;
+                                }
+                            }if (Subr==true){
+                                for (int j = 0; j <3; j++) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                x++;
+                            }DibujoFinal.add(Dsubrayado(letra,x,y));
+                            }
+                        }
+                        if (Subr==true){
+                            if (Curs==false && Negrita==false) {
+                                DibujoFinal.add(Dletras(letra,x,y));
+                                DibujoFinal.add(Dsubrayado(letra,x,y));
+                            }if (Negrita == true) {
+                                for (int j = 0; j <3; j++) {
+                                    DibujoFinal.add(Dcursivas(letra,x,y));
+                                    x++;
+                                }DibujoFinal.add(Dsubrayado(letra,x,y));
+                            }if (Curs ==true){
+                                DibujoFinal.add(Dcursivas(letra,x,y));
+                                DibujoFinal.add(Dsubrayado(letra,x,y));
+                            }
                         }
                         if (Puntos == true) {
                             PuntosControl.add(Pcontrol(letra,x,y));
-                        }
-                        if (Subr == true){
-                            DibujoFinal.add(Dletras(letra,x,y));
-                            DibujoFinal.add(Dsubrayado(letra,x,y));
-                        }
-                        if(Negrita == true && Subr==true){
-                            for (int j = 0; j <3; j++) {
-                                DibujoFinal.add(Dletras(letra,x,y));
-                                x++;
-                            }
-                            DibujoFinal.add(Dletras(letra,x,y));
                         }
                         x=x+70;
                     }
