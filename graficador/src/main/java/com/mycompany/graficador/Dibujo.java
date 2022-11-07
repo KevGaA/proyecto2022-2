@@ -200,7 +200,7 @@ public class Dibujo extends javax.swing.JFrame {
                             }if (Negrita==true && Curs==false) {
                                 for (int j = 0; j <3; j++) {
                                     DibujoFinal.add(Dletras(letra,x,y));
-                                x++;
+                                    x++;
                                 }DibujoFinal.add(Dsubrayado(letra,x,y));
                             }if (Negrita==false && Curs==true){
                                 DibujoFinal.add(Dcursivas(letra,x,y));
@@ -4417,7 +4417,7 @@ public class Dibujo extends javax.swing.JFrame {
                     if (textSeparado[i].charAt(0)=='^'){
                         if (textSeparado[i].charAt(1)=='N') {
                             Negrita=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
+                            
                             if (textSeparado[i].charAt(2)=='+') {
                                 if (textSeparado[i].charAt(3)=='K') {
                                     Curs=true;
@@ -4427,10 +4427,13 @@ public class Dibujo extends javax.swing.JFrame {
                                     Subr=true;
                                     textSeparado[i]=textSeparado[i].substring(4);
                                 }
+                            }else{
+                                textSeparado[i] = textSeparado[i].substring(2);
                             }
-                        }if (textSeparado[i].charAt(1)=='S') {
+                        }
+                        if (textSeparado[i].charAt(1)=='S') {
                             Subr=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
+                            //textSeparado[i] = textSeparado[i].substring(2); //si se borra esta linea funciona la multiplicidad de letras
                             if (textSeparado[i].charAt(2)=='+') {
                                 if (textSeparado[i].charAt(3)=='K') {
                                     Curs=true;
@@ -4440,10 +4443,13 @@ public class Dibujo extends javax.swing.JFrame {
                                     Negrita=true;
                                     textSeparado[i]=textSeparado[i].substring(4);
                                 }
+                            }else{
+                                textSeparado[i] = textSeparado[i].substring(2);
                             }
-                        }if (textSeparado[i].charAt(1)=='K') {
+                        }
+                        if (textSeparado[i].charAt(1)=='K') {
                             Curs=true;
-                            textSeparado[i] = textSeparado[i].substring(2);
+                            //textSeparado[i] = textSeparado[i].substring(2);
                             if (textSeparado[i].charAt(2)=='+') {
                                 if (textSeparado[i].charAt(3)=='N') {
                                     Negrita=true;
@@ -4453,6 +4459,8 @@ public class Dibujo extends javax.swing.JFrame {
                                     Subr=true;
                                     textSeparado[i]=textSeparado[i].substring(4);
                                 }
+                            }else{
+                                textSeparado[i] = textSeparado[i].substring(2);
                             }
                         }
                     }
