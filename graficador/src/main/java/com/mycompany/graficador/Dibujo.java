@@ -5633,6 +5633,35 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if(textSeparado[i].charAt(1)=='T')  {
                             
+                            if (textSeparado[i].charAt(2)!=0) {
+                                //T=numero ingresado asignado a variable T
+                                if (textSeparado[i].charAt(3)=='N') {
+                                    Negrita=true;
+                                    if (textSeparado[i].charAt(4)=='+') {
+                                        if (textSeparado[i].charAt(5)=='S') {
+                                            Subr=true;
+                                            textSeparado[i]=textSeparado[i].substring(6);
+                                        }
+                                    }else{
+                                        textSeparado[i]=textSeparado[i].substring(4);
+                                    }
+                                }
+                                if (textSeparado[i].charAt(3)=='S') {
+                                    Subr=true;
+                                    if (textSeparado[i].charAt(4)=='+') {
+                                        if (textSeparado[i].charAt(5)=='N') {
+                                            Negrita=true;
+                                            textSeparado[i]=textSeparado[i].substring(6);
+                                        }
+                                    }else{
+                                        textSeparado[i]=textSeparado[i].substring(4);
+                                    }
+                                }
+                            }
+                            
+                            else{
+                                textSeparado[i] = textSeparado[i].substring(2);
+                            }
                         }
                     }
                 }
