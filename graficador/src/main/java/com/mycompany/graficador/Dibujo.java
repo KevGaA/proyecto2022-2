@@ -15,6 +15,7 @@ public class Dibujo extends javax.swing.JFrame {
     private Graphics2D g2d;
     private Graphics2D g3d;
     int Xp;
+    int T=2;
     public static boolean Puntos=false;
     
     public Dibujo() {
@@ -134,7 +135,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr=false,Negrita=false,Curs=false;
         
-        int T=2;
+        
         int x=0,y=0;// posicion de las letras
         char aux;
         
@@ -5634,7 +5635,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if(textSeparado[i].charAt(1)=='T')  {
                             
                             if (textSeparado[i].charAt(2)!=0) {
-                                //T=numero ingresado asignado a variable T
+                                int TT = textSeparado[i].charAt(2);//variable TT=T
                                 if (textSeparado[i].charAt(3)=='+') {
                                     if (textSeparado[i].charAt(4)=='N') {
                                     Negrita=true;
