@@ -2780,7 +2780,7 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x + 50;
                     }
                 }
-                if (x>1050){
+                if (x>1050/T){
                     DibujoFinal.add(Dletras("-",x,y,T));
                     y = y+90;
                     x = 0;
@@ -3523,17 +3523,17 @@ public class Dibujo extends javax.swing.JFrame {
     
     public Path2D.Double Dcursivas(String letra, int x, int y,int T){
         Path2D.Double curve = new Path2D.Double();
-        /*
+        
         if("a".equals(letra)){
-            curve.moveTo(0+x)*T, 70+y)*T;
-            curve.curveTo(18+x)*T, 71+y)*T, 23+x)*T, 67+y)*T, 40+x)*T, 30+y)*T);
-            curve.moveTo(40+x)*T, 30+y)*T);
-            curve.curveTo(58+x)*T, 24+y)*T, 72+x)*T, 32+y)*T, 70+x)*T, 50+y)*T);
-            curve.moveTo(40+x)*T, 30+y)*T);
-            curve.curveTo(10+x)*T, 75+y)*T, 40+x)*T, 90+y)*T, 70+x)*T, 50+y)*T);
-            curve.moveTo(70+x)*T, 50+y)*T);
-            curve.curveTo(52+x)*T, 72+y)*T, 58+x)*T, 78+y)*T, 70+x)*T, 70+y)*T);
-        }
+            curve.moveTo((0+x)*T, (70+y)*T);
+            curve.curveTo((18+x)*T, (71+y)*T, (23+x)*T, (67+y)*T, (40+x)*T, (30+y)*T);
+            curve.moveTo((40+x)*T, (30+y)*T);
+            curve.curveTo((58+x)*T, (24+y)*T, (72+x)*T, (32+y)*T, (70+x)*T, (50+y)*T);
+            curve.moveTo((40+x)*T, (30+y)*T);
+            curve.curveTo((10+x)*T, (75+y)*T, (40+x)*T, (90+y)*T, (70+x)*T, (50+y)*T);
+            curve.moveTo((70+x)*T, (50+y)*T);
+            curve.curveTo((52+x)*T, (72+y)*T, (58+x)*T, (78+y)*T, (70+x)*T, (70+y)*T);
+        }/*
         if("b".equals(letra)){
             curve.moveTo(0+x)*T, 70+y)*T);
             curve.curveTo(35+x)*T, 41+y)*T, 45+x)*T, 23+y)*T, 33+x)*T, 23+y)*T);
