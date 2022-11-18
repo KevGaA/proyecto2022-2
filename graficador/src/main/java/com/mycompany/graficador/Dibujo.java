@@ -135,7 +135,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
 
-        int x = 0, y = 15, T = 1;// posicion de las letras
+        int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
@@ -146,12 +146,12 @@ public class Dibujo extends javax.swing.JFrame {
 
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
-            
             Negrita=false;
             Curs=false;
             Subr=false;
-            
-            if (textSeparado[i].length() > 1) {//funcion que detecta los carets y los modifica
+            T = 2;
+            //parseo
+            if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
                     if (textSeparado[i].charAt(1) == 'N') {
                         Negrita = true;
@@ -242,16 +242,12 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (textSeparado[i].charAt(1) == 'T') {
                         T = textSeparado[i].charAt(2);
-                        textSeparado[i] = textSeparado[i].substring(3);
+                        textSeparado[i] = textSeparado[i].substring(2);
                     }
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
-                /*boolean temp[] = Carets(textSeparado, Negrita, Curs, Subr,i,k);
-                Negrita=temp[0];
-                Curs=temp[1];
-                Subr=temp[2];
-                 */
+                
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
 
@@ -3126,14 +3122,14 @@ public class Dibujo extends javax.swing.JFrame {
     public Path2D.Double Dletras(String letra, int x, int y, int T) {
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)) {
-            curve.moveTo((0 + x) * T, (70 + y) * T);
-            curve.curveTo((10 + x) * T, (70 + y) * T, (20 + x) * T, (65 + y) * T, (20 + x) * T, (50 + y) * T);
-            curve.moveTo((20 + x) * T, (50 + y) * T);
-            curve.curveTo((30 + x) * T, (75 + y) * T, (50 + x) * T, (75 + y) * T, (60 + x) * T, (50 + y) * T);
-            curve.moveTo((20 + x) * T, (50 + y) * T);
-            curve.curveTo((30 + x) * T, (20 + y) * T, (50 + x) * T, (20 + y) * T, (60 + x) * T, (50 + y) * T);
-            curve.moveTo((60 + x) * T, (50 + y) * T);
-            curve.curveTo((55 + x) * T, (65 + y) * T, (60 + x) * T, (70 + y) * T, (70 + x) * T, (70 + y) * T);
+            curve.moveTo((0 + x)*T, (70 + y)*T);
+            curve.curveTo((10 + x)*T, (70 + y)*T, (20 + x) * T, (65 + y) * T, (20 + x) * T, (50 + y) * T);
+            curve.moveTo((20 + x)*T, (50 + y)*T);
+            curve.curveTo((30 + x)*T, (75 + y)*T, (50 + x) * T, (75 + y) * T, (60 + x) * T, (50 + y) * T);
+            curve.moveTo((20 + x)*T, (50 + y)*T);
+            curve.curveTo((30 + x)*T, (20 + y)*T, (50 + x) * T, (20 + y) * T, (60 + x) * T, (50 + y) * T);
+            curve.moveTo((60 + x)*T, (50 + y)*T);
+            curve.curveTo((55 + x)*T, (65 + y)*T, (60 + x) * T, (70 + y) * T, (70 + x) * T, (70 + y) * T);
         }
         if ("á".equals(letra)) {
             curve.moveTo(0 + x * T, 70 + y * T);
