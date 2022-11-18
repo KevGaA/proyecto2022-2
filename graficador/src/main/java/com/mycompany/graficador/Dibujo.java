@@ -15,7 +15,7 @@ public class Dibujo extends javax.swing.JFrame {
     private Graphics2D g2d;
     private Graphics2D g3d;
     int Xp;
-    int T;
+    double T;
     public static boolean Puntos = false;
 
     public Dibujo() {
@@ -135,7 +135,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
 
-        int x = 0, y = 15, T = 1;// posicion de las letras
+        int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
@@ -146,37 +146,21 @@ public class Dibujo extends javax.swing.JFrame {
 
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
-            
             Negrita=false;
             Curs=false;
             Subr=false;
-            
-            if (textSeparado[i].length() > 1) {//funcion que detecta los carets y los modifica
+            T = 1;
+            //parseo
+            if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
                     if (textSeparado[i].charAt(1) == 'N') {
                         Negrita = true;
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
                                 Curs = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'S') {
-                                        Subr = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'K') {
-                                        Curs = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                         } else {
                             textSeparado[i] = textSeparado[i].substring(2);
@@ -187,25 +171,9 @@ public class Dibujo extends javax.swing.JFrame {
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
                                 Curs = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'N') {
-                                        Negrita = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                             if (textSeparado[i].charAt(3) == 'N') {
                                 Negrita = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'K') {
-                                        Curs = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                         } else {
                             textSeparado[i] = textSeparado[i].substring(2);
@@ -216,45 +184,110 @@ public class Dibujo extends javax.swing.JFrame {
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'N') {
                                 Negrita = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'S') {
-                                        Subr = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
-                                if (textSeparado[i].charAt(4) == '+') {
-                                    if (textSeparado[i].charAt(5) == 'N') {
-                                        Negrita = true;
-                                        textSeparado[i] = textSeparado[i].substring(6);
-                                    }
-                                } else {
-                                    textSeparado[i] = textSeparado[i].substring(4);
-                                }
                             }
                         } else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'T') {
-                        T = textSeparado[i].charAt(2);
+                        T = Character.getNumericValue(textSeparado[i].charAt(2));
+                        if (T == 1) {
+                            T = 1;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
+                        }
+                        if (T == 2) {
+                            T = 1.2;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
+                        }
+                        if (T == 3) {
+                            T = 1.4;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
+                        }
+                        if (T == 4) {
+                            T = 1.6;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
+                        }
+                        if (T == 5) {
+                            T = 1.8;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
+                        }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
-                /*boolean temp[] = Carets(textSeparado, Negrita, Curs, Subr,i,k);
-                Negrita=temp[0];
-                Curs=temp[1];
-                Subr=temp[2];
-                 */
+                
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
-
+                
                 if (x < 1100) {
                     if ("a".equals(letra)) {//listo
                         if (Negrita == false && Curs == false && Subr == false) {
@@ -3123,17 +3156,17 @@ public class Dibujo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_palabraKeyReleased
 
-    public Path2D.Double Dletras(String letra, int x, int y, int T) {
+    public Path2D.Double Dletras(String letra, int x, int y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)) {
-            curve.moveTo((0 + x) * T, (70 + y) * T);
-            curve.curveTo((10 + x) * T, (70 + y) * T, (20 + x) * T, (65 + y) * T, (20 + x) * T, (50 + y) * T);
-            curve.moveTo((20 + x) * T, (50 + y) * T);
-            curve.curveTo((30 + x) * T, (75 + y) * T, (50 + x) * T, (75 + y) * T, (60 + x) * T, (50 + y) * T);
-            curve.moveTo((20 + x) * T, (50 + y) * T);
-            curve.curveTo((30 + x) * T, (20 + y) * T, (50 + x) * T, (20 + y) * T, (60 + x) * T, (50 + y) * T);
-            curve.moveTo((60 + x) * T, (50 + y) * T);
-            curve.curveTo((55 + x) * T, (65 + y) * T, (60 + x) * T, (70 + y) * T, (70 + x) * T, (70 + y) * T);
+            curve.moveTo((0 + x)*T, (70 + y)*T);
+            curve.curveTo((10 + x)*T, (70 + y)*T, (20 + x) * T, (65 + y) * T, (20 + x) * T, (50 + y) * T);
+            curve.moveTo((20 + x)*T, (50 + y)*T);
+            curve.curveTo((30 + x)*T, (75 + y)*T, (50 + x) * T, (75 + y) * T, (60 + x) * T, (50 + y) * T);
+            curve.moveTo((20 + x)*T, (50 + y)*T);
+            curve.curveTo((30 + x)*T, (20 + y)*T, (50 + x) * T, (20 + y) * T, (60 + x) * T, (50 + y) * T);
+            curve.moveTo((60 + x)*T, (50 + y)*T);
+            curve.curveTo((55 + x)*T, (65 + y)*T, (60 + x) * T, (70 + y) * T, (70 + x) * T, (70 + y) * T);
         }
         if ("á".equals(letra)) {
             curve.moveTo(0 + x * T, 70 + y * T);
@@ -3844,7 +3877,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Path2D.Double Dcursivas(String letra, int x, int y, int T) {
+    public Path2D.Double Dcursivas(String letra, int x, int y, double T) {
         Path2D.Double curve = new Path2D.Double();
 
         if ("a".equals(letra)) {
@@ -4427,7 +4460,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Path2D.Double Dsubrayado(String letra, int x, int y, int T) {
+    public Path2D.Double Dsubrayado(String letra, int x, int y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)) {
             curve.moveTo(0 + x, 75 + y);
@@ -4690,7 +4723,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Graphics2D Pcontrol(String letra, int x, int y, int T) {
+    public Graphics2D Pcontrol(String letra, int x, int y, double T) {
         g3d = (Graphics2D) jPanel1.getGraphics();
         g3d.setColor(Color.RED);
 
