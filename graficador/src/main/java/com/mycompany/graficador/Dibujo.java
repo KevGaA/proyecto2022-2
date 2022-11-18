@@ -196,20 +196,90 @@ public class Dibujo extends javax.swing.JFrame {
                         T = Character.getNumericValue(textSeparado[i].charAt(2));
                         if (T == 1) {
                             T = 1;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
                         }
                         if (T == 2) {
-                            T = 1.3;
+                            T = 1.2;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
                         }
                         if (T == 3) {
-                            T = 1.6;
+                            T = 1.4;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
                         }
                         if (T == 4) {
-                            T = 0.7;
+                            T = 1.6;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
                         }
                         if (T == 5) {
-                            T = 0.4;
+                            T = 1.8;
+                            if (textSeparado[i].charAt(3) == '+') {
+                                if (textSeparado[i].charAt(4) == 'N') {
+                                    Negrita = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'S') {
+                                    Subr = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                                if (textSeparado[i].charAt(4) == 'K') {
+                                    Curs = true;
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                }
+                            }
                         }
-                        textSeparado[i] = textSeparado[i].substring(2);
+                        textSeparado[i] = textSeparado[i].substring(3);
                     }
                 }
             }
