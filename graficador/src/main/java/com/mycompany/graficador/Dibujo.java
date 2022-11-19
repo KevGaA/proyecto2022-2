@@ -281,6 +281,14 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
+                    if (textSeparado[i].charAt(1) == 'R') {
+                        textSeparado[i] = textSeparado[i].substring(2);
+                        String invertido = "";
+                        for (int indice = textSeparado[i].length() - 1; indice >= 0; indice--) {
+                            invertido += textSeparado[i].charAt(indice);
+                        }
+                        textSeparado[i] = invertido;
+                    }
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
@@ -3141,7 +3149,7 @@ public class Dibujo extends javax.swing.JFrame {
                     x = 0;
                 }
             }
-            x = x + 50;
+            //x = x + 50;
         }
         
 
