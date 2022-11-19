@@ -283,11 +283,7 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (textSeparado[i].charAt(1) == 'R') {
                         textSeparado[i] = textSeparado[i].substring(2);
-                        String invertido = "";
-                        for (int indice = textSeparado[i].length() - 1; indice >= 0; indice--) {
-                            invertido += textSeparado[i].charAt(indice);
-                        }
-                        textSeparado[i] = invertido;
+                        textSeparado[i] = Invertir(textSeparado[i]);
                     }
                 }
             }
@@ -3149,7 +3145,7 @@ public class Dibujo extends javax.swing.JFrame {
                     x = 0;
                 }
             }
-            //x = x + 50;
+            x = x + 50;
         }
         
 
@@ -5904,6 +5900,15 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
 
+    public String Invertir(String textSeparado){
+        String invertido = "";
+        for (int indice = textSeparado.length() - 1; indice >= 0; indice--) {
+            invertido += textSeparado.charAt(indice);
+        }
+        textSeparado = invertido;
+        return textSeparado;
+    }
+    
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
         if (colorito == null) {
             colorito = Color.white;
