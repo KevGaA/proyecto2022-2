@@ -149,7 +149,7 @@ public class Dibujo extends javax.swing.JFrame {
             Negrita=false;
             Curs=false;
             Subr=false;
-            T = 1;
+            T = 2;
             //parseo
             if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
@@ -4468,261 +4468,263 @@ public class Dibujo extends javax.swing.JFrame {
     public Path2D.Double Dsubrayado(String letra, int x, int y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if("a".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(70+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((70+x)*T, (75+y)*T);
         }
         if("á".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(70+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((70+x)*T, (75+y)*T);
         }
         if("b".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("c".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("d".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("e".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("é".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("f".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("g".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("h".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("i".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("í".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("j".equals(letra)){                     
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("k".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("l".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(35+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((35+x)*T,( 75+y)*T);
         }
         if("m".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(65+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((65+x)*T, (75+y)*T);
         }
         if("n".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(50+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((50+x)*T, (75+y)*T);
             
         }
         if("ñ".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(50+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((50+x)*T, (75+y)*T);
         }
         if("o".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(50+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((50+x)*T, (75+y)*T);
         }
         if("ó".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(50+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((50+x)*T,( 75+y)*T);
         }
         if("p".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(45+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((45+x)*T, (75+y)*T);
         }
         if("q".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(45+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((45+x)*T, (75+y)*T);
         }
         if("r".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("s".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(50+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((50+x)*T, (75+y)*T);
         }
         if("t".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("u".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(55+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((55+x)*T, (75+y)*T);
         }
         if("ú".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(55+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((55+x)*T, (75+y)*T);
         }
         if("v".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(55+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((55+x)*T,( 75+y)*T);
         }
         if("w".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(66+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((66+x)*T,( 75+y)*T);
         }
         if("x".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(59+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((59+x)*T,( 75+y)*T);
         }
         if("y".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(55+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((55+x)*T, (75+y)*T);
         }
         if("z".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
+        
+        //mayusculas
         if("A".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Á".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("B".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("C".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("D".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("E".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("É".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("F".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("G".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("H".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("I".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Í".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("J".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("K".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(40+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("L".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(30+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
         }
         if("M".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(85+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((85+x)*T, (75+y)*T);
         }
         if("N".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Ñ".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("O".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(80+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((80+x)*T, (75+y)*T);
         }
         if("Ó".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(80+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((80+x)*T, (75+y)*T);
         }
         if("P".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(45+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((45+x)*T, (75+y)*T);
         }
         if("Q".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(80+x, 75+y);
+            curve.moveTo((0+x)*T,( 75+y)*T);
+            curve.lineTo((80+x)*T,( 75+y)*T);
         }
         if("R".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(45+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((45+x)*T,( 75+y)*T);
         }
         if("S".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(70+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((70+x)*T,( 75+y)*T);
         }
         if("T".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("U".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Ú".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("V".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("W".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(80+x, 75+y);
+            curve.moveTo((0+x)*T,(75+y)*T);
+            curve.lineTo((80+x)*T,( 75+y)*T);
         }
         if("X".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(55+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((55+x)*T, (75+y)*T);
         }
         if("Y".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Z".equals(letra)){
-            curve.moveTo(0+x, 75+y);
-            curve.lineTo(60+x, 75+y);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
         }
         return curve;
     }
