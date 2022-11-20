@@ -150,7 +150,7 @@ public class Dibujo extends javax.swing.JFrame {
             Negrita=false;
             Curs=false;
             Subr=false;
-            T = 2;
+            T = 1;
             //parseo
             if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
