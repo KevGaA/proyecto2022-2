@@ -2565,11 +2565,13 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Curs == true) {
-
-                        }
-                        if (Subr == true) {
+                        
+                        if (Subr == true && Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true && Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
@@ -2590,8 +2592,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 40;
@@ -2613,8 +2619,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 30;
@@ -2635,8 +2645,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 85;
@@ -2657,7 +2671,11 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
@@ -2679,7 +2697,11 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
@@ -2701,8 +2723,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 80;
@@ -2723,8 +2749,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 80;
@@ -2745,8 +2775,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 45;
@@ -2768,8 +2802,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 80;
@@ -2790,8 +2828,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 45;
@@ -2812,8 +2854,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 70;
@@ -2834,8 +2880,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
@@ -2856,8 +2906,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
@@ -2878,8 +2932,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
@@ -2900,8 +2958,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
@@ -2922,8 +2984,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 80;
@@ -2944,8 +3010,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 55;
@@ -2966,8 +3036,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 55;
@@ -2988,8 +3062,12 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             Pcontrol(letra, x, y, T);
                         }
-                        if (Subr == true) {
+                        if (Subr == true&&Curs==false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
+                            DibujoFinal.add(Dsubrayado(letra, x, y, T));
+                        }
+                        if (Subr == true&&Curs==true) {
+                            DibujoFinal.add(Dcursivas(letra, x, y, T));
                             DibujoFinal.add(Dsubrayado(letra, x, y, T));
                         }
                         x = x + 60;
