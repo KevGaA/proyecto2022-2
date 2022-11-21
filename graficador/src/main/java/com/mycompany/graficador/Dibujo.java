@@ -4349,118 +4349,6 @@ public class Dibujo extends javax.swing.JFrame {
             curve.moveTo((6+x)*T, (70+y)*T);
             curve.curveTo((10+x)*T, (60+y)*T, (50+x)*T, (75+y)*T, (70+x)*T, (70+y)*T);
         }
-        if("-".equals(letra)){
-            curve.moveTo((10+x)*T, (50+y)*T);
-            curve.lineTo((30+x)*T, (50+y)*T);
-        }
-        if("_".equals(letra)){
-            curve.moveTo((10+x)*T, (70+y)*T);
-            curve.lineTo((30+x)*T, (70+y)*T);
-        }
-        if("(".equals(letra)){
-            curve.moveTo((15+x)*T, (0+y)*T);
-            curve.curveTo((5+x)*T, (0+y)*T, (5+x)*T, (70+y)*T, (15+x)*T, (70+y)*T);
-        }
-        if(")".equals(letra)){
-            curve.moveTo((15+x)*T, (0+y)*T);
-            curve.curveTo((25+x)*T, (0+y)*T, (25+x)*T, (70+y)*T, (15+x)*T, (70+y)*T);
-        }
-        if("[".equals(letra)){
-            curve.moveTo((25+x)*T, (0+y)*T);
-            curve.lineTo((10+x)*T, (0+y)*T);
-            curve.lineTo((10+x)*T, (70+y)*T);
-            curve.lineTo((25+x)*T, (70+y)*T);
-        } 
-        if("{".equals(letra)){
-            curve.moveTo((25+x)*T, (0+y)*T);
-            curve.curveTo((10+x)*T, (0+y)*T, (15+x)*T, (40+y)*T, (5+x)*T, (35+y)*T);
-            curve.curveTo((20+x)*T, (35+y)*T, (10+x)*T, (70+y)*T, (25+x)*T, (70+y)*T);
-        } 
-        if("}".equals(letra)){
-            curve.moveTo((0+x)*T, (0+y)*T);
-            curve.curveTo((15+x)*T, (0+y)*T, (10+x)*T, (40+y)*T, (20+x)*T, (35+y)*T);
-            curve.curveTo((5+x)*T, (35+y)*T, (15+x)*T, (70+y)*T, (0+x)*T, (70+y)*T);
-        } 
-        if("]".equals(letra)){
-            curve.moveTo((10+x)*T, (0+y)*T);
-            curve.lineTo((25+x)*T, (0+y)*T);
-            curve.lineTo((25+x)*T, (70+y)*T);
-            curve.lineTo((10+x)*T, (70+y)*T);
-        }
-        if("!".equals(letra)){
-            curve.moveTo((25+x)*T, (90+y)*T);
-            curve.curveTo((20+x)*T,( 91+y)*T, (20+x)*T, (99+y)*T, (25+x)*T, (100+y)*T);
-            curve.curveTo((30+x)*T, (99+y)*T, (30+x)*T, (91+y)*T, (25+x)*T, (90+y)*T);
-            curve.moveTo((25+x)*T, (80+y)*T);
-            curve.lineTo((25+x)*T, (10+y)*T);
-        }
-        if("¡".equals(letra)){
-            curve.moveTo((25+x)*T, (10+y)*T);
-            curve.curveTo((20+x)*T, (11+y)*T, (20+x)*T, (19+y)*T, (25+x)*T, (20+y)*T);
-            curve.curveTo((30+x)*T,(19+y)*T, (30+x)*T, (11+y)*T, (25+x)*T, (10+y)*T);
-            curve.moveTo((25+x)*T, (30+y)*T);
-            curve.lineTo((25+x)*T, (90+y)*T);
-        }
-        if("¿".equals(letra)){ 
-            curve.moveTo((25+x)*T, (10+y)*T);
-            curve.curveTo((20+x)*T, (11+y)*T, (20+x)*T, (19+y)*T, (25+x)*T, (20+y)*T);
-            curve.curveTo((30+x)*T,(19+y)*T, (30+x)*T, (11+y)*T, (25+x)*T, (10+y)*T);
-            curve.moveTo((25+x)*T, (30+y)*T);
-            curve.lineTo((25+x)*T, (65+y)*T);
-            curve.curveTo((-30+x)*T, (90+y)*T, (45+x)*T, (140+y)*T, (45+x)*T, (90+y)*T);
-        }
-        if("?".equals(letra)){
-            curve.moveTo((25+x)*T, (100+y)*T);
-            curve.curveTo((20+x)*T, (101+y)*T, (20+x)*T, (109+y)*T, (25+x)*T, (110+y)*T);
-            curve.curveTo((30+x)*T, (109+y)*T, (30+x)*T, (101+y)*T, (25+x)*T, (100+y)*T);
-            curve.moveTo((25+x)*T, (90+y)*T);
-            curve.lineTo((25+x)*T, (65+y)*T);
-            curve.curveTo((90+x)*T, (50+y)*T, (25+x)*T, (-20+y)*T, (5+x)*T, (30+y)*T);
-        }
-        if(".".equals(letra)){
-            curve.moveTo((5+x)*T, (65+y)*T);
-            curve.curveTo((2+x)*T, (67+y)*T, (2+x)*T, (68+y)*T, (5+x)*T, (70+y)*T);
-            curve.curveTo((7+x)*T, (68+y)*T, (7+x)*T, (67+y)*T, (5+x)*T, (65+y)*T);
-        }
-        if(":".equals(letra)){
-            curve.moveTo((5+x)*T, (65+y)*T);
-            curve.curveTo((2+x)*T, (67+y)*T, (2+x)*T, (68+y)*T, (5+x)*T, (70+y)*T);
-            curve.curveTo((7+x)*T, (68+y)*T, (7+x)*T, (67+y)*T, (5+x)*T, (65+y)*T);
-            curve.moveTo((5+x)*T, (45+y)*T);
-            curve.curveTo((2+x)*T, (47+y)*T, (2+x)*T, (48+y)*T, (5+x)*T, (50+y)*T);
-            curve.curveTo((7+x)*T, (48+y)*T, (7+x)*T, (47+y)*T, (5+x)*T, (45+y)*T);
-        }
-        if(",".equals(letra)){
-            curve.moveTo((5+x)*T,(70+y)*T);
-            curve.curveTo((6+x)*T, (71+y)*T, (3+x)*T, (73+y)*T, (2+x)*T, (80+y)*T);
-        }
-        if(";".equals(letra)){
-            curve.moveTo((5+x)*T, (65+y)*T);
-            curve.curveTo((2+x)*T, (67+y)*T, (2+x)*T, (68+y)*T, (5+x)*T, (70+y)*T);
-            curve.curveTo((7+x)*T, (68+y)*T, (7+x)*T, (67+y)*T, (5+x)*T, (65+y)*T);
-            curve.moveTo((5+x)*T,(75+y)*T);
-            curve.curveTo((4+x)*T, (76+y)*T, (3+x)*T, (78+y)*T, (2+x)*T, (80+y)*T);
-        }
-        if("'".equals(letra)){
-            curve.moveTo((5+x)*T, (0+y)*T);
-            curve.curveTo((4+x)*T, (4+y)*T, (2+x)*T, (7+y)*T, (0+x)*T, (10+y)*T);
-        }
-        if( "\"".equals(letra)){
-            curve.moveTo((5+x)*T, (0+y)*T);
-            curve.curveTo((4+x)*T, (4+y)*T, (2+x)*T, (7+y)*T, (0+x)*T, (10+y)*T);
-            curve.moveTo((10+x)*T, (0+y)*T);
-            curve.curveTo((9+x)*T, (4+y)*T, (7+x)*T, (7+y)*T, (5+x)*T, (10+y)*T);
-        }
-        if("<".equals(letra)){
-            curve.moveTo((15+x)*T, (30+y)*T);
-            curve.lineTo((0+x)*T,(40+y)*T);
-            curve.lineTo((15+x)*T,(50+y)*T);
-        }
-        if(">".equals(letra)){
-            curve.moveTo((0+x)*T, (30+y)*T);
-            curve.lineTo((15+x)*T,(40+y)*T);
-            curve.lineTo((0+x)*T,(50+y)*T);
-        }
         return curve;
     }
 
@@ -4725,13 +4613,93 @@ public class Dibujo extends javax.swing.JFrame {
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
+        if("-".equals(letra)){
+            curve.moveTo((10+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        }
+        if("_".equals(letra)){
+            curve.moveTo((10+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        }
+        if("(".equals(letra)){
+            curve.moveTo((10+x)*T, (75+y)*T);
+            curve.lineTo((20+x)*T, (75+y)*T);
+        }
+        if(")".equals(letra)){
+            curve.moveTo((10+x)*T, (75+y)*T);
+            curve.lineTo((20+x)*T, (75+y)*T);
+        }
+        if("[".equals(letra)){
+            curve.moveTo((5+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        } 
+        if("]".equals(letra)){
+            curve.moveTo((5+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        }
+        if("{".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        } 
+        if("}".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((30+x)*T, (75+y)*T);
+        }
+        if("!".equals(letra)){
+            curve.moveTo((15+x)*T, (75+y)*T);
+            curve.lineTo((35+x)*T, (75+y)*T);
+        }
+        if("¡".equals(letra)){
+            curve.moveTo((15+x)*T, (75+y)*T);
+            curve.lineTo((35+x)*T, (75+y)*T);
+        }
+        if("¿".equals(letra)){ 
+            curve.moveTo((15+x)*T, (75+y)*T);
+            curve.lineTo((35+x)*T, (75+y)*T);
+        }
+        if("?".equals(letra)){
+            curve.moveTo((15+x)*T, (75+y)*T);
+            curve.lineTo((35+x)*T, (75+y)*T);
+        }
+        if(".".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((10+x)*T, (75+y)*T);
+        }
+        if(":".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((10+x)*T, (75+y)*T);
+        }
+        if(",".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((10+x)*T, (75+y)*T);
+        }
+        if(";".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((10+x)*T, (75+y)*T);
+        }
+        if("'".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((15+x)*T, (75+y)*T);
+        }
+        if( "\"".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((15+x)*T, (75+y)*T);
+        }
+        if("<".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((20+x)*T, (75+y)*T);
+        }
+        if(">".equals(letra)){
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((20+x)*T, (75+y)*T);
+        }
         return curve;
     }
 
-    public Graphics2D Pcontrol(String letra, int x, int y, double T) {
+    public Graphics2D Pcontrol(String letra, int x, int y, double Tp) {
         g3d = (Graphics2D) jPanel1.getGraphics();
         g3d.setColor(Color.RED);
-
+        int T = (int) Tp;// con las opciones de incremento de tamaño al aproximarlas a un entero las deja en 1 por lo cual no varia
         if ("a".equals(letra)){
                 g3d.fillOval(0+x, 70+y, 4, 4);
                 g3d.fillOval(10+x, 70+y, 4, 4);
@@ -4912,20 +4880,20 @@ public class Dibujo extends javax.swing.JFrame {
             }
         }
         if ("j".equals(letra)){//listo
-
+            
             if (Puntos == true) {//puntos de control
-                g3d.fillOval(25+x, 35+y, 4, 4);
-                g3d.fillOval(22+x, 36+y, 4, 4);
-                g3d.fillOval(22+x, 44+y, 4, 4);
-                g3d.fillOval(25+x, 45+y, 4, 4);
-                g3d.fillOval(0+x, 70+y, 4, 4);
-                g3d.fillOval(15+x, 70+y, 4, 4);
-                g3d.fillOval(15+x, 70+y, 4, 4);
-                g3d.fillOval(25+x, 50+y, 4, 4);
-                g3d.fillOval(25+x, 110+y, 4, 4);
-                g3d.fillOval(0+x, 135+y, 4, 4);
-                g3d.fillOval(0+x, 80+y, 4, 4);
-                g3d.fillOval(40+x, 70+y, 4, 4);
+                g3d.fillOval((25+x)*T, (35+y)*T, 4, 4);
+                g3d.fillOval((22+x)*T, (36+y)*T, 4, 4);
+                g3d.fillOval((22+x)*T, (44+y)*T, 4, 4);
+                g3d.fillOval((25+x)*T, (45+y)*T, 4, 4);
+                g3d.fillOval((0+x)*T, (70+y)*T, 4, 4);
+                g3d.fillOval((15+x)*T, (70+y)*T, 4, 4);
+                g3d.fillOval((15+x)*T, (70+y)*T, 4, 4);
+                g3d.fillOval((25+x)*T, (50+y)*T, 4, 4);
+                g3d.fillOval((25+x)*T, (110+y)*T, 4, 4);
+                g3d.fillOval((0+x)*T, (135+y)*T, 4, 4);
+                g3d.fillOval((0+x)*T, (80+y)*T, 4, 4);
+                g3d.fillOval((40+x)*T, (70+y)*T, 4, 4);
             }
         }
         if("k".equals(letra)){//listo
