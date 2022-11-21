@@ -135,7 +135,7 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
-        g2d.rotate(G);
+        //g2d.rotate(G);
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
@@ -166,28 +166,7 @@ public class Dibujo extends javax.swing.JFrame {
                         } else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
-                    }
-                    if (textSeparado[i].charAt(1) == 'A') {
-                        G = Character.getNumericValue(textSeparado[i].charAt(2));
-                        if (G == 1) {
-                            G = 1;
-                        }
-                        if (G == 2) {
-                            G = 2;
-                        }
-                        if (G == 3) {
-                            G = 3;
-                        }
-                        
-                    }
-                    
-                    if (G!=0) {
-                        x = 100; 
-                        y = 0;
-                    }
-                    
-                    
-                    if (textSeparado[i].charAt(1) == 'S') {
+                    }if (textSeparado[i].charAt(1) == 'S') {
                         Subr = true;
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
@@ -306,6 +285,26 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(2);
                         textSeparado[i] = Invertir(textSeparado[i]);
                     }
+                    if (textSeparado[i].charAt(1) == 'A') {
+                        G = 0;
+                        G = Character.getNumericValue(textSeparado[i].charAt(2));
+                        if (G == 1) {
+                            G = 10;
+                        }
+                        if (G == 2) {
+                            G = 25;
+                        }
+                        if (G == 3) {
+                            G = 50;
+                        }/*
+                        if (G!=0) {
+                        x = 100; 
+                        y = 0;
+                        }*/
+                        g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
+                        textSeparado[i] = textSeparado[i].substring(2);
+                    }
+                    
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
