@@ -144,6 +144,7 @@ public class Dibujo extends javax.swing.JFrame {
 
         String text = palabra.getText();
         String textSeparado[] = text.split(" ");
+        String newtext[]=null;
 
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
@@ -282,8 +283,16 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
                     if (textSeparado[i].charAt(1) == 'R') {
-                        textSeparado[i] = textSeparado[i].substring(2);
-                        textSeparado[i] = Invertir(textSeparado[i]);
+                        //textSeparado[i] = textSeparado[i].substring(2);
+                        textSeparado = reverse(textSeparado);
+                        /*
+                        y = textSeparado.length;
+                        for (int j = 0; j < textSeparado.length; j++) {
+                            newtext[j] = newtext[j]+textSeparado[y];
+                            y-=1;
+                        }
+                        textSeparado = newtext;
+                        */
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         G = 0;
@@ -5931,13 +5940,18 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
 
-    public String Invertir(String textSeparado){
-        String invertido = "";
-        for (int indice = textSeparado.length() - 1; indice >= 0; indice--) {
-            invertido += textSeparado.charAt(indice);
+    public String[] reverse(String[] nums)
+    {
+        String[] temp = new String[nums.length];
+ 
+        for (int i = 0; i < nums.length; i++) {
+            temp[nums.length - 1 - i] = nums[i];
         }
-        textSeparado = invertido;
-        return textSeparado;
+ 
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = temp[i];
+        }
+        return nums;
     }
     
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
