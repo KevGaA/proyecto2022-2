@@ -283,16 +283,9 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
                     if (textSeparado[i].charAt(1) == 'R') {
-                        //textSeparado[i] = textSeparado[i].substring(2);
+                        textSeparado[i] = textSeparado[i].substring(2);
                         textSeparado = reverse(textSeparado);
-                        /*
-                        y = textSeparado.length;
-                        for (int j = 0; j < textSeparado.length; j++) {
-                            newtext[j] = newtext[j]+textSeparado[y];
-                            y-=1;
-                        }
-                        textSeparado = newtext;
-                        */
+                        
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         G = 0;
