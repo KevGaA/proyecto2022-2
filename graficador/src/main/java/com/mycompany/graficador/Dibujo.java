@@ -291,7 +291,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        String a = "";
+                        String a = "0";//evita que marque error al intentar inclinar la frase entera
                         for (int j = 0; j < 3; j++) {
                             if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
                                 || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
@@ -302,7 +302,7 @@ public class Dibujo extends javax.swing.JFrame {
                             
                         }
                         int G = Integer.parseInt(a);//Integer.parseInt(a);
-                        g2d.rotate((Math.toRadians(G)),0, 70+y);
+                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
