@@ -8,7 +8,6 @@ import java.awt.Shape;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
-import org.apache.commons.lang.ArrayUtils;
 
 public class Dibujo extends javax.swing.JFrame {
 
@@ -293,8 +292,22 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        G = 0;
-                        G = Character.getNumericValue(textSeparado[i].charAt(2));
+                        //G = 0;
+                        char a = 0;
+                        //String b = null;
+                        for (int j = i; j < textSeparado[i].length()-2; j++) {
+                            if ((textSeparado[i].charAt(j-i+2))=='1'||(textSeparado[i].charAt(j-i+2))=='2'||(textSeparado[i].charAt(j-i+2))=='3'
+                                || (textSeparado[i].charAt(j-i+2))=='4'||(textSeparado[i].charAt(j-i+2))=='5'||(textSeparado[i].charAt(j-i+2))=='6'
+                                ||(textSeparado[i].charAt(j-i+2))=='7'||(textSeparado[i].charAt(j-i+2))=='8'||(textSeparado[i].charAt(j-i+2))=='9'
+                                ||(textSeparado[i].charAt(j-i+2))=='0'){
+                                a += (textSeparado[i].charAt(j-i+2));
+                            }
+                            G = Character.getNumericValue(a);
+                            //G = Integer.parseInt(a);
+                        }
+                        //G = Integer.parseInt(a);
+                        
+                        /*
                         if (G == 1) {
                             G = 10;
                         }
@@ -308,7 +321,8 @@ public class Dibujo extends javax.swing.JFrame {
                         x = 100; 
                         y = 0;
                         }*/
-                        g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
+                        g2d.rotate(Math.toRadians(G));
+                        //g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
