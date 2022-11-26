@@ -281,22 +281,15 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
-                    if (textSeparado[i].charAt(1) == 'R') {
-                        
-                        if (i == 0){
-                            textSeparado[i] = textSeparado[i].substring(2);
-                            textSeparado = reverse(textSeparado);
+                    if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
+                        String[] auxtext2 = new String[(textSeparado.length)-i];
+                        textSeparado[i] = textSeparado[i].substring(2);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            auxtext2[j-i] = textSeparado[j]; 
                         }
-                        else{
-                            String[] auxtext2 = new String[(textSeparado.length)-i];
-                            textSeparado[i] = textSeparado[i].substring(2);
-                            for (int j = i; j <= textSeparado.length-1; j++) {
-                                auxtext2[j-i] = textSeparado[j]; 
-                            }
-                            auxtext2 = reverse(auxtext2);
-                            for (int j = i; j <= textSeparado.length-1; j++) {
-                                textSeparado[j]=auxtext2[j-i];
-                            }
+                        auxtext2 = reverse(auxtext2);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            textSeparado[j]=auxtext2[j-i];
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
