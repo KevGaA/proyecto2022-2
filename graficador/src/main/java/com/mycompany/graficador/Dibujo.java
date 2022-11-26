@@ -8,6 +8,7 @@ import java.awt.Shape;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import org.apache.commons.lang.ArrayUtils;
 
 public class Dibujo extends javax.swing.JFrame {
 
@@ -135,7 +136,6 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
-        //g2d.rotate(G);
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
@@ -144,8 +144,7 @@ public class Dibujo extends javax.swing.JFrame {
 
         String text = palabra.getText();
         String textSeparado[] = text.split(" ");
-        String newtext[]=null;
-
+        
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
             Negrita=false;
@@ -282,10 +281,16 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
-                    if (textSeparado[i].charAt(1) == 'R') {
+                    if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
+                        String[] auxtext2 = new String[(textSeparado.length)-i];
                         textSeparado[i] = textSeparado[i].substring(2);
-                        textSeparado = reverse(textSeparado);
-                        
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            auxtext2[j-i] = textSeparado[j]; 
+                        }
+                        auxtext2 = reverse(auxtext2);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            textSeparado[j]=auxtext2[j-i];
+                        }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         G = 0;
@@ -5933,10 +5938,8 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
 
-    public String[] reverse(String[] nums)
-    {
+    public String[] reverse(String[] nums){
         String[] temp = new String[nums.length];
- 
         for (int i = 0; i < nums.length; i++) {
             temp[nums.length - 1 - i] = nums[i];
         }
