@@ -17,7 +17,6 @@ public class Dibujo extends javax.swing.JFrame {
     int Xp;
     double T;
     public static boolean Puntos = false;
-    int G;
     
     public Dibujo() {
         initComponents();
@@ -292,19 +291,18 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        G = 0;
-                        char a = 0;
-                        //String b = null;
-                        for (int j = i; j < textSeparado[i].length()-2; j++) {
-                            if ((textSeparado[i].charAt(j-i+2))=='1'||(textSeparado[i].charAt(j-i+2))=='2'||(textSeparado[i].charAt(j-i+2))=='3'
-                                || (textSeparado[i].charAt(j-i+2))=='4'||(textSeparado[i].charAt(j-i+2))=='5'||(textSeparado[i].charAt(j-i+2))=='6'
-                                ||(textSeparado[i].charAt(j-i+2))=='7'||(textSeparado[i].charAt(j-i+2))=='8'||(textSeparado[i].charAt(j-i+2))=='9'
-                                ||(textSeparado[i].charAt(j-i+2))=='0'){
-                                a += (textSeparado[i].charAt(j-i+2));
+                        String a = "";
+                        for (int j = 0; j < 3; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
                             }
-                            G = Character.getNumericValue(a);
+                            
                         }
-                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
+                        int G = Integer.parseInt(a);//Integer.parseInt(a);
+                        g2d.rotate((Math.toRadians(G)),0, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
