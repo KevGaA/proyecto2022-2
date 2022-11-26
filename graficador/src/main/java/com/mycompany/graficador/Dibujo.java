@@ -292,7 +292,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        //G = 0;
+                        G = 0;
                         char a = 0;
                         //String b = null;
                         for (int j = i; j < textSeparado[i].length()-2; j++) {
@@ -303,26 +303,8 @@ public class Dibujo extends javax.swing.JFrame {
                                 a += (textSeparado[i].charAt(j-i+2));
                             }
                             G = Character.getNumericValue(a);
-                            //G = Integer.parseInt(a);
                         }
-                        //G = Integer.parseInt(a);
-                        
-                        /*
-                        if (G == 1) {
-                            G = 10;
-                        }
-                        if (G == 2) {
-                            G = 25;
-                        }
-                        if (G == 3) {
-                            G = 50;
-                        }/*
-                        if (G!=0) {
-                        x = 100; 
-                        y = 0;
-                        }*/
-                        g2d.rotate(Math.toRadians(G));
-                        //g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
+                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
@@ -3190,8 +3172,6 @@ public class Dibujo extends javax.swing.JFrame {
             x = x + 50;
             
         }
-        
-
         g2d.setColor(colorito);
         for (int i = 0; i < DibujoFinal.size(); i++) {
             g2d.draw(DibujoFinal.get(i));
@@ -3199,6 +3179,7 @@ public class Dibujo extends javax.swing.JFrame {
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
+                repaint();  
             }
         }
     }//GEN-LAST:event_palabraKeyReleased
