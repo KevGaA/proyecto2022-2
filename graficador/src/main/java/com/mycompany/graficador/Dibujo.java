@@ -288,13 +288,13 @@ public class Dibujo extends javax.swing.JFrame {
                             textSeparado = reverse(textSeparado);
                         }
                         else{
-                            String[] auxtext2 = new String[(textSeparado.length-1)-i];
+                            String[] auxtext2 = new String[(textSeparado.length)-i];
                             textSeparado[i] = textSeparado[i].substring(2);
-                            for (int j = i; j < textSeparado.length-1; j++) {
+                            for (int j = i; j <= textSeparado.length-1; j++) {
                                 auxtext2[j-i] = textSeparado[j]; 
                             }
                             auxtext2 = reverse(auxtext2);
-                            for (int j = i; j < textSeparado.length-1; j++) {
+                            for (int j = i; j <= textSeparado.length-1; j++) {
                                 textSeparado[j]=auxtext2[j-i];
                             }
                         }
