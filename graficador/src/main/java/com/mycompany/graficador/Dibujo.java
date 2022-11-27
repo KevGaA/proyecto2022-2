@@ -17,7 +17,6 @@ public class Dibujo extends javax.swing.JFrame {
     int Xp;
     double T;
     public static boolean Puntos = false;
-    int G;
     
     public Dibujo() {
         initComponents();
@@ -135,7 +134,6 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
-        //g2d.rotate(G);
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
@@ -144,8 +142,7 @@ public class Dibujo extends javax.swing.JFrame {
 
         String text = palabra.getText();
         String textSeparado[] = text.split(" ");
-        String newtext[]=null;
-
+        
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
             Negrita=false;
@@ -282,28 +279,57 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
-                    if (textSeparado[i].charAt(1) == 'R') {
+                    if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
+                        String[] auxtext2 = new String[(textSeparado.length)-i];
                         textSeparado[i] = textSeparado[i].substring(2);
-                        textSeparado = reverse(textSeparado);
-                        
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            auxtext2[j-i] = textSeparado[j]; 
+                        }
+                        auxtext2 = reverse(auxtext2);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            textSeparado[j]=auxtext2[j-i];
+                        }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        G = 0;
-                        G = Character.getNumericValue(textSeparado[i].charAt(2));
-                        if (G == 1) {
-                            G = 10;
+                        String a = "0";//evita que marque error al intentar inclinar la frase entera
+                        for (int j = 0; j < 3; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            
                         }
-                        if (G == 2) {
-                            G = 25;
+                        int G = Integer.parseInt(a);
+                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
+                        textSeparado[i] = textSeparado[i].substring(2);
+                    }
+                    if (textSeparado[i].charAt(1) == 'X') {//traslate
+                        String a = "0";
+                        String b = "0";
+                        for (int j = 0; j < 5; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            if ((textSeparado[i].charAt(j+2))==',') {
+                                for (int k = j+2; k < j+6; k++) {
+                                    if ((textSeparado[i].charAt(k))=='1'||(textSeparado[i].charAt(k))=='2'||(textSeparado[i].charAt(k))=='3'
+                                        || (textSeparado[i].charAt(k))=='4'||(textSeparado[i].charAt(k))=='5'||(textSeparado[i].charAt(k))=='6'
+                                        ||(textSeparado[i].charAt(k))=='7'||(textSeparado[i].charAt(k))=='8'||(textSeparado[i].charAt(k))=='9'
+                                        ||(textSeparado[i].charAt(k))=='0'){
+                                        b = b + (textSeparado[i].charAt(k));
+                                    }
+                                }
+                                textSeparado[i] = textSeparado[i].substring(j+1);
+                            } 
                         }
-                        if (G == 3) {
-                            G = 50;
-                        }/*
-                        if (G!=0) {
-                        x = 100; 
-                        y = 0;
-                        }*/
-                        g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
+                        int xpos = Integer.parseInt(a);
+                        int ypos = Integer.parseInt(b);
+                        g2d.translate(xpos, ypos);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
@@ -3171,8 +3197,6 @@ public class Dibujo extends javax.swing.JFrame {
             x = x + 50;
             
         }
-        
-
         g2d.setColor(colorito);
         for (int i = 0; i < DibujoFinal.size(); i++) {
             g2d.draw(DibujoFinal.get(i));
@@ -3180,6 +3204,7 @@ public class Dibujo extends javax.swing.JFrame {
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
+                repaint();  
             }
         }
     }//GEN-LAST:event_palabraKeyReleased
@@ -5933,10 +5958,8 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
 
-    public String[] reverse(String[] nums)
-    {
+    public String[] reverse(String[] nums){
         String[] temp = new String[nums.length];
- 
         for (int i = 0; i < nums.length; i++) {
             temp[nums.length - 1 - i] = nums[i];
         }
