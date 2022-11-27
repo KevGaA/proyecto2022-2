@@ -8,7 +8,6 @@ import java.awt.Shape;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
-import org.apache.commons.lang.ArrayUtils;
 
 public class Dibujo extends javax.swing.JFrame {
 
@@ -18,7 +17,6 @@ public class Dibujo extends javax.swing.JFrame {
     int Xp;
     double T;
     public static boolean Puntos = false;
-    int G;
     
     public Dibujo() {
         initComponents();
@@ -293,22 +291,45 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
-                        G = 0;
-                        G = Character.getNumericValue(textSeparado[i].charAt(2));
-                        if (G == 1) {
-                            G = 10;
+                        String a = "0";//evita que marque error al intentar inclinar la frase entera
+                        for (int j = 0; j < 3; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            
                         }
-                        if (G == 2) {
-                            G = 25;
+                        int G = Integer.parseInt(a);
+                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
+                        textSeparado[i] = textSeparado[i].substring(2);
+                    }
+                    if (textSeparado[i].charAt(1) == 'X') {//traslate
+                        String a = "0";
+                        String b = "0";
+                        for (int j = 0; j < 5; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            if ((textSeparado[i].charAt(j+2))==',') {
+                                for (int k = j+2; k < j+6; k++) {
+                                    if ((textSeparado[i].charAt(k))=='1'||(textSeparado[i].charAt(k))=='2'||(textSeparado[i].charAt(k))=='3'
+                                        || (textSeparado[i].charAt(k))=='4'||(textSeparado[i].charAt(k))=='5'||(textSeparado[i].charAt(k))=='6'
+                                        ||(textSeparado[i].charAt(k))=='7'||(textSeparado[i].charAt(k))=='8'||(textSeparado[i].charAt(k))=='9'
+                                        ||(textSeparado[i].charAt(k))=='0'){
+                                        b = b + (textSeparado[i].charAt(k));
+                                    }
+                                }
+                                textSeparado[i] = textSeparado[i].substring(j+1);
+                            } 
                         }
-                        if (G == 3) {
-                            G = 50;
-                        }/*
-                        if (G!=0) {
-                        x = 100; 
-                        y = 0;
-                        }*/
-                        g2d.rotate((Math.toRadians(G)),textSeparado[i].length(), 70+y);
+                        int xpos = Integer.parseInt(a);
+                        int ypos = Integer.parseInt(b);
+                        g2d.translate(xpos, ypos);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     
@@ -3176,8 +3197,6 @@ public class Dibujo extends javax.swing.JFrame {
             x = x + 50;
             
         }
-        
-
         g2d.setColor(colorito);
         for (int i = 0; i < DibujoFinal.size(); i++) {
             g2d.draw(DibujoFinal.get(i));
@@ -3185,6 +3204,7 @@ public class Dibujo extends javax.swing.JFrame {
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
+                repaint();  
             }
         }
     }//GEN-LAST:event_palabraKeyReleased
