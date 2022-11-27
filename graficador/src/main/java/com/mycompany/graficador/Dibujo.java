@@ -17,7 +17,7 @@ public class Dibujo extends javax.swing.JFrame {
     int Xp;
     double T;
     public static boolean Puntos = false;
-
+    
     public Dibujo() {
         initComponents();
         Pcontrol1.setBackground(Color.white);
@@ -134,7 +134,6 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         boolean Subr = false, Negrita = false, Curs = false;
-
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
 
@@ -143,7 +142,7 @@ public class Dibujo extends javax.swing.JFrame {
 
         String text = palabra.getText();
         String textSeparado[] = text.split(" ");
-
+        
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
             Negrita=false;
@@ -165,8 +164,7 @@ public class Dibujo extends javax.swing.JFrame {
                         } else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
-                    }
-                    if (textSeparado[i].charAt(1) == 'S') {
+                    }if (textSeparado[i].charAt(1) == 'S') {
                         Subr = true;
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
@@ -281,10 +279,60 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         textSeparado[i] = textSeparado[i].substring(3);
                     }
-                    if (textSeparado[i].charAt(1) == 'R') {
+                    if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
+                        String[] auxtext2 = new String[(textSeparado.length)-i];
                         textSeparado[i] = textSeparado[i].substring(2);
-                        textSeparado[i] = Invertir(textSeparado[i]);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            auxtext2[j-i] = textSeparado[j]; 
+                        }
+                        auxtext2 = reverse(auxtext2);
+                        for (int j = i; j <= textSeparado.length-1; j++) {
+                            textSeparado[j]=auxtext2[j-i];
+                        }
                     }
+                    if (textSeparado[i].charAt(1) == 'A') {
+                        String a = "0";//evita que marque error al intentar inclinar la frase entera
+                        for (int j = 0; j < 3; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            
+                        }
+                        int G = Integer.parseInt(a);
+                        g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
+                        textSeparado[i] = textSeparado[i].substring(2);
+                    }
+                    if (textSeparado[i].charAt(1) == 'X') {//traslate
+                        String a = "0";
+                        String b = "0";
+                        for (int j = 0; j < 5; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                            if ((textSeparado[i].charAt(j+2))==',') {
+                                for (int k = j+2; k < j+6; k++) {
+                                    if ((textSeparado[i].charAt(k))=='1'||(textSeparado[i].charAt(k))=='2'||(textSeparado[i].charAt(k))=='3'
+                                        || (textSeparado[i].charAt(k))=='4'||(textSeparado[i].charAt(k))=='5'||(textSeparado[i].charAt(k))=='6'
+                                        ||(textSeparado[i].charAt(k))=='7'||(textSeparado[i].charAt(k))=='8'||(textSeparado[i].charAt(k))=='9'
+                                        ||(textSeparado[i].charAt(k))=='0'){
+                                        b = b + (textSeparado[i].charAt(k));
+                                    }
+                                }
+                                textSeparado[i] = textSeparado[i].substring(j+1);
+                            } 
+                        }
+                        int xpos = Integer.parseInt(a);
+                        int ypos = Integer.parseInt(b);
+                        g2d.translate(xpos, ypos);
+                        textSeparado[i] = textSeparado[i].substring(2);
+                    }
+                    
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
@@ -293,6 +341,7 @@ public class Dibujo extends javax.swing.JFrame {
                 String letra = Character.toString(aux);
                 
                 if (x < 1100) {
+                    
                     if ("a".equals(letra)) {//listo
                         if (Negrita == false && Curs == false && Subr == false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
@@ -3146,9 +3195,8 @@ public class Dibujo extends javax.swing.JFrame {
                 }
             }
             x = x + 50;
+            
         }
-        
-
         g2d.setColor(colorito);
         for (int i = 0; i < DibujoFinal.size(); i++) {
             g2d.draw(DibujoFinal.get(i));
@@ -3156,10 +3204,11 @@ public class Dibujo extends javax.swing.JFrame {
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
+                repaint();  
             }
         }
     }//GEN-LAST:event_palabraKeyReleased
-
+    
     public Path2D.Double Dletras(String letra, int x, int y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if ("a".equals(letra)){
@@ -4148,20 +4197,60 @@ public class Dibujo extends javax.swing.JFrame {
         }
        
         if("A".equals(letra)){
-            
-
+            curve.moveTo(0+x*T,70+y*T);
+            curve.lineTo(60+x*T,20+y*T);
+            curve.moveTo(60+x*T,20+y*T);
+            curve.lineTo(30+x*T,70+y*T);
+            curve.moveTo(30+x*T,70+y*T);
+            curve.curveTo(45+x*T,75+y*T,58+x*T,71+y*T,60+x*T,55+y*T);
+            curve.moveTo(60+x*T,55+y*T);
+            curve.curveTo(62+x*T,49+y*T,58+x*T,48+y*T,50+x*T,53+y*T);
+            curve.moveTo(50+x*T,53+y*T);
+            curve.curveTo(26+x*T,56+y*T,22+x*T,51+y*T,26+x*T,30+y*T);
         }
         if ("Á".equals(letra)) {
+            curve.moveTo(60+x*T,13+y*T);
+            curve.lineTo(80+x*T,3+y*T);
+            curve.moveTo(0+x*T,70+y*T);
+            curve.lineTo(60+x*T,20+y*T);
+            curve.moveTo(60+x*T,20+y*T);
+            curve.lineTo(30+x*T,70+y*T);
+            curve.moveTo(30+x*T,70+y*T);
+            curve.curveTo(45+x*T,75+y*T,58+x*T,71+y*T,60+x*T,55+y*T);
+            curve.moveTo(60+x*T,55+y*T);
+            curve.curveTo(62+x*T,49+y*T,58+x*T,48+y*T,50+x*T,53+y*T);
+            curve.moveTo(50+x*T,53+y*T);
+            curve.curveTo(26+x*T,56+y*T,22+x*T,51+y*T,26+x*T,30+y*T);
 
         }
         if ("B".equals(letra)) {
-
+            curve.moveTo(10+x*T,70+y*T);
+            curve.lineTo(60+x*T,20+y*T);
+            curve.moveTo(60+x*T,20+y*T);
+            curve.curveTo(79+x*T,28+y*T,72+x*T,45+y*T,36+x*T,43+y*T);
+            curve.moveTo(36+x*T,43+y*T);
+            curve.curveTo(78+x*T,54+y*T,73+x*T,68+y*T,20+x*T,70+y*T);
+            curve.moveTo(20+x*T,70+y*T);
+            curve.curveTo(0+x*T,65+y*T,0+x*T,55+y*T,20+x*T,50+y*T);
+            curve.moveTo(20+x*T,50+y*T);
+            curve.curveTo(38+x*T,58+y*T,50+x*T,68+y*T,70+x*T,70+y*T); 
         }
         if ("C".equals(letra)) {
-
+            curve.moveTo(60+x*T,20+y*T);
+            curve.curveTo(36+x*T,25+y*T,25+x*T,35+y*T,15+x*T,55+y*T);
+            curve.moveTo(15+x*T,55+y*T);
+            curve.curveTo(15+x*T,64+y*T,22+x*T,72+y*T,70+x*T,70+y*T);
         }
         if ("D".equals(letra)) {
-
+            curve.moveTo(60+x*T,20+y*T);
+            curve.lineTo(16+x*T,70+y*T);
+            curve.curveTo(5+x*T,75+y*T,3+x*T,70+y*T,16+x*T,61+y*T);
+            curve.moveTo(16+x*T,61+y*T);
+            curve.curveTo(21+x*T,61+y*T,28+x*T,65+y*T,32+x*T,70+y*T);
+            curve.moveTo(32+x*T,70+y*T);
+            curve.curveTo(79+x*T,54+y*T,85+x*T,30+y*T,58+x*T,20+y*T);
+            curve.moveTo(58+x*T,20+y*T);
+            curve.curveTo(41+x*T,21+y*T,36+x*T,28+y*T,42+x*T,28+y*T);
         }
         if ("E".equals(letra)) {
 
@@ -5869,13 +5958,16 @@ public class Dibujo extends javax.swing.JFrame {
         return g3d;
     }
 
-    public String Invertir(String textSeparado){
-        String invertido = "";
-        for (int indice = textSeparado.length() - 1; indice >= 0; indice--) {
-            invertido += textSeparado.charAt(indice);
+    public String[] reverse(String[] nums){
+        String[] temp = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            temp[nums.length - 1 - i] = nums[i];
         }
-        textSeparado = invertido;
-        return textSeparado;
+ 
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = temp[i];
+        }
+        return nums;
     }
     
     private void coloresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coloresMousePressed
