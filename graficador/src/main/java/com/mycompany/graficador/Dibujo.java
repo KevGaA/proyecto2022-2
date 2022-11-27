@@ -308,7 +308,7 @@ public class Dibujo extends javax.swing.JFrame {
                     if (textSeparado[i].charAt(1) == 'X') {//traslate
                         String a = "0";
                         String b = "0";
-                        for (int j = 0; j < 4; j++) {
+                        for (int j = 0; j < 5; j++) {
                             if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
                                 || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
                                 ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
@@ -316,17 +316,16 @@ public class Dibujo extends javax.swing.JFrame {
                                 a = a + (textSeparado[i].charAt(j+2));
                             }
                             if ((textSeparado[i].charAt(j+2))==',') {
-                                for (int k = j+3; k < j+5; k++) {
-                                    if ((textSeparado[i].charAt(k+1))=='1'||(textSeparado[i].charAt(k+1))=='2'||(textSeparado[i].charAt(k+1))=='3'
-                                        || (textSeparado[i].charAt(k+1))=='4'||(textSeparado[i].charAt(k+1))=='5'||(textSeparado[i].charAt(k+1))=='6'
-                                        ||(textSeparado[i].charAt(k+1))=='7'||(textSeparado[i].charAt(k+1))=='8'||(textSeparado[i].charAt(k+1))=='9'
-                                        ||(textSeparado[i].charAt(k+1))=='0'){
-                                        b = b + (textSeparado[i].charAt(k+1));
+                                for (int k = j+2; k < j+6; k++) {
+                                    if ((textSeparado[i].charAt(k))=='1'||(textSeparado[i].charAt(k))=='2'||(textSeparado[i].charAt(k))=='3'
+                                        || (textSeparado[i].charAt(k))=='4'||(textSeparado[i].charAt(k))=='5'||(textSeparado[i].charAt(k))=='6'
+                                        ||(textSeparado[i].charAt(k))=='7'||(textSeparado[i].charAt(k))=='8'||(textSeparado[i].charAt(k))=='9'
+                                        ||(textSeparado[i].charAt(k))=='0'){
+                                        b = b + (textSeparado[i].charAt(k));
                                     }
                                 }
-                                
-                            }
-                            
+                                textSeparado[i] = textSeparado[i].substring(j+1);
+                            } 
                         }
                         int xpos = Integer.parseInt(a);
                         int ypos = Integer.parseInt(b);
