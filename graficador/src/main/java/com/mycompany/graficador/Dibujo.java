@@ -172,6 +172,7 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         g2d.translate(xpos, ypos);
+        
         boolean Subr = false, Negrita = false, Curs = false;
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
@@ -344,6 +345,13 @@ public class Dibujo extends javax.swing.JFrame {
                         g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
+                    if (textSeparado[i].charAt(1) == 'Y') {
+                         g2d.scale(1, -1);
+                    }
+                    if (textSeparado[i].charAt(1) == 'X') {
+                         g2d.scale(-1, 1);
+                    }
+                    
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
