@@ -189,7 +189,6 @@ public class Dibujo extends javax.swing.JFrame {
         for (int i = 0; i < textSeparado.length; i++) {
             
             System.out.println(textSeparado[i]);
-            System.out.println("ancho: "+ancho);
             g2d.translate(xpos, ypos);
             Negrita=false;
             Curs=false;
@@ -338,7 +337,7 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         String a = "0";//evita que marque error al intentar inclinar la frase entera
-                        for (int j = 0; j < 3; j++) {
+                        for (int j = 0; j < 4; j++) {
                             if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
                                 || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
                                 ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
@@ -367,7 +366,7 @@ public class Dibujo extends javax.swing.JFrame {
                 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
-                
+
                 if (x < 1100) {
                     
                     if ("a".equals(letra)) {//listo
@@ -3221,8 +3220,11 @@ public class Dibujo extends javax.swing.JFrame {
                     y = y + 90;
                     x = 0;
                 }
-                g2d.draw(DibujoFinal.get(ancho));
                 ancho = DibujoFinal.size()-1; 
+                g2d.draw(DibujoFinal.get(ancho));
+                
+                System.out.println("ancho: "+ancho);
+
             }
             x = x + 50;
             g2d.setTransform(reset);
