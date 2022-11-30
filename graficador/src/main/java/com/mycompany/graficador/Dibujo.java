@@ -15,7 +15,7 @@ public class Dibujo extends javax.swing.JFrame {
     public static Color colorito;
     private Graphics2D g2d;
     private Graphics2D g3d;
-    int Xp, xpos, ypos, G;
+    int Xp, xpos, ypos, G, Gtotal;
     double T;
     
     public static boolean Puntos = false;
@@ -337,7 +337,7 @@ public class Dibujo extends javax.swing.JFrame {
                             textSeparado[j]=auxtext2[j-i];
                         }
                     }
-                    if (textSeparado[i].charAt(1) == 'A') {
+                    if (textSeparado[i].charAt(1) == 'a') {
                         String a = "0";//evita que marque error al intentar inclinar la frase entera
                         int l;
                         for (int j = 0; j < 4; j++) {
@@ -351,7 +351,21 @@ public class Dibujo extends javax.swing.JFrame {
                         l = a.length();
                         G = Integer.parseInt(a);
                         g2d.rotate(Math.toRadians(G), x, 70+y);
-                        
+                        textSeparado[i] = textSeparado[i].substring(l+1);
+                    }
+                    if (textSeparado[i].charAt(1) == 'A') {
+                        String a = "0";//evita que marque error al intentar inclinar la frase entera
+                        int l;
+                        for (int j = 0; j < 4; j++) {
+                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
+                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
+                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
+                                ||(textSeparado[i].charAt(j+2))=='0'){
+                                a = a + (textSeparado[i].charAt(j+2));
+                            }
+                        }
+                        l = a.length();
+                        Gtotal = Integer.parseInt(a);
                         textSeparado[i] = textSeparado[i].substring(l+1);
                     }
                     if (textSeparado[i].charAt(1) == 'X') {
@@ -365,7 +379,7 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                 }
-                
+                g2d.rotate(Math.toRadians(Gtotal));
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
                 
