@@ -187,14 +187,16 @@ public class Dibujo extends javax.swing.JFrame {
         String textSeparado[] = text.split(" ");
         
         for (int i = 0; i < textSeparado.length; i++) {
+            
             System.out.println(textSeparado[i]);
+            System.out.println("ancho: "+ancho);
             g2d.translate(xpos, ypos);
             Negrita=false;
             Curs=false;
             Subr=false;
             T = 1;
             //parseo
-            if (textSeparado[i].length() > 1) {
+            if (textSeparado[i].length() > 2) {
                 if (textSeparado[i].charAt(0) == '^') {
                     if (textSeparado[i].charAt(1) == 'N') {
                         Negrita = true;
@@ -205,7 +207,7 @@ public class Dibujo extends javax.swing.JFrame {
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
                             }
-                        } else {
+                        }else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }if (textSeparado[i].charAt(1) == 'S') {
@@ -217,7 +219,7 @@ public class Dibujo extends javax.swing.JFrame {
                             if (textSeparado[i].charAt(3) == 'N') {
                                 Negrita = true;
                             }
-                        } else {
+                        }else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }
@@ -230,7 +232,7 @@ public class Dibujo extends javax.swing.JFrame {
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
                             }
-                        } else {
+                        }else {
                             textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }
@@ -345,7 +347,7 @@ public class Dibujo extends javax.swing.JFrame {
                             }
                         }
                         G = Integer.parseInt(a);
-                        g2d.rotate(Math.toRadians(G));
+                        g2d.rotate(Math.toRadians(G), x, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     if (textSeparado[i].charAt(1) == 'X') {
@@ -357,14 +359,15 @@ public class Dibujo extends javax.swing.JFrame {
                         g2d.translate(450+x, 0);
                         g2d.scale(-1, 1);
                         textSeparado[i] = textSeparado[i].substring(2);
-                    }   
+                    }
                 }
+                
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
                 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
-                ancho = DibujoFinal.size();
+                
                 if (x < 1100) {
                     
                     if ("a".equals(letra)) {//listo
@@ -3219,11 +3222,12 @@ public class Dibujo extends javax.swing.JFrame {
                     x = 0;
                 }
                 g2d.draw(DibujoFinal.get(ancho));
+                ancho = DibujoFinal.size()-1; 
             }
-            
             x = x + 50;
             g2d.setTransform(reset);
         }
+        
         
         /*antigua forma para mostrar el dibujo
         for (int i = 0; i < DibujoFinal.size(); i++) {
