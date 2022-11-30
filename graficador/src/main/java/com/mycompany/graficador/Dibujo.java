@@ -173,7 +173,6 @@ public class Dibujo extends javax.swing.JFrame {
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
         g2d.setColor(colorito);
-        G=0;
         
         boolean Subr = false, Negrita = false, Curs = false;
         int x = 0, y = 15;// posicion de las letras
@@ -190,12 +189,15 @@ public class Dibujo extends javax.swing.JFrame {
             
             System.out.println(textSeparado[i]);
             g2d.translate(xpos, ypos);
+            //g2d.rotate(Math.toRadians(G)); permite rotar la frase entera dejandolo en esta posicion
+            
             Negrita=false;
             Curs=false;
             Subr=false;
+            
             T = 1;
             //parseo
-            if (textSeparado[i].length() > 2) {
+            if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
                     if (textSeparado[i].charAt(1) == 'N') {
                         Negrita = true;
@@ -337,6 +339,7 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         String a = "0";//evita que marque error al intentar inclinar la frase entera
+                        int l;
                         for (int j = 0; j < 4; j++) {
                             if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
                                 || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
@@ -345,9 +348,11 @@ public class Dibujo extends javax.swing.JFrame {
                                 a = a + (textSeparado[i].charAt(j+2));
                             }
                         }
+                        l = a.length();
                         G = Integer.parseInt(a);
                         g2d.rotate(Math.toRadians(G), x, 70+y);
-                        textSeparado[i] = textSeparado[i].substring(2);
+                        
+                        textSeparado[i] = textSeparado[i].substring(l+1);
                     }
                     if (textSeparado[i].charAt(1) == 'X') {
                         g2d.translate(0, 150+y);
@@ -3224,17 +3229,11 @@ public class Dibujo extends javax.swing.JFrame {
                 g2d.draw(DibujoFinal.get(ancho));
                 
                 System.out.println("ancho: "+ancho);
-
             }
             x = x + 50;
-            g2d.setTransform(reset);
+            g2d.setTransform(reset); 
         }
         
-        
-        /*antigua forma para mostrar el dibujo
-        for (int i = 0; i < DibujoFinal.size(); i++) {
-            g2d.draw(DibujoFinal.get(i));
-        }*/
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
