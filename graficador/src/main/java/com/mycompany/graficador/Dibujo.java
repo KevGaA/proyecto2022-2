@@ -171,12 +171,12 @@ public class Dibujo extends javax.swing.JFrame {
         g2d = (Graphics2D) jPanel1.getGraphics();
         AffineTransform reset = g2d.getTransform();
         jPanel1.update(g2d);
-        g2d.setStroke(new BasicStroke(1.5f));
+        
         g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
         int x = 0, y = 15;// posicion de las letras
-        int ancho = 0;
+        int ancho;
         char aux;
 
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
@@ -186,10 +186,9 @@ public class Dibujo extends javax.swing.JFrame {
         String textSeparado[] = text.split(" ");
         
         for (int i = 0; i < textSeparado.length; i++) {
-            
+            g2d.setStroke(new BasicStroke(1f));
             System.out.println(textSeparado[i]);
             g2d.translate(xpos, ypos);
-            //g2d.rotate(Math.toRadians(G)); permite rotar la frase entera dejandolo en esta posicion
             
             Negrita=false;
             Curs=false;
@@ -198,52 +197,99 @@ public class Dibujo extends javax.swing.JFrame {
             T = 1;
             //parseo
             if (textSeparado[i].length() > 1) {
-                if (textSeparado[i].charAt(0) == '^') {
+                if (textSeparado[i].charAt(0) == '^' || textSeparado[i].charAt(0) == '+') {
                     if (textSeparado[i].charAt(1) == 'N') {
                         Negrita = true;
+                        g2d.setStroke(new BasicStroke(2f));
+                        textSeparado[i] = textSeparado[i].substring(2);
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
                                 Curs = true;
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'S') {
+                                        Subr = true;
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'K') {
+                                        Curs = true;
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
-                        }else {
-                            textSeparado[i] = textSeparado[i].substring(2);
                         }
-                    }if (textSeparado[i].charAt(1) == 'S') {
+                    }
+                    if (textSeparado[i].charAt(1) == 'S') {
                         Subr = true;
+                        textSeparado[i] = textSeparado[i].substring(2);
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'K') {
                                 Curs = true;
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'N') {
+                                        Negrita = true;
+                                        g2d.setStroke(new BasicStroke(2f));
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
                             if (textSeparado[i].charAt(3) == 'N') {
                                 Negrita = true;
+                                g2d.setStroke(new BasicStroke(2f));
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'K') {
+                                        Curs = true;
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
-                        }else {
-                            textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'K') {
                         Curs = true;
+                        textSeparado[i] = textSeparado[i].substring(2);
                         if (textSeparado[i].charAt(2) == '+') {
                             if (textSeparado[i].charAt(3) == 'N') {
                                 Negrita = true;
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                g2d.setStroke(new BasicStroke(2f));
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'S') {
+                                        Subr = true;
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
                             if (textSeparado[i].charAt(3) == 'S') {
                                 Subr = true;
+                                textSeparado[i] = textSeparado[i].substring(4);
+                                if (textSeparado[i].charAt(4) == '+') {
+                                    if (textSeparado[i].charAt(5) == 'N') {
+                                        Negrita = true;
+                                        g2d.setStroke(new BasicStroke(2f));
+                                        textSeparado[i] = textSeparado[i].substring(6);
+                                    }
+                                }
                             }
-                        }else {
-                            textSeparado[i] = textSeparado[i].substring(2);
                         }
                     }
                     if (textSeparado[i].charAt(1) == 'T') {
                         T = Character.getNumericValue(textSeparado[i].charAt(2));
                         if (T == 1) {
                             T = 1.2;
+                            textSeparado[i] = textSeparado[i].substring(3);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
+                                    g2d.setStroke(new BasicStroke(2f));
                                     textSeparado[i] = textSeparado[i].substring(2);
                                 }
                                 if (textSeparado[i].charAt(4) == 'S') {
@@ -258,9 +304,11 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 2) {
                             T = 1.4;
+                            textSeparado[i] = textSeparado[i].substring(3);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
+                                    g2d.setStroke(new BasicStroke(2f));
                                     textSeparado[i] = textSeparado[i].substring(2);
                                 }
                                 if (textSeparado[i].charAt(4) == 'S') {
@@ -275,9 +323,11 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 3) {
                             T = 1.6;
+                            textSeparado[i] = textSeparado[i].substring(3);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
+                                    g2d.setStroke(new BasicStroke(2f));
                                     textSeparado[i] = textSeparado[i].substring(2);
                                 }
                                 if (textSeparado[i].charAt(4) == 'S') {
@@ -292,9 +342,11 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 4) {
                             T = 1.8;
+                            textSeparado[i] = textSeparado[i].substring(3);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
+                                    g2d.setStroke(new BasicStroke(2f));
                                     textSeparado[i] = textSeparado[i].substring(2);
                                 }
                                 if (textSeparado[i].charAt(4) == 'S') {
@@ -309,9 +361,11 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 5) {
                             T = 2;
+                            textSeparado[i] = textSeparado[i].substring(3);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
+                                    g2d.setStroke(new BasicStroke(2f));
                                     textSeparado[i] = textSeparado[i].substring(2);
                                 }
                                 if (textSeparado[i].charAt(4) == 'S') {
@@ -324,7 +378,7 @@ public class Dibujo extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        textSeparado[i] = textSeparado[i].substring(3);
+                        //textSeparado[i] = textSeparado[i].substring(3);
                     }
                     if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
                         String[] auxtext2 = new String[(textSeparado.length)-i];
@@ -374,7 +428,7 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     if (textSeparado[i].charAt(1) == 'Y') {
-                        g2d.translate(450+x, 0);
+                        g2d.translate(3*x, 0);
                         g2d.scale(-1, 1);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
@@ -385,7 +439,7 @@ public class Dibujo extends javax.swing.JFrame {
                 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
-
+                //Arraylist<Path2D.Double> arayaux = new Arraylist<>();  
                 if (x < 1100) {
                     
                     if ("a".equals(letra)) {//listo
@@ -393,11 +447,10 @@ public class Dibujo extends javax.swing.JFrame {
                             DibujoFinal.add(Dletras(letra, x, y, T));
                         }
                         if (Negrita == true) {
+                            
                             if (Curs == false && Subr == false) {
-                                for (int j = 0; j < 3; j++) {
-                                    DibujoFinal.add(Dletras(letra, x, y, T));
-                                    x++;
-                                }
+                                DibujoFinal.add(Dletras(letra, x, y, T));
+                                    
                             }
                             if (Curs == true && Subr == false) {
                                 for (int j = 0; j < 3; j++) {
@@ -3242,7 +3295,13 @@ public class Dibujo extends javax.swing.JFrame {
                 ancho = DibujoFinal.size()-1; 
                 g2d.draw(DibujoFinal.get(ancho));
                 
-                System.out.println("ancho: "+ancho);
+            }
+            if (Negrita ==true){ //puesto para probar las 
+                System.out.println("negrita: true");
+            }if (Curs ==true){
+                System.out.println("Curs: true");
+            }if (Subr ==true){
+                System.out.println("Subr: true");
             }
             x = x + 50;
             g2d.setTransform(reset); 
