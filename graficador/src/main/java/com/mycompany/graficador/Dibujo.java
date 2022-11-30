@@ -5,6 +5,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
@@ -167,26 +168,25 @@ public class Dibujo extends javax.swing.JFrame {
 
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
         g2d = (Graphics2D) jPanel1.getGraphics();
+        AffineTransform reset = g2d.getTransform();
         //Path2D.Double curve = new Path2D.Double();
         jPanel1.update(g2d);
         g2d.setStroke(new BasicStroke(1.5f));
-        g2d.translate(xpos, ypos);
-        
+        g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
         int x = 0, y = 15 ;// posicion de las letras
         char aux;
-        
 
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
-
+        
         String text = palabra.getText();
         String textSeparado[] = text.split(" ");
         
         for (int i = 0; i < textSeparado.length; i++) {
             System.out.println(textSeparado[i]);
-            g2d.scale(1, 1);
+            g2d.translate(xpos, ypos);
             Negrita=false;
             Curs=false;
             Subr=false;
@@ -347,13 +347,13 @@ public class Dibujo extends javax.swing.JFrame {
                         g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
-                    if (textSeparado[i].charAt(1) == 'Y') {
-                        g2d.translate(0, 100);
+                    if (textSeparado[i].charAt(1) == 'X') {
+                        g2d.translate(0, 100+y);
                         g2d.scale(1, -1);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
-                    if (textSeparado[i].charAt(1) == 'X') {
-                        g2d.translate(0, 0);
+                    if (textSeparado[i].charAt(1) == 'Y') {
+                        g2d.translate(100+x, 0);
                         g2d.scale(-1, 1);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
@@ -361,7 +361,7 @@ public class Dibujo extends javax.swing.JFrame {
                 }
             }
             for (int k = 0; k < textSeparado[i].length(); k++) {
-                
+                int ancho = DibujoFinal.size(); 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux);
                 
@@ -3218,15 +3218,16 @@ public class Dibujo extends javax.swing.JFrame {
                     y = y + 90;
                     x = 0;
                 }
+                g2d.draw(DibujoFinal.get(ancho));
             }
             x = x + 50;
-            
+            g2d.setTransform(reset);
         }
-        g2d.setColor(colorito);
+        
+        /*antigua forma para mostrar el dibujo
         for (int i = 0; i < DibujoFinal.size(); i++) {
             g2d.draw(DibujoFinal.get(i));
-            
-        }
+        }*/
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
