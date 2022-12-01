@@ -17,6 +17,7 @@ public class Dibujo extends javax.swing.JFrame {
     private Graphics2D g3d;
     int Xp, xpos, ypos, G, Gtotal;
     double T;
+    int t;
     
     public static boolean Puntos = false;
     
@@ -171,13 +172,13 @@ public class Dibujo extends javax.swing.JFrame {
         g2d = (Graphics2D) jPanel1.getGraphics();
         AffineTransform reset = g2d.getTransform();
         jPanel1.update(g2d);
-        
         g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
         int x = 0, y = 15;// posicion de las letras
         int ancho;
         char aux;
+        t=1;
 
         ArrayList<Path2D.Double> DibujoFinal = new ArrayList<>();
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
@@ -195,6 +196,7 @@ public class Dibujo extends javax.swing.JFrame {
             Subr=false;
             
             T = 1;
+            
             //parseo
             if (textSeparado[i].length() > 1) {
                 if (textSeparado[i].charAt(0) == '^') {
@@ -293,6 +295,7 @@ public class Dibujo extends javax.swing.JFrame {
                     if (textSeparado[i].charAt(1) == 'T') {
                         T = Character.getNumericValue(textSeparado[i].charAt(2));
                         if (T == 1) {
+                            t=1;
                             T = 1.2;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -311,8 +314,11 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
+                            x=x-30;
+                            
                         }
                         if (T == 2) {
+                            t=2;
                             T = 1.4;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -331,8 +337,10 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
+                            x=x-60;
                         }
                         if (T == 3) {
+                            t=3;
                             T = 1.6;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -351,8 +359,10 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
+                            x=x-80;
                         }
                         if (T == 4) {
+                            t=4;
                             T = 1.8;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -372,8 +382,10 @@ public class Dibujo extends javax.swing.JFrame {
                             else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
+                            x=x-100;
                         }
                         if (T == 5) {
+                            t=5;
                             T = 2;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -392,6 +404,7 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
+                            x=x-110;
                         }
                         //textSeparado[i] = textSeparado[i].substring(3);
                     }
@@ -450,12 +463,16 @@ public class Dibujo extends javax.swing.JFrame {
                 }
                 g2d.rotate(Math.toRadians(Gtotal));
             }
+            
+            
             for (int k = 0; k < textSeparado[i].length(); k++) {
+                System.out.println(t);
                 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
                 
                 if (x < 1100) {
+                    
                     if ("a".equals(letra)) {//listo
                         if (Curs == false && Subr == false) {
                             DibujoFinal.add(Dletras(letra, x, y, T));
@@ -480,6 +497,7 @@ public class Dibujo extends javax.swing.JFrame {
                             PuntosControl.add(Pcontrol(letra, x, y, T));
                         }
                         x = x + 70;
+                        
                     }
                     if ("á".equals(letra)) {//listo
                         if (Curs == false && Subr == false) {
@@ -2407,6 +2425,9 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x + 15;
                     }
                     if (" ".equals(letra)) {
+                        
+                    }
+                    if (" ".equals(letra)) {
                         x = x + 50;
                     }
                 }
@@ -2419,6 +2440,7 @@ public class Dibujo extends javax.swing.JFrame {
                 g2d.draw(DibujoFinal.get(ancho));
                 
             }
+           
             if (Negrita ==true){ //puesto para probar las 
                 System.out.println("negrita: true");
             }if (Curs ==true){
@@ -2436,6 +2458,7 @@ public class Dibujo extends javax.swing.JFrame {
                 //repaint();  
             }
         }
+        
     }//GEN-LAST:event_palabraKeyReleased
     
     public Path2D.Double Dletras(String letra, int x, int y, double T) {
