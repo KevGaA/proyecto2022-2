@@ -496,25 +496,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (Puntos == true) {
                             PuntosControl.add(Pcontrol(letra, x, y, T));
                         }
-                        if(t==1){
-                           x = x + 70;
-                        }
-                        if(t==2){
-                            x=x+200;
-                            t=1;
-                        }
-                        if(t==3){
-                            x=x+260;
-                            t=1;
-                        }
-                        if(t==4){
-                            x=x+300;
-                            t=1;
-                        }
-                        if(t==5){
-                            x=x+280;
-                            t=1;
-                        }
+                        x = x + 70;
                         
                     }
                     if ("á".equals(letra)) {//listo
