@@ -305,26 +305,7 @@ public class Dibujo extends javax.swing.JFrame {
                         int G = Integer.parseInt(a);
                         g2d.rotate((Math.toRadians(G)),textSeparado.length, 70+y);
                         textSeparado[i] = textSeparado[i].substring(2);
-                    }
-                    
-                    //test 
-                    if (textSeparado[i].charAt(1) == 'a') {
-                        String b = "0";
-                        for (int j = 0; j < 3; j++) {
-                            if ((textSeparado[i].charAt(j+2))=='1'||(textSeparado[i].charAt(j+2))=='2'||(textSeparado[i].charAt(j+2))=='3'
-                                || (textSeparado[i].charAt(j+2))=='4'||(textSeparado[i].charAt(j+2))=='5'||(textSeparado[i].charAt(j+2))=='6'
-                                ||(textSeparado[i].charAt(j+2))=='7'||(textSeparado[i].charAt(j+2))=='8'||(textSeparado[i].charAt(j+2))=='9'
-                                ||(textSeparado[i].charAt(j+2))=='0'){
-                                b = b + (textSeparado[i].charAt(j+2));
-                            }    
-                        }
-                        int Giro = Integer.parseInt(b);
-                        g2d.rotate((Math.toRadians(Giro)),textSeparado.length, 70+y);
-                        textSeparado[i] = textSeparado[i].substring(2);
-                        
-                    }
-                    
-                    
+                    } 
                     if (textSeparado[i].charAt(1) == 'X') {//traslate
                         String a = "0";
                         String b = "0";
