@@ -1,4 +1,3 @@
-//kevito
 package com.mycompany.graficador;
 
 import java.awt.BasicStroke;
@@ -2616,8 +2615,6 @@ public class Dibujo extends javax.swing.JFrame {
             curve.moveTo((0+x)*T, (70+y)*T);
             curve.curveTo((25+x)*T, (65+y)*T, (25+x)*T, (20+y)*T, (20+x)*T, (15+y)*T);
             curve.curveTo((5+x)*T, (20+y)*T, (5+x)*T, (65+y)*T, (35+x)*T, (70+y)*T);
-
-
         }
         if("m".equals(letra)){
             curve.moveTo((0+x)*T, (70+y)*T);
@@ -4442,10 +4439,18 @@ public class Dibujo extends javax.swing.JFrame {
             curve.lineTo((45+x)*T, (75+y)*T);
         }
         if("r".equals(letra)){
+            curve.moveTo((0+x)*T, (70+y)*T);
+            curve.curveTo((10+x)*T, (65+y)*T, (10+x)*T, (35+y)*T, (0+x)*T, (30+y)*T);
+            curve.curveTo((0+x)*T, (60+y)*T, (40+x)*T, (35+y)*T, (30+x)*T, (40+y)*T);
+            curve.curveTo((25+x)*T, (35+y)*T, (25+x)*T, (65+y)*T, (30+x)*T, (70+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((40+x)*T, (75+y)*T);
         }
         if("s".equals(letra)){
+            curve.moveTo((0+x)*T, (70+y)*T);
+            curve.curveTo((15+x)*T, (70+y)*T, (25+x)*T, (30+y)*T, (20+x)*T, (30+y)*T);
+            curve.curveTo((40+x)*T, (35+y)*T, (50+x)*T, (90+y)*T, (25+x)*T, (67+y)*T);
+            curve.curveTo((35+x)*T, (60+y)*T, (40+x)*T, (80+y)*T, (50+x)*T, (70+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((50+x)*T, (75+y)*T);
         }
@@ -4481,6 +4486,9 @@ public class Dibujo extends javax.swing.JFrame {
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((40+x)*T, (75+y)*T);
         }
+        
+        
+        
         
         //mayusculas
         if("A".equals(letra)){
