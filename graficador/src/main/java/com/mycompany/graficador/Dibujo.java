@@ -184,7 +184,7 @@ public class Dibujo extends javax.swing.JFrame {
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
         
         String text = palabra.getText();
-        text = text.replace(" ", "☺ ");
+        text = text.replace(" ", " ☺");
         String textSeparado[] = text.split("☺");
         
         for (int i = 0; i < textSeparado.length; i++) {
