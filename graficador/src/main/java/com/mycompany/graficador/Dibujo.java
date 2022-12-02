@@ -175,7 +175,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
-        int x = 0, y = 15;// posicion de las letras
+        double x = 0, y = 15;// posicion de las letras
         int ancho;
         char aux;
         t=1;
@@ -195,7 +195,6 @@ public class Dibujo extends javax.swing.JFrame {
             Negrita=false;
             Curs=false;
             Subr=false;
-            
             T = 1;
             
             //parseo
@@ -297,7 +296,7 @@ public class Dibujo extends javax.swing.JFrame {
                         T = Character.getNumericValue(textSeparado[i].charAt(2));
                         if (T == 1) {
                             t=1;
-                            T = 1.2;
+                            T = 1.1;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -320,7 +319,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 2) {
                             t=2;
-                            T = 1.4;
+                            T = 1.2;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -342,7 +341,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 3) {
                             t=3;
-                            T = 1.6;
+                            T = 1.3;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -364,7 +363,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 4) {
                             t=4;
-                            T = 1.8;
+                            T = 1.4;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -387,7 +386,7 @@ public class Dibujo extends javax.swing.JFrame {
                         }
                         if (T == 5) {
                             t=5;
-                            T = 2;
+                            T = 1.5;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -466,9 +465,7 @@ public class Dibujo extends javax.swing.JFrame {
             }
             
             
-            for (int k = 0; k < textSeparado[i].length(); k++) {
-                System.out.println(t);
-                
+            for (int k = 0; k < textSeparado[i].length(); k++) {                
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
                 if (x >= 1100) {
@@ -2439,10 +2436,8 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x + 15;
                     }
                     if (" ".equals(letra)) {
-                        
-                    }
-                    if (" ".equals(letra)) {
-                        x = x + 50;
+                        DibujoFinal.add(Dletras(letra,x,y,T));
+                        x = x*T + 50;
                     }
                 }
                 
@@ -2460,8 +2455,12 @@ public class Dibujo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_palabraKeyReleased
     
-    public Path2D.Double Dletras(String letra, int x, int y, double T) {
+    public Path2D.Double Dletras(String letra, double x, double y, double T) {
         Path2D.Double curve = new Path2D.Double();
+        if (" ".equals(letra)){
+            curve.moveTo((0+x)*T, (70+y)*T);
+            curve.moveTo((50+x)*T, (70+y)*T);
+        }
         if ("a".equals(letra)){
             curve.moveTo((0+x)*T, (70+y)*T);
             curve.curveTo((10+x)*T, (70+y)*T, (20+x)*T, (65+y)*T, (20+x)*T, (50+y)*T);
@@ -3178,7 +3177,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Path2D.Double Dcursivas(String letra, int x, int y, double T) {
+    public Path2D.Double Dcursivas(String letra, double x, double y, double T) {
         Path2D.Double curve = new Path2D.Double();
 
         if("a".equals(letra)){
@@ -3769,7 +3768,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Path2D.Double Dsubrayado(String letra, int x, int y, double T) {
+    public Path2D.Double Dsubrayado(String letra, double x, double y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if("a".equals(letra)){
             curve.moveTo((0+x)*T, (70+y)*T);
@@ -4548,7 +4547,7 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
         
-    public Path2D.Double Dsubc(String letra, int x, int y, double T) {
+    public Path2D.Double Dsubc(String letra, double x, double y, double T) {
         Path2D.Double curve = new Path2D.Double();
         if("a".equals(letra)){
             curve.moveTo((0+x)*T, (75+y)*T);
@@ -5030,10 +5029,12 @@ public class Dibujo extends javax.swing.JFrame {
         return curve;
     }
 
-    public Graphics2D Pcontrol(String letra, int x, int y, double Tp) {
+    public Graphics2D Pcontrol(String letra, double X, double Y, double Tp) {
         g3d = (Graphics2D) jPanel1.getGraphics();
         g3d.setColor(Color.RED);
         int T = (int) Tp;// con las opciones de incremento de tamaño al aproximarlas a un entero las deja en 1 por lo cual no varia
+        int x = (int) X;// con las opciones de incremento de tamaño al aproximarlas a un entero las deja en 1 por lo cual no varia
+        int y= (int) Y;// con las opciones de incremento de tamaño al aproximarlas a un entero las deja en 1 por lo cual no varia
         if ("a".equals(letra)){
                 g3d.fillOval(0+x, 70+y, 4, 4);
                 g3d.fillOval(10+x, 70+y, 4, 4);
