@@ -169,6 +169,7 @@ public class Dibujo extends javax.swing.JFrame {
 
     private void palabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_palabraKeyReleased
         g2d = (Graphics2D) jPanel1.getGraphics();
+        Path2D.Double curve = new Path2D.Double();
         AffineTransform reset = g2d.getTransform();
         jPanel1.update(g2d);
         g2d.setColor(colorito);
@@ -183,7 +184,8 @@ public class Dibujo extends javax.swing.JFrame {
         ArrayList<Graphics2D> PuntosControl = new ArrayList<>();
         
         String text = palabra.getText();
-        String textSeparado[] = text.split(" ");
+        text = text.replace(" ", "☺ ");
+        String textSeparado[] = text.split("☺");
         
         for (int i = 0; i < textSeparado.length; i++) {
             g2d.setStroke(new BasicStroke(1f));
@@ -469,7 +471,20 @@ public class Dibujo extends javax.swing.JFrame {
                 
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
-                
+                if (x >= 1100) {
+                    if (" ".equals(letra) ||"-".equals(letra) || "_".equals(letra) || "(".equals(letra) ||")".equals(letra) || "[".equals(letra) || "]".equals(letra) || "{".equals(letra)
+                        || "}".equals(letra) || "?".equals(letra) || "¿".equals(letra) || "¡".equals(letra) || "!".equals(letra) || "'".equals(letra) || "\"".equals(letra) || ".".equals(letra) 
+                        || ":".equals(letra)|| ";".equals(letra) || ",".equals(letra) || "<".equals(letra) || ">".equals(letra)){
+                        x = 0;
+                        y = y + 90;
+                    }else{
+                        curve.moveTo((10+x)*T, (50+y)*T);
+                        curve.lineTo((30+x)*T, (50+y)*T);
+                        g2d.draw(curve);
+                        x = 0;
+                        y = y + 90;
+                    }
+                }
                 if (x < 1100) {
                     
                     if ("a".equals(letra)) {//listo
@@ -2430,34 +2445,19 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x + 50;
                     }
                 }
-                if (x > 1050 / T) {
-                    DibujoFinal.add(Dletras("-", x, y, T));
-                    y = y + 90;
-                    x = 0;
-                }
+                
                 ancho = DibujoFinal.size()-1; 
                 g2d.draw(DibujoFinal.get(ancho));
                 
             }
-           
-            if (Negrita ==true){ //puesto para probar las 
-                System.out.println("negrita: true");
-            }if (Curs ==true){
-                System.out.println("Curs: true");
-            }if (Subr ==true){
-                System.out.println("Subr: true");
-            }
-            x = x + 50;
             g2d.setTransform(reset); 
         }
         
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
                 g2d.draw((Shape) PuntosControl.get(i));
-                //repaint();  
             }
         }
-        
     }//GEN-LAST:event_palabraKeyReleased
     
     public Path2D.Double Dletras(String letra, int x, int y, double T) {
