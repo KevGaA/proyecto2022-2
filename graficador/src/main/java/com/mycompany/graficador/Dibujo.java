@@ -2764,136 +2764,136 @@ public class Dibujo extends javax.swing.JFrame {
             curve.curveTo((10+x)*T, (100+y)*T, (30+x)*T, (80+y)*T, (40+x)*T, (70+y)*T);
         }
         if ("A".equals(letra)){
-            curve.moveTo(0+x*T,70+y*T);
-            curve.lineTo(25+x*T,0+y*T);
-            curve.moveTo(25+x*T,0+y*T);
-            curve.lineTo(50+x*T,70+y*T);
-            curve.curveTo(70+x*T,65+y*T,70+x*T,45+y*T,50+x*T,35+y*T);
-            curve.moveTo(50+x*T,35+y*T);
-            curve.curveTo(35+x*T,30+y*T,15+x*T,40+y*T,0+x*T,48+y*T);
-            curve.moveTo(0+x*T,48+y*T);
-            curve.curveTo(-11+x*T,48+y*T,-17+x*T,32+y*T,-8+x*T,20+y*T);
+            curve.moveTo((0+x)*T,(70+y)*T);
+            curve.lineTo((25+x)*T,(0+y)*T);
+            curve.moveTo((25+x)*T,(0+y)*T);
+            curve.lineTo((50+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(65+y)*T,(70+x)*T,(45+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((35+x)*T,(30+y)*T,(15+x)*T,(40+y)*T,(0+x)*T,(48+y)*T);
+            curve.moveTo((0+x)*T,(48+y)*T);
+            curve.curveTo((-11+x)*T,(48+y)*T,(-17+x)*T,(32+y)*T,(-8+x)*T,(20+y)*T);
         }
         if ("Á".equals(letra)){
-            curve.moveTo(0+x*T,70+y*T);
-            curve.lineTo(25+x*T,0+y*T);
-            curve.moveTo(25+x*T,0+y*T);
-            curve.lineTo(50+x*T,70+y*T);
-            curve.curveTo(70+x*T,65+y*T,70+x*T,45+y*T,50+x*T,35+y*T);
-            curve.moveTo(50+x*T,35+y*T);
-            curve.curveTo(35+x*T,30+y*T,15+x*T,40+y*T,0+x*T,48+y*T);
-            curve.moveTo(0+x*T,48+y*T);
-            curve.curveTo(-11+x*T,48+y*T,-17+x*T,32+y*T,-8+x*T,20+y*T);
-            curve.moveTo(25+x*T,-5+y*T);
-            curve.lineTo(35+x*T, -15+y*T);
+            curve.moveTo((0+x)*T,(70+y)*T);
+            curve.lineTo((25+x)*T,(0+y)*T);
+            curve.moveTo((25+x)*T,(0+y)*T);
+            curve.lineTo((50+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(65+y)*T,(70+x)*T,(45+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((35+x)*T,(30+y)*T,(15+x)*T,(40+y)*T,(0+x)*T,(48+y)*T);
+            curve.moveTo((0+x)*T,(48+y)*T);
+            curve.curveTo((-11+x)*T,(48+y)*T,(-17+x)*T,(32+y)*T,(-8+x)*T,(20+y)*T);
+            curve.moveTo((25+x)*T,(-5+y)*T);
+            curve.lineTo((35+x)*T,( -15+y)*T);
         }
         if ("B".equals(letra)){
-            curve.moveTo(20+x*T,70+y*T);
-            curve.lineTo(20+x*T,0+y*T);
-            curve.moveTo(20+x*T,0+y*T);
-            curve.curveTo(75+x*T,5+y*T,75+x*T,25+y*T,20+x*T,35+y*T);
-            curve.moveTo(20+x*T,35+y*T);
-            curve.curveTo(75+x*T,45+y*T,75+x*T,65+y*T,20+x*T,70+y*T);
-            curve.moveTo(20+x*T,70+y*T);
-            curve.curveTo(0+x*T,65+y*T,0+x*T,55+y*T,20+x*T,50+y*T);
-            curve.moveTo(20+x*T,50+y*T);
-            curve.curveTo(38+x*T,58+y*T,50+x*T,68+y*T,70+x*T,70+y*T); 
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.lineTo((20+x)*T,(0+y)*T);
+            curve.moveTo((20+x)*T,(0+y)*T);
+            curve.curveTo((75+x)*T,(5+y)*T,(75+x)*T,(25+y)*T,(20+x)*T,(35+y)*T);
+            curve.moveTo((20+x)*T,(35+y)*T);
+            curve.curveTo((75+x)*T,(45+y)*T,(75+x)*T,(65+y)*T,(20+x)*T,(70+y)*T);
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.curveTo((0+x)*T,(65+y)*T,(0+x)*T,(55+y)*T,(20+x)*T,(50+y)*T);
+            curve.moveTo((20+x)*T,(50+y)*T);
+            curve.curveTo((38+x)*T,(58+y)*T,(50+x)*T,(68+y)*T,(70+x)*T,(70+y)*T); 
         }
         if ("C".equals(letra)){
-            curve.moveTo(30+x*T,0+y*T);
-            curve.curveTo(72+x*T,16+y*T,78+x*T,10+y*T,50+x*T,5+y*T);
-            curve.moveTo(50+x*T,5+y*T);
-            curve.curveTo(0+x*T,18+y*T,0+x*T,48+y*T,50+x*T,70+y*T);
-            curve.moveTo(50+x*T,70+y*T);
-            curve.lineTo(70+x*T,70+y*T);
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((72+x)*T,(16+y)*T,(78+x)*T,(10+y)*T,(50+x)*T,(5+y)*T);
+            curve.moveTo((50+x)*T,(5+y)*T);
+            curve.curveTo((0+x)*T,(18+y)*T,(0+x)*T,(48+y)*T,(50+x)*T,(70+y)*T);
+            curve.moveTo((50+x)*T,(70+y)*T);
+            curve.lineTo((70+x)*T,(70+y)*T);
         }
         if ("D".equals(letra)){
-            curve.moveTo(30+x*T,0+y*T);
-            curve.curveTo(22+x*T,18+y*T,28+x*T,55+y*T,20+x*T,70+y*T);
-            curve.moveTo(20+x*T,70+y*T);
-            curve.curveTo(2+x*T,62+y*T,10+x*T,50+y*T,35+x*T,70+y*T);
-            curve.moveTo(35+x*T,70+y*T);
-            curve.curveTo(90+x*T,48+y*T,90+x*T,28+y*T,30+x*T,0+y*T);
-            curve.moveTo(30+x*T,0+y*T);
-            curve.curveTo(5+x*T,5+y*T,9+x*T,24+y*T,20+x*T,10+y*T); 
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((22+x)*T,(18+y)*T,(28+x)*T,(55+y)*T,(20+x)*T,(70+y)*T);
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.curveTo((2+x)*T,(62+y)*T,(10+x)*T,(50+y)*T,(35+x)*T,(70+y)*T);
+            curve.moveTo((35+x)*T,(70+y)*T);
+            curve.curveTo((90+x)*T,(48+y)*T,(90+x)*T,(28+y)*T,(30+x)*T,(0+y)*T);
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((5+x)*T,(5+y)*T,(9+x)*T,(24+y)*T,(20+x)*T,(10+y)*T); 
         }
         if ("E".equals(letra)){
-            curve.moveTo(60+x*T,0+y*T);
-            curve.curveTo(48+x*T,8+y*T,53+x*T,19+y*T,60+x*T,9+y*T);
-            curve.moveTo(60+x*T,9+y*T);
-            curve.curveTo(30+x*T,0+y*T,15+x*T,23+y*T,50+x*T,35+y*T);
-            curve.moveTo(50+x*T,35+y*T);
-            curve.curveTo(18+x*T,42+y*T,20+x*T,65+y*T,70+x*T,70+y*T);
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((48+x)*T,(8+y)*T,(53+x)*T,(19+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((30+x)*T,(0+y)*T,(15+x)*T,(23+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((18+x)*T,(42+y)*T,(20+x)*T,(65+y)*T,(70+x)*T,(70+y)*T);
         }
         if ("É".equals(letra)){
-            curve.moveTo(60+x*T,0+y*T);
-            curve.curveTo(48+x*T,8+y*T,53+x*T,19+y*T,60+x*T,9+y*T);
-            curve.moveTo(60+x*T,9+y*T);
-            curve.curveTo(30+x*T,0+y*T,15+x*T,23+y*T,50+x*T,35+y*T);
-            curve.moveTo(50+x*T,35+y*T);
-            curve.curveTo(18+x*T,42+y*T,20+x*T,65+y*T,70+x*T,70+y*T);
-            curve.moveTo(45+x*T,-5+y*T);
-            curve.lineTo(55+x*T, -15+y*T);
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((48+x)*T,(8+y)*T,(53+x)*T,(19+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((30+x)*T,(0+y)*T,(15+x)*T,(23+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((18+x)*T,(42+y)*T,(20+x)*T,(65+y)*T,(70+x)*T,(70+y)*T);
+            curve.moveTo((45+x)*T,(-5+y)*T);
+            curve.lineTo((55+x)*T, (-15+y)*T);
         }
         if ("F".equals(letra)){
-            curve.moveTo(80+x*T,0+y*T);
-            curve.curveTo(63+x*T,9+y*T,27+x*T,2+y*T,10+x*T,10+y*T);
-            curve.moveTo(10+x*T,10+y*T);
-            curve.curveTo(5+x*T,25+y*T,12+x*T,28+y*T,20+x*T,18+y*T);
-            curve.moveTo(40+x*T,10+y*T);
-            curve.curveTo(30+x*T,30+y*T,30+x*T,65+y*T,25+x*T,80+y*T);
-            curve.moveTo(25+x*T,80+y*T);
-            curve.curveTo(12+x*T,90+y*T,8+x*T,68+y*T,20+x*T,60+y*T);  
-            curve.moveTo(25+x*T,42+y*T);
-            curve.lineTo(42+x*T,42+y*T);
-            curve.moveTo(42+x*T,40+y*T);
-            curve.lineTo(42+x*T,42+y*T);
+            curve.moveTo((80+x)*T,(0+y)*T);
+            curve.curveTo((63+x)*T,(9+y)*T,(27+x)*T,(2+y)*T,(10+x)*T,(10+y)*T);
+            curve.moveTo((10+x)*T,(10+y)*T);
+            curve.curveTo((5+x)*T,(25+y)*T,(12+x)*T,(28+y)*T,(20+x)*T,(18+y)*T);
+            curve.moveTo((40+x)*T,(10+y)*T);
+            curve.curveTo((30+x)*T,(30+y)*T,(30+x)*T,(65+y)*T,(25+x)*T,(80+y)*T);
+            curve.moveTo((25+x)*T,(80+y)*T);
+            curve.curveTo((12+x)*T,(90+y)*T,(8+x)*T,(68+y)*T,(20+x)*T,(60+y)*T);  
+            curve.moveTo((25+x)*T,(42+y)*T);
+            curve.lineTo((42+x)*T,(42+y)*T);
+            curve.moveTo((42+x)*T,(40+y)*T);
+            curve.lineTo((42+x)*T,(42+y)*T);
         }
         if ("G".equals(letra)){
-            curve.moveTo(60+x*T,10+y*T);
-            curve.curveTo(36+x*T,3+y*T,21+x*T,18+y*T,20+x*T,40+y*T);
-            curve.moveTo(20+x*T,40+y*T);
-            curve.curveTo(35+x*T,75+y*T,55+x*T,75+y*T,70+x*T,40+y*T);
-            curve.moveTo(70+x*T,40+y*T);
-            curve.lineTo(55+x*T,40+y*T);
+            curve.moveTo((60+x)*T,(10+y)*T);
+            curve.curveTo((36+x)*T,(3+y)*T,(21+x)*T,(18+y)*T,(20+x)*T,(40+y)*T);
+            curve.moveTo((20+x)*T,(40+y)*T);
+            curve.curveTo((35+x)*T,(75+y)*T,(55+x)*T,(75+y)*T,(70+x)*T,(40+y)*T);
+            curve.moveTo((70+x)*T,(40+y)*T);
+            curve.lineTo((55+x)*T,(40+y)*T);
         }
         if ("H".equals(letra)){
-            curve.moveTo(30+x*T,0+y*T);
-            curve.lineTo(32+x*T,70+y*T);
-            curve.moveTo(60+x*T,0+y*T);
-            curve.lineTo(62+x*T,70+y*T);
-            curve.moveTo(60+x*T,70+y*T);
-            curve.curveTo(70+x*T,80+y*T,89+x*T,55+y*T,80+x*T,38+y*T);
-            curve.moveTo(80+x*T,38+y*T);
-            curve.curveTo(65+x*T,32+y*T,38+x*T,45+y*T,18+x*T,43+y*T);  
-            curve.moveTo(18+x*T,43+y*T);
-            curve.curveTo(9+x*T,35+y*T,12+x*T,12+y*T,25+x*T,23+y*T);
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.lineTo((32+x)*T,(70+y)*T);
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.lineTo((62+x)*T,(70+y)*T);
+            curve.moveTo((60+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(80+y)*T,(89+x)*T,(55+y)*T,(80+x)*T,(38+y)*T);
+            curve.moveTo((80+x)*T,(38+y)*T);
+            curve.curveTo((65+x)*T,(32+y)*T,(38+x)*T,(45+y)*T,(18+x)*T,(43+y)*T);  
+            curve.moveTo((18+x)*T,(43+y)*T);
+            curve.curveTo((9+x)*T,(35+y)*T,(12+x)*T,(12+y)*T,(25+x)*T,(23+y)*T);
         }
         if ("I".equals(letra)){
-            curve.moveTo(20+x*T,5+y*T);
-            curve.curveTo(32+x*T,2+y*T,50+x*T,10+y*T,60+x*T,9+y*T);
-            curve.moveTo(60+x*T,9+y*T);
-            curve.curveTo(70+x*T,8+y*T,68+x*T,1+y*T,60+x*T,0+y*T);  
-            curve.moveTo(60+x*T,0+y*T);
-            curve.curveTo(45+x*T,4+y*T,45+x*T,48+y*T,40+x*T,60+y*T); 
-            curve.moveTo(40+x*T,60+y*T);
-            curve.curveTo(33+x*T,75+y*T,23+x*T,73+y*T,25+x*T,64+y*T); 
-            curve.moveTo(25+x*T,64+y*T);
-            curve.curveTo(41+x*T,68+y*T,59+x*T,70+y*T,70+x*T,70+y*T);
+            curve.moveTo((20+x)*T,(5+y)*T);
+            curve.curveTo((32+x)*T,(2+y)*T,(50+x)*T,(10+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((70+x)*T,(8+y)*T,(68+x)*T,(1+y)*T,(60+x)*T,(0+y)*T);  
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((45+x)*T,(4+y)*T,(45+x)*T,(48+y)*T,(40+x)*T,(60+y)*T); 
+            curve.moveTo((40+x)*T,(60+y)*T);
+            curve.curveTo((33+x)*T,(75+y)*T,(23+x)*T,(73+y)*T,(25+x)*T,(64+y)*T); 
+            curve.moveTo((25+x)*T,(64+y)*T);
+            curve.curveTo((41+x)*T,(68+y)*T,(59+x)*T,(70+y)*T,(70+x)*T,(70+y)*T);
         }
         if ("Í".equals(letra)){
-            curve.moveTo(20+x*T,5+y*T);
-            curve.curveTo(32+x*T,2+y*T,50+x*T,10+y*T,60+x*T,9+y*T);
-            curve.moveTo(60+x*T,9+y*T);
-            curve.curveTo(70+x*T,8+y*T,68+x*T,1+y*T,60+x*T,0+y*T);  
-            curve.moveTo(60+x*T,0+y*T);
-            curve.curveTo(45+x*T,4+y*T,45+x*T,48+y*T,40+x*T,60+y*T); 
-            curve.moveTo(40+x*T,60+y*T);
-            curve.curveTo(33+x*T,75+y*T,23+x*T,73+y*T,25+x*T,64+y*T); 
-            curve.moveTo(25+x*T,64+y*T);
-            curve.curveTo(41+x*T,68+y*T,59+x*T,70+y*T,70+x*T,70+y*T);
-            curve.moveTo(50+x*T,-5+y*T);
-            curve.lineTo(60+x*T, -15+y*T);
+            curve.moveTo((20+x)*T,(5+y)*T);
+            curve.curveTo((32+x)*T,(2+y)*T,(50+x)*T,(10+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((70+x)*T,(8+y)*T,(68+x)*T,(1+y)*T,(60+x)*T,(0+y)*T);  
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((45+x)*T,(4+y)*T,(45+x)*T,(48+y)*T,(40+x)*T,(60+y)*T); 
+            curve.moveTo((40+x)*T,(60+y)*T);
+            curve.curveTo((33+x)*T,(75+y)*T,(23+x)*T,(73+y)*T,(25+x)*T,(64+y)*T); 
+            curve.moveTo((25+x)*T,(64+y)*T);
+            curve.curveTo((41+x)*T,(68+y)*T,(59+x)*T,(70+y)*T,(70+x)*T,(70+y)*T);
+            curve.moveTo((50+x)*T,(-5+y)*T);
+            curve.lineTo((60+x)*T, (-15+y)*T);
         }
         if ("J".equals(letra)){
             curve.moveTo((0+x)*T, (20+y)*T);
@@ -4139,50 +4139,158 @@ public class Dibujo extends javax.swing.JFrame {
         
         //mayusculas
         if("A".equals(letra)){
+            curve.moveTo((0+x)*T,(70+y)*T);
+            curve.lineTo((25+x)*T,(0+y)*T);
+            curve.moveTo((25+x)*T,(0+y)*T);
+            curve.lineTo((50+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(65+y)*T,(70+x)*T,(45+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((35+x)*T,(30+y)*T,(15+x)*T,(40+y)*T,(0+x)*T,(48+y)*T);
+            curve.moveTo((0+x)*T,(48+y)*T);
+            curve.curveTo((-11+x)*T,(48+y)*T,(-17+x)*T,(32+y)*T,(-8+x)*T,(20+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Á".equals(letra)){
+            curve.moveTo((0+x)*T,(70+y)*T);
+            curve.lineTo((25+x)*T,(0+y)*T);
+            curve.moveTo((25+x)*T,(0+y)*T);
+            curve.lineTo((50+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(65+y)*T,(70+x)*T,(45+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((35+x)*T,(30+y)*T,(15+x)*T,(40+y)*T,(0+x)*T,(48+y)*T);
+            curve.moveTo((0+x)*T,(48+y)*T);
+            curve.curveTo((-11+x)*T,(48+y)*T,(-17+x)*T,(32+y)*T,(-8+x)*T,(20+y)*T);
+            curve.moveTo((25+x)*T,(-5+y)*T);
+            curve.lineTo((35+x)*T,( -15+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("B".equals(letra)){
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.lineTo((20+x)*T,(0+y)*T);
+            curve.moveTo((20+x)*T,(0+y)*T);
+            curve.curveTo((75+x)*T,(5+y)*T,(75+x)*T,(25+y)*T,(20+x)*T,(35+y)*T);
+            curve.moveTo((20+x)*T,(35+y)*T);
+            curve.curveTo((75+x)*T,(45+y)*T,(75+x)*T,(65+y)*T,(20+x)*T,(70+y)*T);
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.curveTo((0+x)*T,(65+y)*T,(0+x)*T,(55+y)*T,(20+x)*T,(50+y)*T);
+            curve.moveTo((20+x)*T,(50+y)*T);
+            curve.curveTo((38+x)*T,(58+y)*T,(50+x)*T,(68+y)*T,(70+x)*T,(70+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("C".equals(letra)){
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((72+x)*T,(16+y)*T,(78+x)*T,(10+y)*T,(50+x)*T,(5+y)*T);
+            curve.moveTo((50+x)*T,(5+y)*T);
+            curve.curveTo((0+x)*T,(18+y)*T,(0+x)*T,(48+y)*T,(50+x)*T,(70+y)*T);
+            curve.moveTo((50+x)*T,(70+y)*T);
+            curve.lineTo((70+x)*T,(70+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("D".equals(letra)){
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((22+x)*T,(18+y)*T,(28+x)*T,(55+y)*T,(20+x)*T,(70+y)*T);
+            curve.moveTo((20+x)*T,(70+y)*T);
+            curve.curveTo((2+x)*T,(62+y)*T,(10+x)*T,(50+y)*T,(35+x)*T,(70+y)*T);
+            curve.moveTo((35+x)*T,(70+y)*T);
+            curve.curveTo((90+x)*T,(48+y)*T,(90+x)*T,(28+y)*T,(30+x)*T,(0+y)*T);
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.curveTo((5+x)*T,(5+y)*T,(9+x)*T,(24+y)*T,(20+x)*T,(10+y)*T); 
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("E".equals(letra)){
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((48+x)*T,(8+y)*T,(53+x)*T,(19+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((30+x)*T,(0+y)*T,(15+x)*T,(23+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((18+x)*T,(42+y)*T,(20+x)*T,(65+y)*T,(70+x)*T,(70+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("É".equals(letra)){
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((48+x)*T,(8+y)*T,(53+x)*T,(19+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((30+x)*T,(0+y)*T,(15+x)*T,(23+y)*T,(50+x)*T,(35+y)*T);
+            curve.moveTo((50+x)*T,(35+y)*T);
+            curve.curveTo((18+x)*T,(42+y)*T,(20+x)*T,(65+y)*T,(70+x)*T,(70+y)*T);
+            curve.moveTo((45+x)*T,(-5+y)*T);
+            curve.lineTo((55+x)*T, (-15+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("F".equals(letra)){
+            curve.moveTo((80+x)*T,(0+y)*T);
+            curve.curveTo((63+x)*T,(9+y)*T,(27+x)*T,(2+y)*T,(10+x)*T,(10+y)*T);
+            curve.moveTo((10+x)*T,(10+y)*T);
+            curve.curveTo((5+x)*T,(25+y)*T,(12+x)*T,(28+y)*T,(20+x)*T,(18+y)*T);
+            curve.moveTo((40+x)*T,(10+y)*T);
+            curve.curveTo((30+x)*T,(30+y)*T,(30+x)*T,(65+y)*T,(25+x)*T,(80+y)*T);
+            curve.moveTo((25+x)*T,(80+y)*T);
+            curve.curveTo((12+x)*T,(90+y)*T,(8+x)*T,(68+y)*T,(20+x)*T,(60+y)*T);  
+            curve.moveTo((25+x)*T,(42+y)*T);
+            curve.lineTo((42+x)*T,(42+y)*T);
+            curve.moveTo((42+x)*T,(40+y)*T);
+            curve.lineTo((42+x)*T,(42+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("G".equals(letra)){
+            curve.moveTo((60+x)*T,(10+y)*T);
+            curve.curveTo((36+x)*T,(3+y)*T,(21+x)*T,(18+y)*T,(20+x)*T,(40+y)*T);
+            curve.moveTo((20+x)*T,(40+y)*T);
+            curve.curveTo((35+x)*T,(75+y)*T,(55+x)*T,(75+y)*T,(70+x)*T,(40+y)*T);
+            curve.moveTo((70+x)*T,(40+y)*T);
+            curve.lineTo((55+x)*T,(40+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("H".equals(letra)){
+            curve.moveTo((30+x)*T,(0+y)*T);
+            curve.lineTo((32+x)*T,(70+y)*T);
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.lineTo((62+x)*T,(70+y)*T);
+            curve.moveTo((60+x)*T,(70+y)*T);
+            curve.curveTo((70+x)*T,(80+y)*T,(89+x)*T,(55+y)*T,(80+x)*T,(38+y)*T);
+            curve.moveTo((80+x)*T,(38+y)*T);
+            curve.curveTo((65+x)*T,(32+y)*T,(38+x)*T,(45+y)*T,(18+x)*T,(43+y)*T);  
+            curve.moveTo((18+x)*T,(43+y)*T);
+            curve.curveTo((9+x)*T,(35+y)*T,(12+x)*T,(12+y)*T,(25+x)*T,(23+y)*T);
             curve.moveTo((0+x)*T,( 75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("I".equals(letra)){
+            curve.moveTo((20+x)*T,(5+y)*T);
+            curve.curveTo((32+x)*T,(2+y)*T,(50+x)*T,(10+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((70+x)*T,(8+y)*T,(68+x)*T,(1+y)*T,(60+x)*T,(0+y)*T);  
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((45+x)*T,(4+y)*T,(45+x)*T,(48+y)*T,(40+x)*T,(60+y)*T); 
+            curve.moveTo((40+x)*T,(60+y)*T);
+            curve.curveTo((33+x)*T,(75+y)*T,(23+x)*T,(73+y)*T,(25+x)*T,(64+y)*T); 
+            curve.moveTo((25+x)*T,(64+y)*T);
+            curve.curveTo((41+x)*T,(68+y)*T,(59+x)*T,(70+y)*T,(70+x)*T,(70+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Í".equals(letra)){
+            curve.moveTo((20+x)*T,(5+y)*T);
+            curve.curveTo((32+x)*T,(2+y)*T,(50+x)*T,(10+y)*T,(60+x)*T,(9+y)*T);
+            curve.moveTo((60+x)*T,(9+y)*T);
+            curve.curveTo((70+x)*T,(8+y)*T,(68+x)*T,(1+y)*T,(60+x)*T,(0+y)*T);  
+            curve.moveTo((60+x)*T,(0+y)*T);
+            curve.curveTo((45+x)*T,(4+y)*T,(45+x)*T,(48+y)*T,(40+x)*T,(60+y)*T); 
+            curve.moveTo((40+x)*T,(60+y)*T);
+            curve.curveTo((33+x)*T,(75+y)*T,(23+x)*T,(73+y)*T,(25+x)*T,(64+y)*T); 
+            curve.moveTo((25+x)*T,(64+y)*T);
+            curve.curveTo((41+x)*T,(68+y)*T,(59+x)*T,(70+y)*T,(70+x)*T,(70+y)*T);
+            curve.moveTo((50+x)*T,(-5+y)*T);
+            curve.lineTo((60+x)*T, (-15+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
