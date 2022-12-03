@@ -5308,33 +5308,43 @@ public class Dibujo extends javax.swing.JFrame {
             curve.lineTo((60+x)*T,( 75+y)*T);
         }
         if("U".equals(letra)){
+            curve.moveTo((30+x)*T, (10+y)*T);
+            curve.curveTo((55+x)*T, (0+y)*T, (0+x)*T, (74+y)*T, (42+x)*T, (70+y)*T);
+            curve.moveTo((32+x)*T, (70+y)*T);
+            curve.curveTo((60+x)*T, (74+y)*T, (53+x)*T, (15+y)*T, (63+x)*T, (10+y)*T);
+            curve.curveTo((53+x)*T, (40+y)*T, (50+x)*T, (75+y)*T, (60+x)*T, (70+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("Ú".equals(letra)){
+            curve.moveTo((30+x)*T, (10+y)*T);
+            curve.curveTo((55+x)*T, (0+y)*T, (0+x)*T, (74+y)*T, (42+x)*T, (70+y)*T);
+            curve.moveTo((32+x)*T, (70+y)*T);
+            curve.curveTo((60+x)*T, (74+y)*T, (53+x)*T, (15+y)*T, (63+x)*T, (10+y)*T);
+            curve.curveTo((53+x)*T, (40+y)*T, (50+x)*T, (75+y)*T, (60+x)*T, (70+y)*T);
+            curve.moveTo((30+x)*T,(-5+y)*T);
+            curve.lineTo((40+x)*T, (-15+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("V".equals(letra)){
+            curve.moveTo((0+x)*T, (25+y)*T);
+            curve.curveTo((0+x)*T, (5+y)*T, (15+x)*T, (5+y)*T, (15+x)*T, (10+y)*T);
+            curve.curveTo((-30+x)*T, (90+y)*T, (20+x)*T, (90+y)*T, (40+x)*T, (10+y)*T);
+            curve.curveTo((45+x)*T, (15+y)*T, (48+x)*T, (15+y)*T, (50+x)*T, (10+y)*T);
             curve.moveTo((0+x)*T, (75+y)*T);
             curve.lineTo((60+x)*T, (75+y)*T);
         }
         if("W".equals(letra)){
+            curve.moveTo((0+x)*T, (25+y)*T);
+            curve.curveTo((0+x)*T, (5+y)*T, (15+x)*T, (5+y)*T, (15+x)*T, (10+y)*T);
+            curve.curveTo((-30+x)*T, (90+y)*T, (20+x)*T, (90+y)*T, (40+x)*T, (10+y)*T);
+            curve.curveTo((-5+x)*T, (90+y)*T, (50+x)*T, (90+y)*T, (65+x)*T, (10+y)*T);
+            curve.curveTo((50+x)*T, (10+y)*T, (70+x)*T, (20+y)*T, (80+x)*T, (10+y)*T);
             curve.moveTo((0+x)*T,(75+y)*T);
             curve.lineTo((80+x)*T,( 75+y)*T);
         }
-        if("X".equals(letra)){
-            curve.moveTo((0+x)*T, (75+y)*T);
-            curve.lineTo((55+x)*T, (75+y)*T);
-        }
-        if("Y".equals(letra)){
-            curve.moveTo((0+x)*T, (75+y)*T);
-            curve.lineTo((60+x)*T, (75+y)*T);
-        }
-        if("Z".equals(letra)){
-            curve.moveTo((0+x)*T, (75+y)*T);
-            curve.lineTo((60+x)*T, (75+y)*T);
-        }
+        
         return curve;
     }
 
