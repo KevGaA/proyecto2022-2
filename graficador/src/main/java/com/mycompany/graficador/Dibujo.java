@@ -175,7 +175,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
-        double x = 0, y = 15;// posicion de las letras
+        double x = 0, y = 15, yrev=165, xrev=0;// posicion de las letras
         int ancho;
         char aux;
         t=1;
@@ -451,12 +451,12 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(l+1);
                     }
                     if (textSeparado[i].charAt(1) == 'X') {
-                        g2d.translate(0, 150+y);
+                        g2d.translate(0, yrev);//(150+y)
                         g2d.scale(1, -1);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     if (textSeparado[i].charAt(1) == 'Y') {
-                        g2d.translate(3*x, 0);
+                        g2d.translate(xrev+200, 0);
                         g2d.scale(-1, 1);
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
@@ -474,12 +474,14 @@ public class Dibujo extends javax.swing.JFrame {
                         || ":".equals(letra)|| ";".equals(letra) || ",".equals(letra) || "<".equals(letra) || ">".equals(letra)){
                         x = 0;
                         y = y + 90;
+                        yrev = yrev + 180;
                     }else{
                         curve.moveTo((10+x)*T, (50+y)*T);
                         curve.lineTo((30+x)*T, (50+y)*T);
                         g2d.draw(curve);
                         x = 0;
                         y = y + 90;
+                        yrev = yrev + 180;
                     }
                 }
                 if (x < 1100) {
@@ -2440,6 +2442,7 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x*T + 50;
                     }
                 }
+                xrev = x;
                 
                 ancho = DibujoFinal.size()-1; 
                 g2d.draw(DibujoFinal.get(ancho));
