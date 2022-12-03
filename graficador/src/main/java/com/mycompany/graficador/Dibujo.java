@@ -5344,7 +5344,35 @@ public class Dibujo extends javax.swing.JFrame {
             curve.moveTo((0+x)*T,(75+y)*T);
             curve.lineTo((80+x)*T,( 75+y)*T);
         }
-        
+        if("X".equals(letra)){
+            curve.moveTo((0+x)*T, (70+y)*T);
+            curve.curveTo((35+x)*T, (80+y)*T, (40+x)*T, (10+y)*T, (70+x)*T, (10+y)*T);
+            curve.moveTo((20+x)*T, (10+y)*T);
+            curve.curveTo((35+x)*T, (0+y)*T, (35+x)*T, (80+y)*T, (55+x)*T, (70+y)*T);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((55+x)*T, (75+y)*T);
+        }
+        if("Y".equals(letra)){
+            curve.moveTo((0+x)*T, (10+y)*T);
+            curve.curveTo((25+x)*T, (0+y)*T, (-35+x)*T, (74+y)*T, (5+x)*T, (70+y)*T);
+            curve.moveTo((5+x)*T, (70+y)*T);
+            curve.curveTo((30+x)*T, (74+y)*T, (20+x)*T, (15+y)*T, (35+x)*T, (10+y)*T);
+            curve.curveTo((11+x)*T, (60+y)*T, (15+x)*T, (140+y)*T, (-10+x)*T, (120+y)*T);
+            curve.curveTo((-10+x)*T, (90+y)*T, (20+x)*T, (80+y)*T, (35+x)*T, (70+y)*T);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
+        }
+        if("Z".equals(letra)){
+            curve.moveTo((30+x)*T, (20+y)*T);
+            curve.curveTo((35+x)*T, (-10+y)*T, (75+x)*T, (15+y)*T, (85+x)*T, (0+y)*T);
+            curve.lineTo((6+x)*T, (70+y)*T);
+            curve.moveTo((28+x)*T, (35+y)*T);
+            curve.lineTo((60+x)*T, (35+y)*T);
+            curve.moveTo((6+x)*T, (70+y)*T);
+            curve.curveTo((10+x)*T, (60+y)*T, (50+x)*T, (75+y)*T, (70+x)*T, (70+y)*T);
+            curve.moveTo((0+x)*T, (75+y)*T);
+            curve.lineTo((60+x)*T, (75+y)*T);
+        }
         return curve;
     }
 
