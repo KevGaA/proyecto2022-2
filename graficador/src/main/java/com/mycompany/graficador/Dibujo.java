@@ -299,203 +299,179 @@ public class Dibujo extends javax.swing.JFrame {
                             T = 1.1;
                             g2d.translate(-40, -10);
                             x = x + 10;
-                            if (textSeparado[i].charAt(3) == '+') {
-                                if (textSeparado[i].charAt(4) == 'N') {
+                            textSeparado[i] = textSeparado[i].substring(3);
+                            if (textSeparado[i].charAt(0)== '+'){
+                                if (textSeparado[i].charAt(1)== 'N') {
                                     Negrita = true;
                                     g2d.setStroke(new BasicStroke(2f));
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'S') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'S') {
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
-                                    }                     
-                                }
-                                if (textSeparado[i].charAt(4) == 'S') {
+                                    }
+                                }if (textSeparado[i].charAt(1)== 'S') {
                                     Subr = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
-                                }
-                                if (textSeparado[i].charAt(4) == 'K') {
+                                }if (textSeparado[i].charAt(1)== 'K') {
                                     Curs = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'S'){
+                                        if (textSeparado[i].charAt(1)== 'S'){
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
                                 }
-                            }else{
-                                textSeparado[i] = textSeparado[i].substring(3);
-                            }                         
+                            }
                         }
                         if (T == 2) {
                             t=2;
                             T = 1.2;
                             g2d.translate(-80, -20);
                             x = x +20;
-                            if (textSeparado[i].charAt(3) == '+') {
-                                if (textSeparado[i].charAt(4) == 'N') {
+                            textSeparado[i] = textSeparado[i].substring(3);
+                            if (textSeparado[i].charAt(0)== '+'){
+                                if (textSeparado[i].charAt(1)== 'N') {
                                     Negrita = true;
                                     g2d.setStroke(new BasicStroke(2f));
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'S') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'S') {
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
-                                    }                     
-                                }
-                                if (textSeparado[i].charAt(4) == 'S') {
+                                    }
+                                }if (textSeparado[i].charAt(1)== 'S') {
                                     Subr = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
-                                }
-                                if (textSeparado[i].charAt(4) == 'K') {
+                                }if (textSeparado[i].charAt(1)== 'K') {
                                     Curs = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'S'){
+                                        if (textSeparado[i].charAt(1)== 'S'){
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
                                 }
-                            }else{
-                                textSeparado[i] = textSeparado[i].substring(3);
                             }
                         }
                         if (T == 3) {
@@ -503,101 +479,89 @@ public class Dibujo extends javax.swing.JFrame {
                             T = 1.3;
                             g2d.translate(-140, -30);
                             x = x +50;
-                            if (textSeparado[i].charAt(3) == '+') {
-                                if (textSeparado[i].charAt(4) == 'N') {
+                            textSeparado[i] = textSeparado[i].substring(3);
+                            if (textSeparado[i].charAt(0)== '+'){
+                                if (textSeparado[i].charAt(1)== 'N') {
                                     Negrita = true;
                                     g2d.setStroke(new BasicStroke(2f));
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'S') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'S') {
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
-                                    }                     
-                                }
-                                if (textSeparado[i].charAt(4) == 'S') {
+                                    }
+                                }if (textSeparado[i].charAt(1)== 'S') {
                                     Subr = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
-                                }
-                                if (textSeparado[i].charAt(4) == 'K') {
+                                }if (textSeparado[i].charAt(1)== 'K') {
                                     Curs = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'S'){
+                                        if (textSeparado[i].charAt(1)== 'S'){
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
                                 }
-                            }else{
-                                textSeparado[i] = textSeparado[i].substring(3);
                             }
                         }
                         if (T == 4) {
@@ -605,101 +569,89 @@ public class Dibujo extends javax.swing.JFrame {
                             T = 1.4;
                             g2d.translate(-200, -40);
                             x = x + 70;
-                            if (textSeparado[i].charAt(3) == '+') {
-                                if (textSeparado[i].charAt(4) == 'N') {
+                            textSeparado[i] = textSeparado[i].substring(3);
+                            if (textSeparado[i].charAt(0)== '+'){
+                                if (textSeparado[i].charAt(1)== 'N') {
                                     Negrita = true;
                                     g2d.setStroke(new BasicStroke(2f));
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'S') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'S') {
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
-                                    }                     
-                                }
-                                if (textSeparado[i].charAt(4) == 'S') {
+                                    }
+                                }if (textSeparado[i].charAt(1)== 'S') {
                                     Subr = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
-                                }
-                                if (textSeparado[i].charAt(4) == 'K') {
+                                }if (textSeparado[i].charAt(1)== 'K') {
                                     Curs = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'S'){
+                                        if (textSeparado[i].charAt(1)== 'S'){
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
                                 }
-                            }else{
-                                textSeparado[i] = textSeparado[i].substring(3);
                             }
                         }
                         if (T == 5) {
@@ -707,101 +659,89 @@ public class Dibujo extends javax.swing.JFrame {
                             T = 1.5;
                             g2d.translate(-270, -50);
                             x = x + 110;
-                            if (textSeparado[i].charAt(3) == '+') {
-                                if (textSeparado[i].charAt(4) == 'N') {
+                            textSeparado[i] = textSeparado[i].substring(3);
+                            if (textSeparado[i].charAt(0)== '+'){
+                                if (textSeparado[i].charAt(1)== 'N') {
                                     Negrita = true;
                                     g2d.setStroke(new BasicStroke(2f));
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'S') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'S') {
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
-                                    }                     
-                                }
-                                if (textSeparado[i].charAt(4) == 'S') {
+                                    }
+                                }if (textSeparado[i].charAt(1)== 'S') {
                                     Subr = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'K') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'K') {
                                                     Curs = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'K'){
+                                        if (textSeparado[i].charAt(1)== 'K'){
                                             Curs = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
-                                }
-                                if (textSeparado[i].charAt(4) == 'K') {
+                                }if (textSeparado[i].charAt(1)== 'K') {
                                     Curs = true;
-                                    if (textSeparado[i].charAt(5) == '+') {
-                                        if (textSeparado[i].charAt(6) == 'N') {
+                                    textSeparado[i] = textSeparado[i].substring(2);
+                                    if (textSeparado[i].charAt(0)== '+') {
+                                        if (textSeparado[i].charAt(1)== 'N') {
                                             Negrita = true;
                                             g2d.setStroke(new BasicStroke(2f));
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'S') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'S') {
                                                     Subr = true;
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                        if (textSeparado[i].charAt(6)== 'S'){
+                                        if (textSeparado[i].charAt(1)== 'S'){
                                             Subr = true;
-                                            if (textSeparado[i].charAt(7) == '+'){
-                                                if (textSeparado[i].charAt(8)== 'N') {
+                                            textSeparado[i] = textSeparado[i].substring(2);
+                                            if (textSeparado[i].charAt(0)== '+') {
+                                                if (textSeparado[i].charAt(1)== 'N') {
                                                     Negrita = true;
                                                     g2d.setStroke(new BasicStroke(2f));
-                                                    textSeparado[i] = textSeparado[i].substring(9);
+                                                    textSeparado[i] = textSeparado[i].substring(2);
                                                 }
-                                            }else{
-                                                textSeparado[i] = textSeparado[i].substring(7);
                                             }
                                         }
-                                    }else{
-                                        textSeparado[i] = textSeparado[i].substring(5);
                                     }
                                 }
-                            }else{
-                                textSeparado[i] = textSeparado[i].substring(3);
                             }
                         }
                     }
