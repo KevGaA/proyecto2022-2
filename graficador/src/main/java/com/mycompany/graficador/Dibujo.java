@@ -450,16 +450,16 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (textSeparado[i].charAt(1) == 'Y') {
                         g2d.scale(-1, 1);
+                        g2d.translate(-(xrev*2)-300, 0);
+                        
                         textSeparado[i] = textSeparado[i].substring(2);
-                        g2d.translate(-xrev*2, 0);
                     }
                 }
                 g2d.rotate(Math.toRadians(Gtotal));
             }
             
             
-            for (int k = 0; k < textSeparado[i].length(); k++) {    
-                xrev = x;
+            for (int k = 0; k < textSeparado[i].length(); k++) {
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
                 if (x >= 1100) {
@@ -2436,9 +2436,11 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x*T + 50;
                     }
                 }
-                ancho = DibujoFinal.size()-1; 
+                xrev = x;
+                ancho = DibujoFinal.size()-1;
                 g2d.draw(DibujoFinal.get(ancho));
             }
+            
             g2d.setTransform(reset);
         }
         
