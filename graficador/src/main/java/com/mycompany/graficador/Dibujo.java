@@ -297,6 +297,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 1) {
                             t=1;
                             T = 1.1;
+                            g2d.translate(-25, y-25);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -318,6 +319,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 2) {
                             t=2;
                             T = 1.2;
+                            g2d.translate(-45, y-30);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -339,6 +341,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 3) {
                             t=3;
                             T = 1.3;
+                            g2d.translate(-65, y-40);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -360,6 +363,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 4) {
                             t=4;
                             T = 1.4;
+                            g2d.translate(-85, y-50);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -382,6 +386,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 5) {
                             t=5;
                             T = 1.5;
+                            g2d.translate(-105, y-55);
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
                                     Negrita = true;
@@ -451,7 +456,6 @@ public class Dibujo extends javax.swing.JFrame {
                     if (textSeparado[i].charAt(1) == 'Y') {
                         g2d.scale(-1, 1);
                         g2d.translate(-(xrev*2)-300, 0);
-                        
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                 }
@@ -2433,7 +2437,7 @@ public class Dibujo extends javax.swing.JFrame {
                     }
                     if (" ".equals(letra)) {
                         DibujoFinal.add(Dletras(letra,x,y,T));
-                        x = x*T + 50;
+                        x = x + 50;
                     }
                 }
                 xrev = x;
