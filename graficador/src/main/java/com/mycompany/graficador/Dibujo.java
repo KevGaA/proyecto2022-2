@@ -805,7 +805,7 @@ public class Dibujo extends javax.swing.JFrame {
             for (int k = 0; k < textSeparado[i].length(); k++) {
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
-                if (x >= 1100) {
+                if (x > 1130) {
                     if (" ".equals(letra) ||"-".equals(letra) || "_".equals(letra) || "(".equals(letra) ||")".equals(letra) || "[".equals(letra) || "]".equals(letra) || "{".equals(letra)
                         || "}".equals(letra) || "?".equals(letra) || "¿".equals(letra) || "¡".equals(letra) || "!".equals(letra) || "'".equals(letra) || "\"".equals(letra) || ".".equals(letra) 
                         || ":".equals(letra)|| ";".equals(letra) || ",".equals(letra) || "<".equals(letra) || ">".equals(letra)){
@@ -821,7 +821,7 @@ public class Dibujo extends javax.swing.JFrame {
                         yrev = yrev + 180;
                     }
                 }
-                if (x < 1100) {
+                if (x <= 1130) {
                     
                     if ("a".equals(letra)) {//listo
                         if (Curs == false && Subr == false) {
