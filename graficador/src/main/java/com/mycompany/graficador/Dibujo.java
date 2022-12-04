@@ -297,7 +297,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 1) {
                             t=1;
                             T = 1.1;
-                            g2d.translate(-40, y-10);
+                            g2d.translate(-40, -10);
                             x = x + 10;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -320,7 +320,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 2) {
                             t=2;
                             T = 1.2;
-                            g2d.translate(-80, -10);
+                            g2d.translate(-80, -20);
                             x = x +20;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -343,7 +343,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 3) {
                             t=3;
                             T = 1.3;
-                            g2d.translate(-140, -10);
+                            g2d.translate(-140, -30);
                             x = x +50;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -366,7 +366,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 4) {
                             t=4;
                             T = 1.4;
-                            g2d.translate(-200, y-10);
+                            g2d.translate(-200, -40);
                             x = x + 70;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
@@ -390,7 +390,7 @@ public class Dibujo extends javax.swing.JFrame {
                         if (T == 5) {
                             t=5;
                             T = 1.5;
-                            g2d.translate(-270, y-10);
+                            g2d.translate(-270, -50);
                             x = x + 100;
                             if (textSeparado[i].charAt(3) == '+') {
                                 if (textSeparado[i].charAt(4) == 'N') {
