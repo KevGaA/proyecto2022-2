@@ -773,7 +773,7 @@ public class Dibujo extends javax.swing.JFrame {
                         for (int j = i; j <= textSeparado.length-1; j++) {
                             textSeparado[j]=auxtext2[j-i];
                         }
-                        if (textSeparado[i].charAt(0)== '+' || textSeparado[i].charAt(0)== '^'){
+                        if (textSeparado[i].charAt(0)== '+'){
                             if (textSeparado[i].charAt(1)== 'N') {
                                 Negrita = true;
                                 g2d.setStroke(new BasicStroke(2f));
