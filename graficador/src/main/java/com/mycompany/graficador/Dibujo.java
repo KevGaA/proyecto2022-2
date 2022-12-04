@@ -175,7 +175,7 @@ public class Dibujo extends javax.swing.JFrame {
         g2d.setColor(colorito);
         
         boolean Subr = false, Negrita = false, Curs = false;
-        double x = 0, y = 15, yrev=165, xrev=0;// posicion de las letras
+        double x = 0, y = 15, yrev=165, xrev=200;// posicion de las letras
         int ancho;
         char aux;
         t=1;
@@ -313,9 +313,7 @@ public class Dibujo extends javax.swing.JFrame {
                                 }
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
-                            }
-                            x=x-30;
-                            
+                            }                            
                         }
                         if (T == 2) {
                             t=2;
@@ -337,7 +335,6 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
-                            x=x-60;
                         }
                         if (T == 3) {
                             t=3;
@@ -359,7 +356,6 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
-                            x=x-80;
                         }
                         if (T == 4) {
                             t=4;
@@ -382,7 +378,6 @@ public class Dibujo extends javax.swing.JFrame {
                             else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
-                            x=x-100;
                         }
                         if (T == 5) {
                             t=5;
@@ -404,9 +399,7 @@ public class Dibujo extends javax.swing.JFrame {
                             }else{
                                 textSeparado[i] = textSeparado[i].substring(3);
                             }
-                            x=x-110;
                         }
-                        //textSeparado[i] = textSeparado[i].substring(3);
                     }
                     if (textSeparado[i].charAt(1) == 'R') {//funcion que detecta la posicion exacta de donde se quiere invertir la frase
                         String[] auxtext2 = new String[(textSeparado.length)-i];
@@ -456,16 +449,17 @@ public class Dibujo extends javax.swing.JFrame {
                         textSeparado[i] = textSeparado[i].substring(2);
                     }
                     if (textSeparado[i].charAt(1) == 'Y') {
-                        g2d.translate(xrev+200, 0);
                         g2d.scale(-1, 1);
                         textSeparado[i] = textSeparado[i].substring(2);
+                        g2d.translate(-xrev*2, 0);
                     }
                 }
                 g2d.rotate(Math.toRadians(Gtotal));
             }
             
             
-            for (int k = 0; k < textSeparado[i].length(); k++) {                
+            for (int k = 0; k < textSeparado[i].length(); k++) {    
+                xrev = x;
                 aux = textSeparado[i].charAt(k);
                 String letra = Character.toString(aux); 
                 if (x >= 1100) {
@@ -2442,14 +2436,12 @@ public class Dibujo extends javax.swing.JFrame {
                         x = x*T + 50;
                     }
                 }
-                xrev = x;
-                
                 ancho = DibujoFinal.size()-1; 
                 g2d.draw(DibujoFinal.get(ancho));
-                
             }
-            g2d.setTransform(reset); 
+            g2d.setTransform(reset);
         }
+        
         
         if (Puntos == true) {
             for (int i = 0; i < PuntosControl.size(); i++) {
