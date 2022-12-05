@@ -872,6 +872,89 @@ public class Dibujo extends javax.swing.JFrame {
                         G = Integer.parseInt(a);
                         g2d.rotate(Math.toRadians(G), x, 70+y);
                         textSeparado[i] = textSeparado[i].substring(l+1);
+                        if (textSeparado[i].charAt(0)== '+'){
+                            if (textSeparado[i].charAt(1)== 'N') {
+                                Negrita = true;
+                                g2d.setStroke(new BasicStroke(2f));
+                                textSeparado[i] = textSeparado[i].substring(2);
+                                if (textSeparado[i].charAt(0)== '+') {
+                                    if (textSeparado[i].charAt(1)== 'S') {
+                                        Subr = true;
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'K') {
+                                                Curs = true;
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                    if (textSeparado[i].charAt(1)== 'K'){
+                                        Curs = true;
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'S') {
+                                                Subr = true;
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                }
+                            }if (textSeparado[i].charAt(1)== 'S') {
+                                Subr = true;
+                                textSeparado[i] = textSeparado[i].substring(2);
+                                if (textSeparado[i].charAt(0)== '+') {
+                                    if (textSeparado[i].charAt(1)== 'N') {
+                                        Negrita = true;
+                                        g2d.setStroke(new BasicStroke(2f));
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'K') {
+                                                Curs = true;
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                    if (textSeparado[i].charAt(1)== 'K'){
+                                        Curs = true;
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'N') {
+                                                Negrita = true;
+                                                g2d.setStroke(new BasicStroke(2f));
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                }
+                            }if (textSeparado[i].charAt(1)== 'K') {
+                                Curs = true;
+                                textSeparado[i] = textSeparado[i].substring(2);
+                                if (textSeparado[i].charAt(0)== '+') {
+                                    if (textSeparado[i].charAt(1)== 'N') {
+                                        Negrita = true;
+                                        g2d.setStroke(new BasicStroke(2f));
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'S') {
+                                                Subr = true;
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                    if (textSeparado[i].charAt(1)== 'S'){
+                                        Subr = true;
+                                        textSeparado[i] = textSeparado[i].substring(2);
+                                        if (textSeparado[i].charAt(0)== '+') {
+                                            if (textSeparado[i].charAt(1)== 'N') {
+                                                Negrita = true;
+                                                g2d.setStroke(new BasicStroke(2f));
+                                                textSeparado[i] = textSeparado[i].substring(2);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     if (textSeparado[i].charAt(1) == 'A') {
                         String a = "0";//evita que marque error al intentar inclinar la frase entera
